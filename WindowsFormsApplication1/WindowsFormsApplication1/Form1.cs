@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WindowsFormsApplication1
 {
     public partial class Login : Form
@@ -25,6 +26,19 @@ namespace WindowsFormsApplication1
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string userName = txtUser.Text;
+            string password = txtPassword.Text;
+            if (!DataController.authenticateUser(userName, password))
+            {
+                lblFail.Enabled = true;
+            }
+            else {
+                //Code to begin application here
+            }
         }
     }
 }
