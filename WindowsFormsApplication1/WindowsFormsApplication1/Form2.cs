@@ -15,6 +15,7 @@ namespace WindowsFormsApplication1
         public MainScreen()
         {
             InitializeComponent();
+            lblActvUser.Text = "User: " + DataController.user;
         }
 
         private void gboxMain_Enter(object sender, EventArgs e)
