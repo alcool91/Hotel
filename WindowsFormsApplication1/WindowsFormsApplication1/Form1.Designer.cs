@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblUser = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnForgotPassword = new System.Windows.Forms.Button();
+            this.gboxLogin = new System.Windows.Forms.GroupBox();
             this.lblFail = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.gboxLogin.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lblUser
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+            this.lblUser.AutoSize = true;
+            this.lblUser.BackColor = System.Drawing.Color.Black;
+            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(62, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "User Name:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblUser.ForeColor = System.Drawing.Color.White;
+            this.lblUser.Location = new System.Drawing.Point(39, 48);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(103, 20);
+            this.lblUser.TabIndex = 0;
+            this.lblUser.Text = "User Name:";
+            this.lblUser.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtUser
             // 
@@ -60,17 +60,17 @@
             this.txtUser.Size = new System.Drawing.Size(100, 20);
             this.txtUser.TabIndex = 1;
             // 
-            // label2
+            // lblPassword
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(68, 94);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Password:";
+            this.lblPassword.ForeColor = System.Drawing.Color.White;
+            this.lblPassword.Location = new System.Drawing.Point(51, 94);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(91, 20);
+            this.lblPassword.TabIndex = 2;
+            this.lblPassword.Text = "Password:";
             // 
             // txtPassword
             // 
@@ -93,33 +93,35 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // button2
+            // btnForgotPassword
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(148, 144);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Forgot Password";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnForgotPassword.BackColor = System.Drawing.Color.White;
+            this.btnForgotPassword.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnForgotPassword.ForeColor = System.Drawing.Color.Black;
+            this.btnForgotPassword.Location = new System.Drawing.Point(148, 144);
+            this.btnForgotPassword.Name = "btnForgotPassword";
+            this.btnForgotPassword.Size = new System.Drawing.Size(100, 23);
+            this.btnForgotPassword.TabIndex = 5;
+            this.btnForgotPassword.Text = "Forgot Password";
+            this.btnForgotPassword.UseVisualStyleBackColor = false;
+            this.btnForgotPassword.Click += new System.EventHandler(this.btnForgotPassword_Click);
             // 
-            // groupBox1
+            // gboxLogin
             // 
-            this.groupBox1.Controls.Add(this.lblFail);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.btnLogin);
-            this.groupBox1.Controls.Add(this.txtPassword);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtUser);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(177, 131);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(315, 210);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.gboxLogin.Controls.Add(this.lblFail);
+            this.gboxLogin.Controls.Add(this.btnForgotPassword);
+            this.gboxLogin.Controls.Add(this.btnLogin);
+            this.gboxLogin.Controls.Add(this.txtPassword);
+            this.gboxLogin.Controls.Add(this.lblPassword);
+            this.gboxLogin.Controls.Add(this.txtUser);
+            this.gboxLogin.Controls.Add(this.lblUser);
+            this.gboxLogin.ForeColor = System.Drawing.Color.White;
+            this.gboxLogin.Location = new System.Drawing.Point(177, 131);
+            this.gboxLogin.Name = "gboxLogin";
+            this.gboxLogin.Size = new System.Drawing.Size(315, 210);
+            this.gboxLogin.TabIndex = 6;
+            this.gboxLogin.TabStop = false;
+            this.gboxLogin.Enter += new System.EventHandler(this.gboxLogin_Enter);
             // 
             // lblFail
             // 
@@ -135,28 +137,31 @@
             // 
             // Login
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(660, 469);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gboxLogin);
+            this.MinimumSize = new System.Drawing.Size(676, 508);
             this.Name = "Login";
             this.Text = "Login";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gboxLogin.ResumeLayout(false);
+            this.gboxLogin.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.TextBox txtUser;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnForgotPassword;
+        private System.Windows.Forms.GroupBox gboxLogin;
         private System.Windows.Forms.Label lblFail;
     }
 }

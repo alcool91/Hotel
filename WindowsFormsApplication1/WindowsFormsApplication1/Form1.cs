@@ -23,7 +23,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void gboxLogin_Enter(object sender, EventArgs e)
         {
 
         }
@@ -35,10 +35,29 @@ namespace WindowsFormsApplication1
             if (!DataController.authenticateUser(userName, password))
             {
                 lblFail.Enabled = true;
+                txtUser.Clear();
+                txtPassword.Clear();
+
+                /* To test login button and test transition from the login screen to the main screen, 
+                 * uncomment code directly below, and comment out code in the IF and ELSE brackets.
+                 */ 
+
+                //this.Hide();
+                //MainScreen f2 = new MainScreen();
+                //f2.Show();
             }
             else {
                 //Code to begin application here
+                this.Hide();
+                MainScreen f2 = new MainScreen();
+                f2.Show();
+
             }
+        }
+
+        private void btnForgotPassword_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
