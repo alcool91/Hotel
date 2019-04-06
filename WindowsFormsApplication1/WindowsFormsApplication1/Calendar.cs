@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 
 public class Calendar {
     private double baseRate;
@@ -24,6 +25,32 @@ public class Calendar {
         sixtyDayNum = s;
         conventionalNum = c;
         incentiveNum = i;
+    }
+
+    public Calendar(string s)
+    {
+        baseRate = double.Parse(s.Substring(0, s.IndexOf(" ")));
+        s = s.Substring(s.IndexOf(" "), s.Length - s.IndexOf(" "));
+        s = s.TrimStart();
+
+        totalReservations = short.Parse(s.Substring(0, s.IndexOf(" ")));
+        s = s.Substring(s.IndexOf(" "), s.Length - s.IndexOf(" "));
+        s = s.TrimStart();
+
+        prepaidNum = short.Parse(s.Substring(0, s.IndexOf(" ")));
+        s = s.Substring(s.IndexOf(" "), s.Length - s.IndexOf(" "));
+        s = s.TrimStart();
+
+        sixtyDayNum = short.Parse(s.Substring(0, s.IndexOf(" ")));
+        s = s.Substring(s.IndexOf(" "), s.Length - s.IndexOf(" "));
+        s = s.TrimStart();
+
+        conventionalNum = short.Parse(s.Substring(0, s.IndexOf(" ")));
+        s = s.Substring(s.IndexOf(" "), s.Length - s.IndexOf(" "));
+        s = s.TrimStart();
+
+        incentiveNum = short.Parse(s);
+
     }
 
     /*public ~Calendar() {
@@ -71,6 +98,13 @@ public class Calendar {
     public void removeIncentive() {
         incentiveNum--;
         totalReservations--;
+    }
+
+    public string toString()
+    {
+        string s;
+        s = baseRate + " " + totalReservations + " " + prepaidNum + " " + sixtyDayNum + " " + conventionalNum + " " + incentiveNum ;
+        return s;
     }
 }
 
