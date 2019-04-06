@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class MainScreen : Form
+    public partial class HomeScreen : Form
     {
-        public MainScreen()
+        public HomeScreen()
         {
             InitializeComponent();
             lblActvUser.Text = "User: " + DataController.user;
@@ -33,7 +33,7 @@ namespace WindowsFormsApplication1
             DialogResult logout = MessageBox.Show("Please confirm logout:", "Logout", MessageBoxButtons.YesNo);
             if (logout == DialogResult.Yes)
             {
-                this.Close();
+                Close();
                 Login f1 = new Login();
                 f1.Show();
             }
@@ -43,12 +43,12 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void btnReservation_Click(object sender, EventArgs e)
+        private void btnResOpts_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnEmployee_Click(object sender, EventArgs e)
+        private void btnEmpAct_Click(object sender, EventArgs e)
         {
 
         }

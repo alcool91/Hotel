@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication1
 {
-    partial class MainScreen
+    partial class HomeScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -30,9 +30,9 @@
         {
             this.lblActvUser = new System.Windows.Forms.Label();
             this.gboxMain = new System.Windows.Forms.GroupBox();
+            this.btnEmpAct = new System.Windows.Forms.Button();
+            this.btnResOpts = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnReservation = new System.Windows.Forms.Button();
-            this.btnEmployee = new System.Windows.Forms.Button();
             this.gboxMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,8 +51,8 @@
             // gboxMain
             // 
             this.gboxMain.BackColor = System.Drawing.Color.Black;
-            this.gboxMain.Controls.Add(this.btnEmployee);
-            this.gboxMain.Controls.Add(this.btnReservation);
+            this.gboxMain.Controls.Add(this.btnEmpAct);
+            this.gboxMain.Controls.Add(this.btnResOpts);
             this.gboxMain.Controls.Add(this.btnLogout);
             this.gboxMain.Controls.Add(this.lblActvUser);
             this.gboxMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -64,6 +64,30 @@
             this.gboxMain.TabStop = false;
             this.gboxMain.Text = "Welcome!";
             this.gboxMain.Enter += new System.EventHandler(this.gboxMain_Enter);
+            // 
+            // btnEmpAct
+            // 
+            this.btnEmpAct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpAct.ForeColor = System.Drawing.Color.Black;
+            this.btnEmpAct.Location = new System.Drawing.Point(249, 62);
+            this.btnEmpAct.Name = "btnEmpAct";
+            this.btnEmpAct.Size = new System.Drawing.Size(130, 59);
+            this.btnEmpAct.TabIndex = 5;
+            this.btnEmpAct.Text = "Employee Actions";
+            this.btnEmpAct.UseVisualStyleBackColor = true;
+            this.btnEmpAct.Click += new System.EventHandler(this.btnEmpAct_Click);
+            // 
+            // btnResOpts
+            // 
+            this.btnResOpts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResOpts.ForeColor = System.Drawing.Color.Black;
+            this.btnResOpts.Location = new System.Drawing.Point(73, 62);
+            this.btnResOpts.Name = "btnResOpts";
+            this.btnResOpts.Size = new System.Drawing.Size(130, 59);
+            this.btnResOpts.TabIndex = 4;
+            this.btnResOpts.Text = "Reservation Options";
+            this.btnResOpts.UseVisualStyleBackColor = true;
+            this.btnResOpts.Click += new System.EventHandler(this.btnResOpts_Click);
             // 
             // btnLogout
             // 
@@ -77,31 +101,7 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnReservation
-            // 
-            this.btnReservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReservation.ForeColor = System.Drawing.Color.Black;
-            this.btnReservation.Location = new System.Drawing.Point(73, 62);
-            this.btnReservation.Name = "btnReservation";
-            this.btnReservation.Size = new System.Drawing.Size(130, 59);
-            this.btnReservation.TabIndex = 4;
-            this.btnReservation.Text = "Reservation Options";
-            this.btnReservation.UseVisualStyleBackColor = true;
-            this.btnReservation.Click += new System.EventHandler(this.btnReservation_Click);
-            // 
-            // btnEmployee
-            // 
-            this.btnEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployee.ForeColor = System.Drawing.Color.Black;
-            this.btnEmployee.Location = new System.Drawing.Point(249, 62);
-            this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Size = new System.Drawing.Size(130, 59);
-            this.btnEmployee.TabIndex = 5;
-            this.btnEmployee.Text = "Employee Actions";
-            this.btnEmployee.UseVisualStyleBackColor = true;
-            this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
-            // 
-            // MainScreen
+            // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -109,8 +109,8 @@
             this.ClientSize = new System.Drawing.Size(472, 186);
             this.Controls.Add(this.gboxMain);
             this.MinimumSize = new System.Drawing.Size(488, 225);
-            this.Name = "MainScreen";
-            this.Text = "MainScreen";
+            this.Name = "HomeScreen";
+            this.Text = "HomeScreen";
             this.gboxMain.ResumeLayout(false);
             this.gboxMain.PerformLayout();
             this.ResumeLayout(false);
@@ -121,7 +121,7 @@
         private System.Windows.Forms.Label lblActvUser;
         private System.Windows.Forms.GroupBox gboxMain;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button btnEmployee;
-        private System.Windows.Forms.Button btnReservation;
+        private System.Windows.Forms.Button btnEmpAct;
+        private System.Windows.Forms.Button btnResOpts;
     }
 }
