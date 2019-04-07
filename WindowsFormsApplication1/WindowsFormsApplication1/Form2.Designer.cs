@@ -46,7 +46,6 @@
             this.lblActvUser.Size = new System.Drawing.Size(91, 13);
             this.lblActvUser.TabIndex = 2;
             this.lblActvUser.Text = "User: \"username\"";
-            this.lblActvUser.Click += new System.EventHandler(this.lblActvUser_Click);
             // 
             // gboxMain
             // 

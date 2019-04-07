@@ -10,24 +10,29 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class SearchRes : Form
+    public partial class ChngRate : Form
     {
-        public SearchRes()
+        public ChngRate()
         {
             InitializeComponent();
         }
 
-        private void btnBackF6_Click(object sender, EventArgs e)
+        private void gboxChngRate_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void btnSearchName_Click(object sender, EventArgs e)
+        private void dateChngRate_ValueChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void txtSearchRes_TextChanged(object sender, EventArgs e)
+        private void txtChngRate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSubmitRate_Click(object sender, EventArgs e)
         {
 
         }

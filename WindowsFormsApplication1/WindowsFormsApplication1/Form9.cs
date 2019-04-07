@@ -10,24 +10,24 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class SearchRes : Form
+    public partial class ManagerLogin : Form
     {
-        public SearchRes()
+        public ManagerLogin()
         {
             InitializeComponent();
         }
 
-        private void btnBackF6_Click(object sender, EventArgs e)
+        private void gboxManagerLogin_Enter(object sender, EventArgs e)
+        {
+
+        }
+ 
+        private void btnManagerLogin_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnSearchName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSearchRes_TextChanged(object sender, EventArgs e)
+        private void btnManagerCancel_Click(object sender, EventArgs e)
         {
 
         }

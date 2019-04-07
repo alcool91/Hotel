@@ -30,19 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.btnBackF6 = new System.Windows.Forms.Button();
-            this.tboxSearch = new System.Windows.Forms.TextBox();
+            this.txtSearchRes = new System.Windows.Forms.TextBox();
             this.btnSearchName = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(282, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Please enter the last name of the guest whose \r\nreservation you wish to search:";
             // 
             // btnBackF6
             // 
@@ -57,15 +47,14 @@
             this.btnBackF6.UseVisualStyleBackColor = true;
             this.btnBackF6.Click += new System.EventHandler(this.btnBackF6_Click);
             // 
-            // tboxSearch
+            // txtSearchRes
             // 
-            this.tboxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tboxSearch.Location = new System.Drawing.Point(59, 59);
-            this.tboxSearch.Name = "tboxSearch";
-            this.tboxSearch.Size = new System.Drawing.Size(179, 21);
-            this.tboxSearch.TabIndex = 16;
-            this.tboxSearch.Text = "Enter a last name";
-            this.tboxSearch.TextChanged += new System.EventHandler(this.tboxSearch_TextChanged);
+            this.txtSearchRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchRes.Location = new System.Drawing.Point(59, 59);
+            this.txtSearchRes.Name = "txtSearchRes";
+            this.txtSearchRes.Size = new System.Drawing.Size(179, 21);
+            this.txtSearchRes.TabIndex = 16;
+            this.txtSearchRes.Text = "Enter a last name";
             // 
             // btnSearchName
             // 
@@ -85,7 +74,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(395, 140);
             this.Controls.Add(this.btnSearchName);
-            this.Controls.Add(this.tboxSearch);
+            this.Controls.Add(this.txtSearchRes);
             this.Controls.Add(this.btnBackF6);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.White;
@@ -94,13 +83,25 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+            #region Labels
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(282, 32);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Please enter the last name of the guest whose \r\nreservation you wish to search:";
+            #endregion
         }
 
         #endregion
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBackF6;
-        private System.Windows.Forms.TextBox tboxSearch;
+        private System.Windows.Forms.TextBox txtSearchRes;
         private System.Windows.Forms.Button btnSearchName;
     }
 }

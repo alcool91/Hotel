@@ -33,6 +33,8 @@
             this.btnSubmitRes = new System.Windows.Forms.Button();
             this.btnBackF5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
+
+            #region Labels
             // 
             // lblType
             // 
@@ -45,6 +47,8 @@
             this.lblType.TabIndex = 5;
             this.lblType.Text = "Please select the reservation type (select one):";
             this.lblType.Click += new System.EventHandler(this.lblType_Click);
+            #endregion
+
             // 
             // chkdListBoxType
             // 

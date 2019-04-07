@@ -26,32 +26,7 @@ namespace WindowsFormsApplication1
         {
 
         }
-
-        private void tboxFirstName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tboxLastName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tboxEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tboxPhone_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tboxCCard_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void calStartDate_DateChanged(object sender, DateRangeEventArgs e)
         {
 

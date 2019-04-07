@@ -23,11 +23,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void lblActvUser_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult logout = MessageBox.Show("Please confirm logout:", "Logout", MessageBoxButtons.YesNo);
