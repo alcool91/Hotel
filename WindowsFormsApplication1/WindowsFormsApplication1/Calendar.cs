@@ -64,6 +64,8 @@ public class Calendar {
 
     public double getRate() { return baseRate; }
 
+    public short getTotal() { return totalReservations; }
+
     public void setRate(double d) { baseRate = d; }
 
     public void addPrepaid() {
