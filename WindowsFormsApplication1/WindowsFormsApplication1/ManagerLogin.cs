@@ -22,13 +22,15 @@ namespace WindowsFormsApplication1
 
         }
  
-        private void btnManagerLogin_Click(object sender, EventArgs e)
+        private void btnManagerSubmit_Click(object sender, EventArgs e)
         {
-
+            //Insert code to check for valid manager password.
+            //Similar to that which is in Login.cs, line 30.
         }
 
         private void btnManagerCancel_Click(object sender, EventArgs e)
         {
+            Hide();
 
         }
     }

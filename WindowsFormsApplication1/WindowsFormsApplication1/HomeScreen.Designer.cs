@@ -109,6 +109,7 @@
             this.Controls.Add(this.gboxMain);
             this.MinimumSize = new System.Drawing.Size(488, 225);
             this.Name = "HomeScreen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HomeScreen";
             this.gboxMain.ResumeLayout(false);
             this.gboxMain.PerformLayout();

@@ -29,14 +29,12 @@
         private void InitializeComponent()
         {
             this.gboxManagerLogin = new System.Windows.Forms.GroupBox();
+            this.btnManagerCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblManagerFail = new System.Windows.Forms.Label();
-            this.btnManagerLogin = new System.Windows.Forms.Button();
+            this.btnManagerSubmit = new System.Windows.Forms.Button();
             this.txtManagerPass = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.txtManagerUser = new System.Windows.Forms.TextBox();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.btnManagerCancel = new System.Windows.Forms.Button();
             this.gboxManagerLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,11 +43,9 @@
             this.gboxManagerLogin.Controls.Add(this.btnManagerCancel);
             this.gboxManagerLogin.Controls.Add(this.label1);
             this.gboxManagerLogin.Controls.Add(this.lblManagerFail);
-            this.gboxManagerLogin.Controls.Add(this.btnManagerLogin);
+            this.gboxManagerLogin.Controls.Add(this.btnManagerSubmit);
             this.gboxManagerLogin.Controls.Add(this.txtManagerPass);
             this.gboxManagerLogin.Controls.Add(this.lblPassword);
-            this.gboxManagerLogin.Controls.Add(this.txtManagerUser);
-            this.gboxManagerLogin.Controls.Add(this.lblUser);
             this.gboxManagerLogin.ForeColor = System.Drawing.Color.White;
             this.gboxManagerLogin.Location = new System.Drawing.Point(43, 32);
             this.gboxManagerLogin.Name = "gboxManagerLogin";
@@ -58,6 +54,19 @@
             this.gboxManagerLogin.TabStop = false;
             this.gboxManagerLogin.Enter += new System.EventHandler(this.gboxManagerLogin_Enter);
             // 
+            // btnManagerCancel
+            // 
+            this.btnManagerCancel.BackColor = System.Drawing.Color.White;
+            this.btnManagerCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnManagerCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnManagerCancel.Location = new System.Drawing.Point(153, 131);
+            this.btnManagerCancel.Name = "btnManagerCancel";
+            this.btnManagerCancel.Size = new System.Drawing.Size(70, 23);
+            this.btnManagerCancel.TabIndex = 8;
+            this.btnManagerCancel.Text = "Cancel";
+            this.btnManagerCancel.UseVisualStyleBackColor = false;
+            this.btnManagerCancel.Click += new System.EventHandler(this.btnManagerCancel_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -65,8 +74,8 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(263, 26);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Manager authorization required  to perform this action! \r\nPlease enter manager cr" +
-    "edentials below to continue:";
+            this.label1.Text = "Manager authorization required  to perform this action! \r\nPlease re-enter manager" +
+    " password below to continue:";
             // 
             // lblManagerFail
             // 
@@ -80,22 +89,22 @@
             this.lblManagerFail.TabIndex = 6;
             this.lblManagerFail.Text = "Failed to Authenticate User!";
             // 
-            // btnManagerLogin
+            // btnManagerSubmit
             // 
-            this.btnManagerLogin.BackColor = System.Drawing.Color.White;
-            this.btnManagerLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnManagerLogin.Location = new System.Drawing.Point(73, 184);
-            this.btnManagerLogin.Name = "btnManagerLogin";
-            this.btnManagerLogin.Size = new System.Drawing.Size(70, 23);
-            this.btnManagerLogin.TabIndex = 4;
-            this.btnManagerLogin.Text = "Login";
-            this.btnManagerLogin.UseVisualStyleBackColor = false;
-            this.btnManagerLogin.Click += new System.EventHandler(this.btnManagerLogin_Click);
+            this.btnManagerSubmit.BackColor = System.Drawing.Color.White;
+            this.btnManagerSubmit.ForeColor = System.Drawing.Color.Black;
+            this.btnManagerSubmit.Location = new System.Drawing.Point(77, 131);
+            this.btnManagerSubmit.Name = "btnManagerSubmit";
+            this.btnManagerSubmit.Size = new System.Drawing.Size(70, 23);
+            this.btnManagerSubmit.TabIndex = 4;
+            this.btnManagerSubmit.Text = "Submit";
+            this.btnManagerSubmit.UseVisualStyleBackColor = false;
+            this.btnManagerSubmit.Click += new System.EventHandler(this.btnManagerSubmit_Click);
             // 
             // txtManagerPass
             // 
             this.txtManagerPass.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtManagerPass.Location = new System.Drawing.Point(149, 136);
+            this.txtManagerPass.Location = new System.Drawing.Point(153, 83);
             this.txtManagerPass.Name = "txtManagerPass";
             this.txtManagerPass.PasswordChar = '*';
             this.txtManagerPass.Size = new System.Drawing.Size(100, 20);
@@ -107,53 +116,24 @@
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.Color.White;
-            this.lblPassword.Location = new System.Drawing.Point(52, 134);
+            this.lblPassword.Location = new System.Drawing.Point(56, 81);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(91, 20);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password:";
             // 
-            // txtManagerUser
-            // 
-            this.txtManagerUser.Location = new System.Drawing.Point(149, 90);
-            this.txtManagerUser.Name = "txtManagerUser";
-            this.txtManagerUser.Size = new System.Drawing.Size(100, 20);
-            this.txtManagerUser.TabIndex = 1;
-            // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.BackColor = System.Drawing.Color.Black;
-            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.Color.White;
-            this.lblUser.Location = new System.Drawing.Point(40, 88);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(103, 20);
-            this.lblUser.TabIndex = 0;
-            this.lblUser.Text = "User Name:";
-            // 
-            // btnManagerCancel
-            // 
-            this.btnManagerCancel.BackColor = System.Drawing.Color.White;
-            this.btnManagerCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnManagerCancel.Location = new System.Drawing.Point(149, 184);
-            this.btnManagerCancel.Name = "btnManagerCancel";
-            this.btnManagerCancel.Size = new System.Drawing.Size(70, 23);
-            this.btnManagerCancel.TabIndex = 8;
-            this.btnManagerCancel.Text = "Cancel";
-            this.btnManagerCancel.UseVisualStyleBackColor = false;
-            this.btnManagerCancel.Click += new System.EventHandler(this.btnManagerCancel_Click);
-            // 
             // ManagerLogin
             // 
+            this.AcceptButton = this.btnManagerSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.CancelButton = this.btnManagerCancel;
             this.ClientSize = new System.Drawing.Size(400, 299);
             this.Controls.Add(this.gboxManagerLogin);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "ManagerLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Authorization Required";
             this.gboxManagerLogin.ResumeLayout(false);
             this.gboxManagerLogin.PerformLayout();
@@ -165,12 +145,10 @@
 
         private System.Windows.Forms.GroupBox gboxManagerLogin;
         private System.Windows.Forms.Label lblManagerFail;
-        private System.Windows.Forms.Button btnManagerLogin;
         private System.Windows.Forms.TextBox txtManagerPass;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox txtManagerUser;
-        private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnManagerCancel;
+        private System.Windows.Forms.Button btnManagerSubmit;
     }
 }
