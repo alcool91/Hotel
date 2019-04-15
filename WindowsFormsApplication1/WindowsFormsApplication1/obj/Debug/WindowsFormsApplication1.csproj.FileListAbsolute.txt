@@ -45,3 +45,4 @@ C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\o
 C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ManagerLogin.resources
 C:\Users\paulp\Desktop\software group folder\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ManagerLogin.resources
 C:\Users\paulp\Desktop\software group folder\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ResConfirm.resources
+C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ResConfirm.resources
