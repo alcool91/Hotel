@@ -116,7 +116,10 @@ public class Calendar {
     {
         return incentiveNum;
     }
-
+    public short getTotal()
+    {
+        return totalReservations;
+    }
     public string toString()
     {
         string s;
