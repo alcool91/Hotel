@@ -11,6 +11,7 @@ public class DataController
     public static int count;
     public static List<Reservation> resList = new List<Reservation>();
     public static SortedList<int, Calendar> dateList = new SortedList<int, Calendar>();
+
 	public DataController()
 	{
 	}
@@ -18,7 +19,11 @@ public class DataController
     {
         resList.Add(new Reservation(paymentInfo, cost, date, room, name, type, email));
     }
-    //public 
+    public static void addDate(int date, double baseRate, short total, short prepaid, short sixty, short conventional, short incentive)
+    {
+        dateList.Add(date, new Calendar(date, baseRate, total, prepaid, sixty, conventional, incentive));
+    }
+    
     public static Reservation searchReservation( String name)
     {
         for (int i=0; i<100; i++)
@@ -33,10 +38,12 @@ public class DataController
         }
         return null;
     }
-    public static void cancleReservation(int index)
+    public static void cancelReservation(Reservation r)
     {
-        resList[index] = null;
+        dateList[r.getDate()].removeFromReservation(r);
+        resList.Remove(r);
     }
+
     public static bool authenticateUser(string userName, string password)
     {
         using(StreamReader sr = new StreamReader("../../Users.txt"))

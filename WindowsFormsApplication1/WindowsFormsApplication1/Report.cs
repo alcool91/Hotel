@@ -21,7 +21,10 @@ public class Report {
 
     string getExpectedOccupancy(Calendar[] dates)
     {
-        DateTime currentDate;
+        DateTime today;
+        string s = "string";
+        Convert.ToInt32(s);
+        //DateTime.Now.ToString()
         double average = 0;
         output = "";
         output += "Date\tPrepaid\tSixty Day\tConventional\tIncentive\n";
@@ -30,7 +33,7 @@ public class Report {
             average += dates[i].getTotal();
             output += DateTime.Now.ToString("yyyyMMdd") + "\t" + dates[i].getPrepaid() + "\t" + dates[i].getSixty()
                 + "\t" + dates[i].getConventional() + "\t" + dates[i].getIncentive() + "\t" + dates[i].getTotal() + "\n";
-            DateTime.TryParse(output,out currentDate);
+            DateTime.TryParse(output,out today);
         }
         output += "Average expected occupancy: " + 100 * (average / 30) + "%";
         return output;

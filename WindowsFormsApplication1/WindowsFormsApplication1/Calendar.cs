@@ -102,6 +102,17 @@ public class Calendar {
         incentiveNum--;
         totalReservations--;
     }
+    public void removeFromReservation(Reservation r)
+    {
+        if (r.getType() == "c")
+            removeConventional();
+        else if (r.getType() == "i")
+            removeIncentive();
+        else if (r.getType() == "s")
+            removeSixty();
+        else
+            removePrepaid();
+    }
 
     public short getPrepaid()
     {
