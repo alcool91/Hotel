@@ -64,8 +64,8 @@ public class DataController
         }
     }
 
-    public static void getReservations(SortedDictionary<string, Reservation> &a)
-    {
-        ;
-    }
+    //public static void getReservations(SortedDictionary<string, Reservation> &a)
+    //{
+        //;
+    //}
 }

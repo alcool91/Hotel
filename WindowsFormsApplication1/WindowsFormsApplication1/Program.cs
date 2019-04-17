@@ -14,9 +14,9 @@ namespace WindowsFormsApplication1
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        void Main()
+        static void Main()
         {
-            DataController.
+            //DataController.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Login login = new Login();

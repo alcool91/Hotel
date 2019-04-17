@@ -21,9 +21,7 @@ public class Reservation
         this.email = email;
 
     }
-<<<<<<< HEAD
-    
-=======
+
     public int getPayment()
     {
         return paymentInfo;
@@ -57,5 +55,5 @@ public class Reservation
         this.type = NewType;
     }
 }
->>>>>>> 6aeb9e856afbd885e5a21b93216a01540efc2746
+
 
