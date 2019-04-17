@@ -2,6 +2,7 @@
 using System;
 
 public class Calendar {
+    private int date;
     private double baseRate;
     private short totalReservations;
     private short prepaidNum;
@@ -10,6 +11,7 @@ public class Calendar {
     private short incentiveNum;
 
     public Calendar() {
+        date = 0;
         baseRate = 100;
         totalReservations = 0;
         prepaidNum = 0;
@@ -18,7 +20,8 @@ public class Calendar {
         incentiveNum = 0;
     }
 
-    public Calendar(double b, short t, short p, short s, short c, short i) {
+    public Calendar(int d, double b, short t, short p, short s, short c, short i) {
+        date = d;
         baseRate = b;
         totalReservations = t;
         prepaidNum = p;

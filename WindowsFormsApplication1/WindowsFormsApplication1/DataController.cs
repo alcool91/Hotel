@@ -9,25 +9,24 @@ public class DataController
     public static string user;
     public static bool isManager;
     public static int count;
-    public static Reservation[] resArray = new Reservation[100];
-
+    public static List<Reservation> resList = new List<Reservation>();
+    public static SortedList<int, Calendar> dateList = new SortedList<int, Calendar>();
 	public DataController()
 	{
 	}
     public static void createReservation(int paymentInfo, int cost, int date, int room, String name, String type, String email)
     {
-        Reservation newRes = new Reservation(paymentInfo, cost, date, room, name, type, email);
-        resArray[count] = newRes;
-
+        resList.Add(new Reservation(paymentInfo, cost, date, room, name, type, email));
     }
+    //public 
     public static Reservation searchReservation( String name)
     {
         for (int i=0; i<100; i++)
         {
             
-            if (resArray[i].getName() == name)
+            if (resList[i].getName() == name)
             {
-                return resArray[i];
+                return resList[i];
             }
             
 
@@ -36,7 +35,7 @@ public class DataController
     }
     public static void cancleReservation(int index)
     {
-        resArray[index] = null;
+        resList[index] = null;
     }
     public static bool authenticateUser(string userName, string password)
     {

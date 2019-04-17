@@ -28,7 +28,7 @@ public class Report {
         for (int i = 1; i < 31; i++)
         {  // Gets data for each day for next 30 days
             average += dates[i].getTotal();
-            output += DateTime.Now.ToString("yyyymmdd") + "\t" + dates[i].getPrepaid() + "\t" + dates[i].getSixty()
+            output += DateTime.Now.ToString("yyyyMMdd") + "\t" + dates[i].getPrepaid() + "\t" + dates[i].getSixty()
                 + "\t" + dates[i].getConventional() + "\t" + dates[i].getIncentive() + "\t" + dates[i].getTotal() + "\n";
             DateTime.TryParse(output,out currentDate);
         }
