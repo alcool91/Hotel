@@ -22,6 +22,7 @@ C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\b
 C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
 C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
 C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Login.resources
+C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MainScreen.resources
 C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.cache
 C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
@@ -34,6 +35,7 @@ C:\Users\paulp\Desktop\software group folder\Hotel\WindowsFormsApplication1\Wind
 C:\Users\paulp\Desktop\software group folder\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SearchRes.resources
 C:\Users\paulp\Desktop\software group folder\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EmpActs.resources
 C:\Users\paulp\Desktop\software group folder\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChngRate.resources
+<<<<<<< HEAD
 C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojAssemblyReference.cache
 C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.HomeScreen.resources
 C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ResOpts.resources
@@ -46,3 +48,5 @@ C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\o
 C:\Users\paulp\Desktop\software group folder\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ManagerLogin.resources
 C:\Users\paulp\Desktop\software group folder\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ResConfirm.resources
 C:\Users\Brent\Desktop\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ResConfirm.resources
+=======
+>>>>>>> parent of 739fec8... Reservation Class
