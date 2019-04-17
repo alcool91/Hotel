@@ -2,6 +2,7 @@
 
 using System.IO;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DataController
 {
@@ -61,5 +62,10 @@ public class DataController
             } while ((line = sr.ReadLine()) != null);
             return false;
         }
+    }
+
+    public static void getReservations(SortedDictionary<string, Reservation> &a)
+    {
+        ;
     }
 }

@@ -145,6 +145,7 @@
             this.Controls.Add(this.gboxLogin);
             this.MinimumSize = new System.Drawing.Size(676, 508);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.gboxLogin.ResumeLayout(false);
             this.gboxLogin.PerformLayout();

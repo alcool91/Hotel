@@ -34,6 +34,16 @@
             this.btnSearchName = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(282, 32);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Please enter the last name of the guest whose \r\nreservation you wish to search:";
+            // 
             // btnBackF6
             // 
             this.btnBackF6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -79,22 +89,11 @@
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "SearchRes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search Reservations";
             this.ResumeLayout(false);
             this.PerformLayout();
 
-            #region Labels
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(282, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Please enter the last name of the guest whose \r\nreservation you wish to search:";
-            #endregion
         }
 
         #endregion

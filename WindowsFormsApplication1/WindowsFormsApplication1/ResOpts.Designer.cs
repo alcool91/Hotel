@@ -96,6 +96,7 @@
             this.Controls.Add(this.gboxRes);
             this.MinimumSize = new System.Drawing.Size(488, 225);
             this.Name = "ResOpts";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reservation Options";
             this.gboxRes.ResumeLayout(false);
             this.ResumeLayout(false);

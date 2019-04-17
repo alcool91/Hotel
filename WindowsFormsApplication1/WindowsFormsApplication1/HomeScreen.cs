@@ -23,14 +23,16 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        public void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult logout = MessageBox.Show("Please confirm logout:", "Logout", MessageBoxButtons.YesNo);
             if (logout == DialogResult.Yes)
             {
-                Close();
-                Login f1 = new Login();
-                f1.Show();
+                Hide();
+                Login login = new Login();
+                login.FormClosed += (s, args) => Close();
+                login.ShowDialog();
+                login.Focus();
             }
             else if (logout == DialogResult.No)
             {
@@ -40,11 +42,21 @@ namespace WindowsFormsApplication1
 
         private void btnResOpts_Click(object sender, EventArgs e)
         {
+            Hide();
+            ResOpts resOpts = new ResOpts();
+            resOpts.FormClosed += (s, args) => Close();
+            resOpts.ShowDialog();
+            resOpts.Focus();
 
         }
 
         private void btnEmpAct_Click(object sender, EventArgs e)
         {
+            Hide();
+            EmpActs empActs = new EmpActs();
+            empActs.FormClosed += (s, args) => Close();
+            empActs.ShowDialog();
+            empActs.Focus();
 
         }
     }

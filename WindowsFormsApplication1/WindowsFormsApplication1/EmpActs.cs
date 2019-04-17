@@ -12,6 +12,8 @@ namespace WindowsFormsApplication1
 {
     public partial class EmpActs : Form
     {
+        ManagerLogin managerLogin = new ManagerLogin();
+
         public EmpActs()
         {
             InitializeComponent();
@@ -24,41 +26,53 @@ namespace WindowsFormsApplication1
 
         private void btnBackF7_Click(object sender, EventArgs e)
         {
+            Hide();
+            HomeScreen homeScreen = new HomeScreen();
+            homeScreen.FormClosed += (s, args) => Close();
+            homeScreen.ShowDialog();
+            homeScreen.Focus();
 
         }
 
         private void btnExOccRep_Click(object sender, EventArgs e)
         {
+            managerLogin.ShowDialog();
+            managerLogin.Focus();
 
         }
 
         private void btnIncomeRep_Click(object sender, EventArgs e)
         {
+            managerLogin.ShowDialog();
+            managerLogin.Focus();
 
         }
 
         private void btnIncentRep_Click(object sender, EventArgs e)
         {
+            managerLogin.ShowDialog();
+            managerLogin.Focus();
 
         }
 
         private void btnDayOccRep_Click(object sender, EventArgs e)
         {
+            managerLogin.ShowDialog();
+            managerLogin.Focus();
 
         }
 
         private void btnDayArrRep_Click(object sender, EventArgs e)
         {
+            managerLogin.ShowDialog();
+            managerLogin.Focus();
 
         }
 
         private void btnChngRate_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnPrntBill_Click(object sender, EventArgs e)
-        {
+            managerLogin.ShowDialog();
+            managerLogin.Focus();
 
         }
     }

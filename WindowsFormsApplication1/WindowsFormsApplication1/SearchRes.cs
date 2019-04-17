@@ -19,6 +19,11 @@ namespace WindowsFormsApplication1
 
         private void btnBackF6_Click(object sender, EventArgs e)
         {
+            Hide();
+            ResOpts resOpts = new ResOpts();
+            resOpts.FormClosed += (s, args) => Close();
+            resOpts.ShowDialog();
+            resOpts.Focus();
 
         }
 
