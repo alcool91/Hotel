@@ -102,6 +102,23 @@ public class Calendar {
         totalReservations--;
     }
 
+    public short getPrepaid()
+    {
+        return prepaidNum;
+    }
+    public short getSixty()
+    {
+        return sixtyDayNum;
+    }
+    public short getConventional()
+    {
+        return conventionalNum;
+    }
+    public short getIncentive()
+    {
+        return incentiveNum;
+    }
+
     public string toString()
     {
         string s;

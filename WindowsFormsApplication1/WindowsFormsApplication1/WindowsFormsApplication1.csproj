@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Calendar.cs" />
     <Compile Include="DataController.cs" />
+    <Compile Include="Report.cs" />
     <Compile Include="ResConfirm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +67,7 @@
     <Compile Include="HomeScreen.Designer.cs">
       <DependentUpon>HomeScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reservation.cs" />
     <Compile Include="ResOpts.cs">
       <SubType>Form</SubType>
     </Compile>
