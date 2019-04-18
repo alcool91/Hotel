@@ -16,11 +16,7 @@ namespace WindowsFormsApplication1
         [STAThread]
         static void Main()
         {
-
-            DataController.createReservation(23423, 200, 20191220, 0, "Wick", "incentive", "mail@mail.mail");
-            DataController.createReservation(233, 100, 20191221, 1, "Stamm", "conventional", "mail2@mail.mail");
-            Console.WriteLine(DataController.resList);
-
+            //DataController.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Login login = new Login();

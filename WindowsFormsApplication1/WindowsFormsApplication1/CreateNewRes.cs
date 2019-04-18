@@ -24,9 +24,9 @@ namespace WindowsFormsApplication1
 
         private void btnGoPrnt_Click(object sender, EventArgs e) //This btn will go to print accommodation bill screen.
         {
-            ResConfirm resConfirm = new ResConfirm();
-            resConfirm.ShowDialog();
-            resConfirm.Focus();
+            //ResConfirm resConfirm = new ResConfirm();
+            //resConfirm.ShowDialog();
+            //resConfirm.Focus();
 
         }
         
@@ -42,6 +42,18 @@ namespace WindowsFormsApplication1
 
         private void btnSubmitRes_Click(object sender, EventArgs e) //This btn will save the reservation.
         {
+            DialogResult submit = MessageBox.Show("Is the information you entered correct? ",
+                "Confirm Your Reservation...", MessageBoxButtons.YesNo);
+            if (submit == DialogResult.Yes)
+            {
+                label6.Enabled = true;
+                btnSubmitRes.Enabled = false;
+
+            }
+            else if (submit == DialogResult.No)
+            {
+
+            }
 
         }
 

@@ -17,17 +17,44 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
+        // Declares the PrintDocument object.
+        private System.Drawing.Printing.PrintDocument resToPrint =
+            new System.Drawing.Printing.PrintDocument();
+
         private void btnPntBill_Click(object sender, EventArgs e)
         {
-            //This can either open up a dialog with print options ||
-            //it can simply print the page upon pressing it.
+            // Allows the user to choose the page range to print.
+            printDialog1.AllowSomePages = true;
+
+            // Shows the help button.
+            printDialog1.ShowHelp = true;
+
+            // Set the Document property to the PrintDocument for 
+            // which the PrintPage Event has been handled. To display the
+            // dialog, either this property or the PrinterSettings property must be set 
+            printDialog1.Document = resToPrint;
+
+            DialogResult result = printDialog1.ShowDialog();
+
+            // If the result is OK then print the document.
+            if (result == DialogResult.OK)
+            {
+                resToPrint.Print();
+            }
+
         }
 
-        private void btnMkChng_Click(object sender, EventArgs e) //This btn goes back to CreateNewRes so user can make changes.
+        //This btn goes back to CreateNewRes so user can make changes
+        private void btnMkChng_Click(object sender, EventArgs e)
         {
             Hide();
             CreateNewRes createNewRes = new CreateNewRes();
             createNewRes.Focus();
+        }
+
+        private void txtResConfirm_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

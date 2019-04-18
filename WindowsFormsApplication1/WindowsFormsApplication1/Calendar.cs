@@ -2,7 +2,6 @@
 using System;
 
 public class Calendar {
-    private int date;
     private double baseRate;
     private short totalReservations;
     private short prepaidNum;
@@ -11,7 +10,6 @@ public class Calendar {
     private short incentiveNum;
 
     public Calendar() {
-        date = 0;
         baseRate = 100;
         totalReservations = 0;
         prepaidNum = 0;
@@ -20,8 +18,7 @@ public class Calendar {
         incentiveNum = 0;
     }
 
-    public Calendar(int d, double b, short t, short p, short s, short c, short i) {
-        date = d;
+    public Calendar(double b, short t, short p, short s, short c, short i) {
         baseRate = b;
         totalReservations = t;
         prepaidNum = p;
@@ -101,17 +98,6 @@ public class Calendar {
     public void removeIncentive() {
         incentiveNum--;
         totalReservations--;
-    }
-    public void removeFromReservation(Reservation r)
-    {
-        if (r.getType() == "c")
-            removeConventional();
-        else if (r.getType() == "i")
-            removeIncentive();
-        else if (r.getType() == "s")
-            removeSixty();
-        else
-            removePrepaid();
     }
 
     public short getPrepaid()

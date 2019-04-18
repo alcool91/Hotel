@@ -13,6 +13,7 @@ namespace WindowsFormsApplication1
     public partial class EmpActs : Form
     {
         ManagerLogin managerLogin = new ManagerLogin();
+        ChngRate chngRate = new ChngRate();
 
         public EmpActs()
         {
@@ -36,22 +37,55 @@ namespace WindowsFormsApplication1
 
         private void btnExOccRep_Click(object sender, EventArgs e)
         {
-            managerLogin.ShowDialog();
-            managerLogin.Focus();
+            if (!DataController.isManager)
+            {
+                managerLogin.ShowDialog();
+                managerLogin.Focus();
+
+            }
+            else
+            {
+                //Hide();
+                //chngRate.FormClosed += (s, args) => Close();
+                //chngRate.ShowDialog();
+                //chngRate.Focus();
+            }
 
         }
 
         private void btnIncomeRep_Click(object sender, EventArgs e)
         {
-            managerLogin.ShowDialog();
-            managerLogin.Focus();
+            if (!DataController.isManager)
+            {
+                managerLogin.ShowDialog();
+                managerLogin.Focus();
+
+            }
+            else
+            {
+                //Hide();
+                //chngRate.FormClosed += (s, args) => Close();
+                //chngRate.ShowDialog();
+                //chngRate.Focus();
+            }
 
         }
 
         private void btnIncentRep_Click(object sender, EventArgs e)
         {
-            managerLogin.ShowDialog();
-            managerLogin.Focus();
+            if (!DataController.isManager)
+            {
+                managerLogin.ShowDialog();
+                managerLogin.Focus();
+
+            }
+            else
+            {
+                //Hide();
+                //chngRate.FormClosed += (s, args) => Close();
+                //chngRate.ShowDialog();
+                //chngRate.Focus();
+            }
 
         }
 
@@ -71,8 +105,20 @@ namespace WindowsFormsApplication1
 
         private void btnChngRate_Click(object sender, EventArgs e)
         {
-            managerLogin.ShowDialog();
-            managerLogin.Focus();
+            if (!DataController.isManager)
+            {
+                managerLogin.ShowDialog();
+                managerLogin.Focus();
+
+            }
+            else
+            {
+                Hide();
+                chngRate.FormClosed += (s, args) => Close();
+                chngRate.ShowDialog();
+                chngRate.Focus();
+            }
+            
 
         }
     }

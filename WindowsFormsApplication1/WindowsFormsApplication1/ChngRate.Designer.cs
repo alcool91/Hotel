@@ -74,7 +74,7 @@
             this.lblSubmitRate.AutoSize = true;
             this.lblSubmitRate.Enabled = false;
             this.lblSubmitRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubmitRate.ForeColor = System.Drawing.Color.Green;
+            this.lblSubmitRate.ForeColor = System.Drawing.Color.Lime;
             this.lblSubmitRate.Location = new System.Drawing.Point(62, 203);
             this.lblSubmitRate.Name = "lblSubmitRate";
             this.lblSubmitRate.Size = new System.Drawing.Size(187, 15);

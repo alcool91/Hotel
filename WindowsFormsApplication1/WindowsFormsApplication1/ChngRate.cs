@@ -34,7 +34,6 @@ namespace WindowsFormsApplication1
 
         private void btnSubmitRate_Click(object sender, EventArgs e)
         {
-            lblSubmitRate.Enabled = true;
 
             if (!string.IsNullOrWhiteSpace(txtChngRate.Text) || 
                 !int.TryParse(txtChngRate.Text, out int parsedValue))
@@ -43,6 +42,7 @@ namespace WindowsFormsApplication1
                                                                //be mapped to the same date that the new
                                                                //base rate is mapped to.
                 lblSetRate.Refresh();
+                lblSubmitRate.Enabled = true;
                 btnSubmitRate.Enabled = false; //Submit button to be re-enabled when user selects a different date.
             }
             else

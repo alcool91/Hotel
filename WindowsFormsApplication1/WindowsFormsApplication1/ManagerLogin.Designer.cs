@@ -35,11 +35,15 @@
             this.btnManagerSubmit = new System.Windows.Forms.Button();
             this.txtManagerPass = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.gboxManagerLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // gboxManagerLogin
             // 
+            this.gboxManagerLogin.Controls.Add(this.textBox1);
+            this.gboxManagerLogin.Controls.Add(this.label2);
             this.gboxManagerLogin.Controls.Add(this.btnManagerCancel);
             this.gboxManagerLogin.Controls.Add(this.label1);
             this.gboxManagerLogin.Controls.Add(this.lblManagerFail);
@@ -49,7 +53,7 @@
             this.gboxManagerLogin.ForeColor = System.Drawing.Color.White;
             this.gboxManagerLogin.Location = new System.Drawing.Point(43, 32);
             this.gboxManagerLogin.Name = "gboxManagerLogin";
-            this.gboxManagerLogin.Size = new System.Drawing.Size(315, 230);
+            this.gboxManagerLogin.Size = new System.Drawing.Size(315, 266);
             this.gboxManagerLogin.TabIndex = 7;
             this.gboxManagerLogin.TabStop = false;
             this.gboxManagerLogin.Enter += new System.EventHandler(this.gboxManagerLogin_Enter);
@@ -59,7 +63,7 @@
             this.btnManagerCancel.BackColor = System.Drawing.Color.White;
             this.btnManagerCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnManagerCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnManagerCancel.Location = new System.Drawing.Point(153, 131);
+            this.btnManagerCancel.Location = new System.Drawing.Point(153, 191);
             this.btnManagerCancel.Name = "btnManagerCancel";
             this.btnManagerCancel.Size = new System.Drawing.Size(70, 23);
             this.btnManagerCancel.TabIndex = 8;
@@ -93,7 +97,7 @@
             // 
             this.btnManagerSubmit.BackColor = System.Drawing.Color.White;
             this.btnManagerSubmit.ForeColor = System.Drawing.Color.Black;
-            this.btnManagerSubmit.Location = new System.Drawing.Point(77, 131);
+            this.btnManagerSubmit.Location = new System.Drawing.Point(77, 191);
             this.btnManagerSubmit.Name = "btnManagerSubmit";
             this.btnManagerSubmit.Size = new System.Drawing.Size(70, 23);
             this.btnManagerSubmit.TabIndex = 4;
@@ -104,7 +108,7 @@
             // txtManagerPass
             // 
             this.txtManagerPass.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtManagerPass.Location = new System.Drawing.Point(153, 83);
+            this.txtManagerPass.Location = new System.Drawing.Point(153, 143);
             this.txtManagerPass.Name = "txtManagerPass";
             this.txtManagerPass.PasswordChar = '*';
             this.txtManagerPass.Size = new System.Drawing.Size(100, 20);
@@ -116,11 +120,32 @@
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.Color.White;
-            this.lblPassword.Location = new System.Drawing.Point(56, 81);
+            this.lblPassword.Location = new System.Drawing.Point(56, 141);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(91, 20);
             this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.textBox1.Location = new System.Drawing.Point(153, 103);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '*';
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(56, 101);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 20);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Username:";
             // 
             // ManagerLogin
             // 
@@ -129,7 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.CancelButton = this.btnManagerCancel;
-            this.ClientSize = new System.Drawing.Size(400, 299);
+            this.ClientSize = new System.Drawing.Size(400, 335);
             this.Controls.Add(this.gboxManagerLogin);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "ManagerLogin";
@@ -150,5 +175,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnManagerCancel;
         private System.Windows.Forms.Button btnManagerSubmit;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
     }
 }

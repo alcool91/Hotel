@@ -58,7 +58,7 @@
             "60-day in Advance Room Reservation",
             "Conventional Room Reservation",
             "Incentive Room Reservation"});
-            this.chkdListBoxType.Location = new System.Drawing.Point(29, 91);
+            this.chkdListBoxType.Location = new System.Drawing.Point(29, 106);
             this.chkdListBoxType.Name = "chkdListBoxType";
             this.chkdListBoxType.Size = new System.Drawing.Size(269, 85);
             this.chkdListBoxType.TabIndex = 6;

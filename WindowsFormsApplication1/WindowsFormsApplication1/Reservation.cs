@@ -54,12 +54,6 @@ public class Reservation
     {
         this.type = NewType;
     }
-    public string toString()
-    {
-        string s;
-        s = name + " " + date + " " + type + " " + cost + " " + room + " " + email;
-        return s;
-    }
 }
 
 

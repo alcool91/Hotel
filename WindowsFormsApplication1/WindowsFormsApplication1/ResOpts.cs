@@ -50,5 +50,10 @@ namespace WindowsFormsApplication1
             searchRes.Focus();
 
         }
+
+        private void txtSearchRes_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
