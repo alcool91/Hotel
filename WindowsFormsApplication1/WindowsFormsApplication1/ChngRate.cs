@@ -34,11 +34,11 @@ namespace WindowsFormsApplication1
 
         private void btnSubmitRate_Click(object sender, EventArgs e)
         {
-
+            int parsedValue;
             if (!string.IsNullOrWhiteSpace(txtChngRate.Text) || 
-                !int.TryParse(txtChngRate.Text, out int parsedValue))
+                !int.TryParse(txtChngRate.Text, out parsedValue))
             {
-                lblSetRate.Text = "Set Rate: $" + txtChngRate; //This new value for the label need to
+                lblSetRate.Text = "Set Rate: $" + txtChngRate.Text; //This new value for the label need to
                                                                //be mapped to the same date that the new
                                                                //base rate is mapped to.
                 lblSetRate.Refresh();
