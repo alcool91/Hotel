@@ -7,10 +7,10 @@ using System.Threading.Tasks;
     
 public class Reservation
 {
-    int paymentInfo, cost, date, phone, room;
-    String name, type, email;
+    int cost, date, phone, room;
+    String paymentInfo, name, type, email;
 
-    public Reservation(int paymentInfo, int cost, int date, int room, String name, String type, String email)
+    public Reservation(string paymentInfo, int cost, int date, int room, String name, String type, String email)
     {
         this.paymentInfo = paymentInfo;
         this.cost = cost;
@@ -22,7 +22,7 @@ public class Reservation
 
     }
 
-    public int getPayment()
+    public string getPayment()
     {
         return paymentInfo;
     }

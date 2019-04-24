@@ -9,7 +9,7 @@ public class Report {
         output = "";
     }
 
-    //public Report(Calendar[] dates, Reservation[] reservations, string s)
+    //public Report(Date[] dates, Reservation[] reservations, string s)
     //{
         //if(s == "expectedOccupancy")
         //{
@@ -19,7 +19,7 @@ public class Report {
 
     //}
 
-    string getExpectedOccupancy(Calendar[] dates)
+    string getExpectedOccupancy(Date[] dates)
     {
         DateTime currentDate;
         double average = 0;

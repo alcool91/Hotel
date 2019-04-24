@@ -9,34 +9,47 @@ public class DataController
     public static string user;
     public static bool isManager;
     public static int count;
-    public static Reservation[] resArray = new Reservation[100];
+    public static List<Reservation> resList = new List<Reservation>();
+    public static SortedList<int, Date> calendar = new SortedList<int, Date>();
 
-	public DataController()
+    public DataController()
 	{
 	}
-    public static void createReservation(int paymentInfo, int cost, int date, int room, String name, String type, String email)
-    {
-        Reservation newRes = new Reservation(paymentInfo, cost, date, room, name, type, email);
-        resArray[count] = newRes;
 
+    public static void createReservation(string paymentInfo, int cost, int date, int room, String name, String type, String email)
+    {
+        resList.Add(new Reservation(paymentInfo, cost, date, room, name, type, email));
+        //addToRecord();
+    }
+
+    public static void addDate(int date, double baseRate, short total, short prepaid, short sixty, short conventional, short incentive)
+    {
+        calendar.Add(date, new Date(baseRate, total, prepaid, sixty, conventional, incentive));
+    }
+
+    public static void addToRecord(string s)
+    {
+        StreamWriter sw = new StreamWriter("../recordData.txt", true);
+        sw.WriteLine(DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss ") + s);
+        sw.Close();
     }
     public static Reservation searchReservation( String name)
     {
         for (int i=0; i<100; i++)
         {
             
-            if (resArray[i].getName() == name)
+            if (resList[i].getName() == name)
             {
-                return resArray[i];
+                return resList[i];
             }
             
 
         }
         return null;
     }
-    public static void cancleReservation(int index)
+    public static void cancelReservation(int index)
     {
-        resArray[index] = null;
+        resList[index] = null;
     }
     public static bool authenticateUser(string userName, string password)
     {

@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calendar.cs" />
+    <Compile Include="Date.cs" />
     <Compile Include="DataController.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="ResConfirm.cs">

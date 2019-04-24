@@ -17,6 +17,8 @@ namespace WindowsFormsApplication1
         static void Main()
         {
             //DataController.
+            DataController.addToRecord("Testing a new line");
+            DataController.addToRecord("Testing another new line");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Login login = new Login();

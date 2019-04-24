@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-public class Calendar {
+public class Date {
     private double baseRate;
     private short totalReservations;
     private short prepaidNum;
@@ -9,8 +9,8 @@ public class Calendar {
     private short conventionalNum;
     private short incentiveNum;
 
-    public Calendar() {
-        baseRate = 100;
+    public Date() {
+        baseRate = 600;
         totalReservations = 0;
         prepaidNum = 0;
         sixtyDayNum = 0;
@@ -18,7 +18,7 @@ public class Calendar {
         incentiveNum = 0;
     }
 
-    public Calendar(double b, short t, short p, short s, short c, short i) {
+    public Date(double b, short t, short p, short s, short c, short i) {
         baseRate = b;
         totalReservations = t;
         prepaidNum = p;
@@ -27,7 +27,7 @@ public class Calendar {
         incentiveNum = i;
     }
 
-    public Calendar(string s)
+    public Date(string s)
     {
         baseRate = double.Parse(s.Substring(0, s.IndexOf(" ")));
         s = s.Substring(s.IndexOf(" "), s.Length - s.IndexOf(" "));
@@ -53,7 +53,7 @@ public class Calendar {
 
     }
 
-    /*public ~Calendar() {
+    /*public ~Date() {
         baseRate = 0;
         totalReservations = 0;
         prepaidNum = 0;
