@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 
 namespace WindowsFormsApplication1
@@ -17,8 +18,18 @@ namespace WindowsFormsApplication1
         static void Main()
         {
             //DataController.
-            DataController.addToRecord("Testing a new line");
-            DataController.addToRecord("Testing another new line");
+            DataController.calendar.importFromFile();
+            DataController.calendar.addDate("20190523");
+            DataController.calendar.addDate("20190524", 595.5);
+            DataController.calendar.addDate("20190525");
+            DataController.calendar.addDate("20190525", 650.49);
+            DataController.calendar.addDate("20190526", "312.47 45 0 15 15 15");
+            DataController.calendar.setRates(DateTime.ParseExact("20190527", "yyyyMMdd", CultureInfo.InvariantCulture), 30, 622);
+
+            //Console.WriteLine(DataController.calendar.getOccupancyRate(DateTime.ParseExact("20190527", "yyyyMMdd", CultureInfo.InvariantCulture), 30));
+            double p = DataController.calendar.getOccupancyRate(DateTime.ParseExact("20190527", "yyyyMMdd", CultureInfo.InvariantCulture), 30);
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Login login = new Login();

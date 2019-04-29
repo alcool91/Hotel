@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ public class Reservation
 {
     double cost;
     int room, numNights;
-    String date, phone, paymentInfo, name, type, email;
+    String date, paymentInfo, name, type, email;
 
     public Reservation(string paymentInfo, double cost, string date, int room, String name, String type, String email)
     {
@@ -23,6 +24,7 @@ public class Reservation
 
     }
 
+    public int getNumNights() { return numNights; }
     public string getPayment()
     {
         return paymentInfo;
@@ -31,7 +33,7 @@ public class Reservation
     {
         return cost;
     }
-    public int getDate()
+    public string getStartDate()
     {
         return date;
     }
@@ -50,6 +52,15 @@ public class Reservation
     public String getEmail()
     {
         return email;
+    }
+
+    // NOT DONE
+    public void changeReservation(Reservation currentReservation, string newStart, int newNumNights, string type)
+    {
+        double currentCost = currentReservation.getCost();
+
+        DataController.calendar.subtractReservation(DateTime.ParseExact(currentReservation.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture), currentReservation.getNumNights(), currentReservation.getType());
+
     }
     public void changeType(String NewType)
     {
