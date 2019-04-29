@@ -12,6 +12,11 @@ namespace WindowsFormsApplication1
 {
     public partial class CreateNewRes : Form
     {
+        double cost = 0;
+        int room = 1, numNights;
+        String  paymentInfo, fname, lname, type, email,phone;
+        DateTime Edate, Sdate;
+
         public CreateNewRes()
         {
             InitializeComponent();
@@ -29,15 +34,50 @@ namespace WindowsFormsApplication1
             //resConfirm.Focus();
 
         }
-        
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+            fname = txtFirstName.Text;
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            email = txtEmail.Text;
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            phone = txtPhone.Text;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            type = comboBox1.Text;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            numNights = Convert.ToInt32(textBox1.Text);
+        }
+
+        private void txtCCard_TextChanged(object sender, EventArgs e)
+        {
+            paymentInfo = txtCCard.Text;
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void calStartDate_DateChanged(object sender, DateRangeEventArgs e)
         {
-            //Need to get value of selected date somehow.
+            Sdate = calStartDate.SelectionRange.Start;
         }
 
         private void calEndDate_DateChanged(object sender, DateRangeEventArgs e)
         {
-            //Need to get value of selected date somehow.
+            Edate = calEndDate.SelectionRange.End;
         }
 
         private void btnSubmitRes_Click(object sender, EventArgs e) //This btn will save the reservation.
@@ -46,8 +86,24 @@ namespace WindowsFormsApplication1
                 "Confirm Your Reservation...", MessageBoxButtons.YesNo);
             if (submit == DialogResult.Yes)
             {
+                String name = fname + " " + lname;
+                if(type == "60-Day")
+                {
+                    type = "s";
+                }
+                if (type == "Convential")
+                {
+                    type = "c";
+                }
+                if (type == "Pre-Pay")
+                {
+                    type = "p";
+                }
+                cost = DataController.calendar.getCost(Sdate, numNights, type);
                 label6.Enabled = true;
+                String sdateString = Sdate.ToString("yyyyMMdd");
                 btnSubmitRes.Enabled = false;
+                DataController.createReservation(paymentInfo, cost, sdateString, room, name, phone, type, email);
 
             }
             else if (submit == DialogResult.No)
@@ -65,6 +121,11 @@ namespace WindowsFormsApplication1
             resOpts.ShowDialog();
             resOpts.Focus();
 
+        }
+
+        private void txtLastName_TextChanged(object sender, EventArgs e)
+        {
+            lname = txtLastName.Text;
         }
     }
 }

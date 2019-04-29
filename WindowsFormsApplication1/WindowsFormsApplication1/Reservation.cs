@@ -10,9 +10,9 @@ public class Reservation
 {
     double cost;
     int room, numNights;
-    String date, paymentInfo, name, type, email;
+    String date, paymentInfo, name, phone, type, email;
 
-    public Reservation(string paymentInfo, double cost, string date, int room, String name, String type, String email)
+    public Reservation(string paymentInfo, double cost, string date, int room, String name, String phone,String type, String email)
     {
         this.paymentInfo = paymentInfo;
         this.cost = cost;
@@ -21,6 +21,9 @@ public class Reservation
         this.name = name;
         this.type = type;
         this.email = email;
+        this.phone = phone;
+
+
 
     }
 
