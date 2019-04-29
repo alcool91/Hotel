@@ -15,16 +15,21 @@ namespace WindowsFormsApplication1
         public ChngRate()
         {
             InitializeComponent();
+            lblSetRate.Text = "Set Rate: $" + DataController.calendar.getDate(dateChngRate.Value.ToString("yyyyMMdd")).getRate();
         }
 
         private void gboxChngRate_Enter(object sender, EventArgs e)
         {
 
         }
-
         private void dateChngRate_ValueChanged(object sender, EventArgs e)
         {
             //Need to get value of date selected somehow.
+            btnSubmitRate.Enabled = true;
+            lblSubmitRate.Enabled = false;
+            Console.WriteLine(dateChngRate.Value.ToString("yyyyMMdd"));
+            Console.WriteLine(DataController.calendar.getDate(dateChngRate.Value.ToString("yyyyMMdd")).getRate());
+            lblSetRate.Text = "Set Rate: $" + DataController.calendar.getDate(dateChngRate.Value.ToString("yyyyMMdd")).getRate();
         }
 
         private void txtChngRate_TextChanged(object sender, EventArgs e)
@@ -34,10 +39,11 @@ namespace WindowsFormsApplication1
 
         private void btnSubmitRate_Click(object sender, EventArgs e)
         {
-            int parsedValue;
+          double parsedValue;
             if (!string.IsNullOrWhiteSpace(txtChngRate.Text) || 
-                !int.TryParse(txtChngRate.Text, out parsedValue))
+                !double.TryParse(txtChngRate.Text, out parsedValue))
             {
+                DataController.calendar.setRates(dateChngRate.Value, 1, double.Parse(txtChngRate.Text));
                 lblSetRate.Text = "Set Rate: $" + txtChngRate.Text; //This new value for the label need to
                                                                //be mapped to the same date that the new
                                                                //base rate is mapped to.
