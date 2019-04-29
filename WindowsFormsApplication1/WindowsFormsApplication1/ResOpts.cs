@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1
 {
     public partial class ResOpts : Form
     {
+        static String name, phone;
         public ResOpts()
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace WindowsFormsApplication1
         private void btnSearchRes_Click(object sender, EventArgs e)
         {
             Hide();
+            DataController.getSearchInfo(name, phone);
             SearchRes searchRes = new SearchRes();
             searchRes.FormClosed += (s, args) => Close();
             searchRes.ShowDialog();
@@ -53,12 +55,17 @@ namespace WindowsFormsApplication1
 
         private void txtSearchRes_TextChanged(object sender, EventArgs e)
         {
-
+            name = txtSearchRes.Text;
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            phone = textBox1.Text;
         }
     }
 }

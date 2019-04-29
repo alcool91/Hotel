@@ -9,6 +9,7 @@ public class DataController
     public static string user;
     public static bool isManager;
     public static int count;
+    public static String PhoneNum, SearchName;
     public static Calendar calendar = new Calendar();
     public static List<Reservation> resList = new List<Reservation>();
 
@@ -32,10 +33,10 @@ public class DataController
 
     public static Reservation searchReservation( String name)
     {
-        for (int i=0; i<100; i++)
+        for (int i=0; i<resList.Count; i++)
         {
             
-            if (resList[i].getName() == name)
+            if (resList[i].getName().ToUpper() == name.ToUpper())
             {
                 return resList[i];
             }
@@ -48,6 +49,19 @@ public class DataController
     {
         resList[index] = null;
 
+    }
+    public static void getSearchInfo(String name, String Phone)
+    {
+        PhoneNum = Phone;
+        SearchName = name;
+    }
+    public static String setSearchNum()
+    {
+        return PhoneNum;
+    }
+    public static String setSearchName()
+    {
+        return SearchName;
     }
     public static bool authenticateUser(string userName, string password)
     {
