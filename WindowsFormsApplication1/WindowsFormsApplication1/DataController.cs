@@ -9,22 +9,18 @@ public class DataController
     public static string user;
     public static bool isManager;
     public static int count;
+    public static Calendar calendar = new Calendar();
     public static List<Reservation> resList = new List<Reservation>();
-    public static SortedList<int, Date> calendar = new SortedList<int, Date>();
 
-    public DataController()
-	{
-	}
+    public DataController() {}
 
-    public static void createReservation(string paymentInfo, int cost, int date, int room, String name, String type, String email)
+    public static void createReservation(string paymentInfo, int cost, string date, int room, String name, String type, String email)
     {
+        Reservation newRes = new Reservation(paymentInfo, cost, date, room, name, type, email);
         resList.Add(new Reservation(paymentInfo, cost, date, room, name, type, email));
-        //addToRecord();
-    }
-
-    public static void addDate(int date, double baseRate, short total, short prepaid, short sixty, short conventional, short incentive)
-    {
-        calendar.Add(date, new Date(baseRate, total, prepaid, sixty, conventional, incentive));
+        addToRecord("Created Reservation: " + newRes.toString());
+        //Date thisDate = calendar[calendar.Values.Count - 1];
+        //int size = calendar.Values. ;
     }
 
     public static void addToRecord(string s)
@@ -33,6 +29,7 @@ public class DataController
         sw.WriteLine(DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss ") + s);
         sw.Close();
     }
+
     public static Reservation searchReservation( String name)
     {
         for (int i=0; i<100; i++)
@@ -50,6 +47,7 @@ public class DataController
     public static void cancelReservation(int index)
     {
         resList[index] = null;
+
     }
     public static bool authenticateUser(string userName, string password)
     {

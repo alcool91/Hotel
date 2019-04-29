@@ -1,15 +1,21 @@
-﻿
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Date {
-    private double baseRate;
-    private short totalReservations;
-    private short prepaidNum;
-    private short sixtyDayNum;
-    private short conventionalNum;
-    private short incentiveNum;
 
-    public Date() {
+public class Date
+{
+    double baseRate;
+    short totalReservations;
+    short prepaidNum;
+    short sixtyDayNum;
+    short conventionalNum;
+    short incentiveNum;
+
+    public Date()
+    {
         baseRate = 600;
         totalReservations = 0;
         prepaidNum = 0;
@@ -18,7 +24,18 @@ public class Date {
         incentiveNum = 0;
     }
 
-    public Date(double b, short t, short p, short s, short c, short i) {
+    public Date(double b)
+    {
+        baseRate = b;
+        totalReservations = 0;
+        prepaidNum = 0;
+        sixtyDayNum = 0;
+        conventionalNum = 0;
+        incentiveNum = 0;
+    }
+
+    public Date(double b, short t, short p, short s, short c, short i)
+    {
         baseRate = b;
         totalReservations = t;
         prepaidNum = p;
@@ -63,39 +80,46 @@ public class Date {
     }*/
 
     public double getRate() { return baseRate; }
-
     public void setRate(double d) { baseRate = d; }
 
-    public void addPrepaid() {
+    public void addPrepaid()
+    {
         prepaidNum++;
         totalReservations++;
     }
-    public void addSixty() {
+    public void addSixty()
+    {
         sixtyDayNum++;
         totalReservations++;
     }
-    public void addConventional() {
+    public void addConventional()
+    {
         conventionalNum++;
         totalReservations++;
     }
-    public void addIncentive() {
+    public void addIncentive()
+    {
         incentiveNum++;
         totalReservations++;
     }
 
-    public void removePrepaid() {
+    public void removePrepaid()
+    {
         prepaidNum--;
         totalReservations--;
     }
-    public void removeSixty() {
+    public void removeSixty()
+    {
         sixtyDayNum--;
         totalReservations--;
     }
-    public void removeConventional() {
+    public void removeConventional()
+    {
         conventionalNum--;
         totalReservations--;
     }
-    public void removeIncentive() {
+    public void removeIncentive()
+    {
         incentiveNum--;
         totalReservations--;
     }
@@ -123,8 +147,7 @@ public class Date {
     public string toString()
     {
         string s;
-        s = baseRate + " " + totalReservations + " " + prepaidNum + " " + sixtyDayNum + " " + conventionalNum + " " + incentiveNum ;
+        s = baseRate + " " + totalReservations + " " + prepaidNum + " " + sixtyDayNum + " " + conventionalNum + " " + incentiveNum;
         return s;
     }
 }
-
