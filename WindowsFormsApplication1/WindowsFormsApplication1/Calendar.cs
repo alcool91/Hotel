@@ -18,7 +18,8 @@ public class Calendar {
 
     public Date getDate(string date)
     {
-        if (dates.TryGetValue(date, out Date value))
+        Date value;
+        if (dates.TryGetValue(date, out value))
         {
             return value;
         }
@@ -31,7 +32,8 @@ public class Calendar {
 
     public void addDate(string date)
     {
-        if(dates.TryGetValue(date, out Date value))
+        Date value;
+        if(dates.TryGetValue(date, out value))
         {
             return;                     // If date already exists, do nothing
         }
@@ -44,7 +46,8 @@ public class Calendar {
 
     public void addDate(string date, double rate)
     {
-        if (dates.TryGetValue(date, out Date value))
+        Date value;
+        if (dates.TryGetValue(date, out value))
         {
             value.setRate(rate);           // If date already exists, change the base rate
         }
@@ -57,7 +60,8 @@ public class Calendar {
 
     public void addDate(string date, string content) // Should only be called at beginning of program when importing all dates
     {
-        if (dates.TryGetValue(date, out Date value))
+        Date value;
+        if (dates.TryGetValue(date, out value))
         {
             dates.Remove(date);                                                                 // If date already exists, delete it
         }

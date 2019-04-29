@@ -99,10 +99,10 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                Hide();
-                chngRate.FormClosed += (s, args) => Close();
-                chngRate.ShowDialog();
-                chngRate.Focus();
+                //Hide();
+                //chngRate.FormClosed += (s, args) => Close();
+                //chngRate.ShowDialog();
+                //chngRate.Focus();
             }
 
 
@@ -118,16 +118,16 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                Hide();
-                chngRate.FormClosed += (s, args) => Close();
-                chngRate.ShowDialog();
-                chngRate.Focus();
+                //Hide();
+                //chngRate.FormClosed += (s, args) => Close();
+                //chngRate.ShowDialog();
+                //chngRate.Focus();
             }
 
 
         }
 
-        private void btnChngRate_Click(object sender, EventArgs e)
+       private void btnChngRate_Click(object sender, EventArgs e)
         {
             if (!DataController.isManager)
             {
