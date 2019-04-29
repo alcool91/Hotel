@@ -31,7 +31,7 @@ public class Calendar {
         }         
     }
 
-    public void addDate(string date)
+    protected void addDate(string date)
     {
         Date value;
         if(dates.TryGetValue(date, out value))
@@ -200,18 +200,40 @@ public class Calendar {
     }
 
     // Subtracts from the reservation count for a range of dates with certain reservation type
-    public void subtractReservation(DateTime startDate, int numNights, string type)
+    public void subtractReservation(string startDate, int numNights, string type)
     {
+        DateTime thisDate = DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture);
         // Changes conventional to incentive if occupancy rate < 0.6 and start is less than 30 days away
         //if (startDate < DateTime.Today.AddDays(30) && type == "c" && getOccupancyRate(startDate, numNights) < 0.6) type = "i";
 
         for (int i = 0; i < numNights; i++)
         {
-            if (type == "p") getDate(startDate.AddDays(i).ToString("yyyyMMdd")).removePrepaid();
-            else if (type == "s") getDate(startDate.AddDays(i).ToString("yyyyMMdd")).removeSixty();
-            else if (type == "c") getDate(startDate.AddDays(i).ToString("yyyyMMdd")).removeConventional();
-            else if (type == "i") getDate(startDate.AddDays(i).ToString("yyyyMMdd")).removeIncentive();
-            updateFile(startDate.AddDays(i).ToString("yyyyMMdd"));
+            if (type == "p") getDate(thisDate.AddDays(i).ToString("yyyyMMdd")).removePrepaid();
+            else if (type == "s") getDate(thisDate.AddDays(i).ToString("yyyyMMdd")).removeSixty();
+            else if (type == "c") getDate(thisDate.AddDays(i).ToString("yyyyMMdd")).removeConventional();
+            else if (type == "i") getDate(thisDate.AddDays(i).ToString("yyyyMMdd")).removeIncentive();
+            updateFile(thisDate.AddDays(i).ToString("yyyyMMdd"));
         }
+    }
+
+    public string areDatesaAvailable(string startDate, int numNights)
+    {
+        string returnValue = "";
+        for(int i = 0; i < numNights; i++)
+        {
+            if(getDate(DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("yyyyMMdd")).getTotal() >= 45)
+            {
+                returnValue += DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("MM/dd/yyyy ");
+            }
+        }
+        if(returnValue == "")
+        {
+            return returnValue;
+        }
+        else
+        {
+            return "The following dates are not available: " + returnValue;
+        }
+        
     }
 }

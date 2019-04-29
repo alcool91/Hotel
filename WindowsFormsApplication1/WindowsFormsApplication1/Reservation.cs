@@ -62,7 +62,7 @@ public class Reservation
     {
         double currentCost = currentReservation.getCost();
 
-        DataController.calendar.subtractReservation(DateTime.ParseExact(currentReservation.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture), currentReservation.getNumNights(), currentReservation.getType());
+        DataController.calendar.subtractReservation(currentReservation.getStartDate(), currentReservation.getNumNights(), currentReservation.getType());
 
     }
     public void changeType(String NewType)

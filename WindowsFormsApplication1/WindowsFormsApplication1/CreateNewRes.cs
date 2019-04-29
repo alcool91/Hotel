@@ -99,7 +99,7 @@ namespace WindowsFormsApplication1
                 {
                     type = "p";
                 }
-                cost = DataController.calendar.getCost(Sdate, numNights, type);
+                //cost = DataController.calendar.getCost(Sdate, numNights, type);
                 label6.Enabled = true;
                 String sdateString = Sdate.ToString("yyyyMMdd");
                 btnSubmitRes.Enabled = false;
