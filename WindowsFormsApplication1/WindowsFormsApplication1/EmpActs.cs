@@ -91,15 +91,39 @@ namespace WindowsFormsApplication1
 
         private void btnDayOccRep_Click(object sender, EventArgs e)
         {
-            managerLogin.ShowDialog();
-            managerLogin.Focus();
+            if (!DataController.isManager)
+            {
+                managerLogin.ShowDialog();
+                managerLogin.Focus();
+
+            }
+            else
+            {
+                Hide();
+                chngRate.FormClosed += (s, args) => Close();
+                chngRate.ShowDialog();
+                chngRate.Focus();
+            }
+
 
         }
 
         private void btnDayArrRep_Click(object sender, EventArgs e)
         {
-            managerLogin.ShowDialog();
-            managerLogin.Focus();
+            if (!DataController.isManager)
+            {
+                managerLogin.ShowDialog();
+                managerLogin.Focus();
+
+            }
+            else
+            {
+                Hide();
+                chngRate.FormClosed += (s, args) => Close();
+                chngRate.ShowDialog();
+                chngRate.Focus();
+            }
+
 
         }
 
