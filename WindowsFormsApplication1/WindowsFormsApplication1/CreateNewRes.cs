@@ -72,6 +72,18 @@ namespace WindowsFormsApplication1
         private void calStartDate_DateChanged(object sender, DateRangeEventArgs e)
         {
             Sdate = calStartDate.SelectionRange.Start.ToString("yyyyMMdd");
+            comboBox1.Items.Clear();
+            int i = calStartDate.SelectionRange.Start.Subtract(DateTime.Today).Days;
+            if(i >= 90)
+            {
+                comboBox1.Items.Add("Pre-paid");
+            }
+            if(i >= 60)
+            {
+                comboBox1.Items.Add("Sixty-day");
+            }
+            comboBox1.Items.Add("Conventional");
+
         }
 
         private void calEndDate_DateChanged(object sender, DateRangeEventArgs e)

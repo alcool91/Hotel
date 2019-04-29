@@ -15,6 +15,23 @@ public class DataController
 
     public DataController() {}
 
+    public void importReservationsFromFile()
+    {
+        string entireLine;
+        string date;
+        StreamReader sr = new StreamReader("../Calendar.txt");
+        while (!sr.EndOfStream)
+        {                              // As long as it's not end of stream, 
+            entireLine = sr.ReadLine();                             // Add dates one line at a time
+            date = entireLine.Substring(0, entireLine.IndexOf(' '));
+            entireLine = entireLine.Substring(date.Length + 1, entireLine.Length - (date.Length + 1));
+            //Reservation newReservation = createReservation()
+            //resList.Add(;
+        }
+
+        sr.Close();
+    }
+
     public static void createReservation(string paymentInfo, double cost, string date, int room, String name,  String phone, String type, String email)
     {
         Reservation newRes = new Reservation(paymentInfo, cost, date, room, name,phone, type, email);
