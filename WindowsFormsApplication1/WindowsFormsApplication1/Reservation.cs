@@ -56,6 +56,12 @@ public class Reservation
     {
         return email;
     }
+    public String getPhone()
+    {
+        return phone;
+    }
+   
+
 
     // NOT DONE
     public void changeReservation(Reservation currentReservation, string newStart, int newNumNights, string type)

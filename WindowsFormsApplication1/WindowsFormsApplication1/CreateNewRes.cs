@@ -14,8 +14,7 @@ namespace WindowsFormsApplication1
     {
         double cost = 0;
         int room = 1, numNights;
-        String  paymentInfo, fname, lname, type, email,phone;
-        DateTime Edate, Sdate;
+        String  paymentInfo, fname, lname, type, email,phone, Edate, Sdate;
 
         public CreateNewRes()
         {
@@ -72,12 +71,12 @@ namespace WindowsFormsApplication1
 
         private void calStartDate_DateChanged(object sender, DateRangeEventArgs e)
         {
-            Sdate = calStartDate.SelectionRange.Start;
+            Sdate = calStartDate.SelectionRange.Start.ToString("yyyyMMdd");
         }
 
         private void calEndDate_DateChanged(object sender, DateRangeEventArgs e)
         {
-            Edate = calEndDate.SelectionRange.End;
+            Edate = calEndDate.SelectionRange.End.ToString("yyyyMMdd"); ;
         }
 
         private void btnSubmitRes_Click(object sender, EventArgs e) //This btn will save the reservation.
@@ -99,11 +98,14 @@ namespace WindowsFormsApplication1
                 {
                     type = "p";
                 }
+
+               // cost = DataController.calendar.getCost(Sdate, numNights, type);
                 //cost = DataController.calendar.getCost(Sdate, numNights, type);
+
                 label6.Enabled = true;
-                String sdateString = Sdate.ToString("yyyyMMdd");
+                //String sdateString = Sdate.ToString("yyyyMMdd");
                 btnSubmitRes.Enabled = false;
-                DataController.createReservation(paymentInfo, cost, sdateString, room, name, phone, type, email);
+                DataController.createReservation(paymentInfo, cost, Sdate, room, name, phone, type, email);
 
             }
             else if (submit == DialogResult.No)

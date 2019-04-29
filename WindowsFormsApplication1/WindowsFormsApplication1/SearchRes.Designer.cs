@@ -47,8 +47,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -70,7 +68,7 @@
             // 
             this.btnSearchName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearchName.ForeColor = System.Drawing.Color.Black;
-            this.btnSearchName.Location = new System.Drawing.Point(567, 422);
+            this.btnSearchName.Location = new System.Drawing.Point(482, 351);
             this.btnSearchName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSearchName.Name = "btnSearchName";
             this.btnSearchName.Size = new System.Drawing.Size(112, 35);
@@ -85,6 +83,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(173, 26);
             this.textBox1.TabIndex = 18;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -92,6 +91,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(170, 26);
             this.textBox2.TabIndex = 19;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox3
             // 
@@ -99,6 +99,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(170, 26);
             this.textBox3.TabIndex = 21;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox4
             // 
@@ -106,6 +107,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(173, 26);
             this.textBox4.TabIndex = 20;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox5
             // 
@@ -113,6 +115,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(170, 26);
             this.textBox5.TabIndex = 23;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox6
             // 
@@ -120,6 +123,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(173, 26);
             this.textBox6.TabIndex = 22;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // textBox7
             // 
@@ -127,6 +131,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(170, 26);
             this.textBox7.TabIndex = 25;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // textBox8
             // 
@@ -134,6 +139,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(173, 26);
             this.textBox8.TabIndex = 24;
+            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label1
             // 
@@ -228,30 +234,13 @@
             this.label9.TabIndex = 37;
             this.label9.Text = "Start Date: ";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(340, 344);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(118, 26);
-            this.label10.TabIndex = 36;
-            this.label10.Text = "End Date:";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(459, 344);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(170, 26);
-            this.textBox9.TabIndex = 35;
-            // 
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(147, 339);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(173, 26);
             this.textBox10.TabIndex = 34;
+            this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
             // 
             // SearchRes
             // 
@@ -260,8 +249,6 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(710, 705);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -312,8 +299,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
     }
 }
