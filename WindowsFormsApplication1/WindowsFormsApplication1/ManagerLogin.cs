@@ -26,6 +26,13 @@ namespace WindowsFormsApplication1
         {
             //Insert code to check for valid manager password.
             //Similar to that which is in Login.cs, line 30.
+            if (DataController.checkManager(textBox1.Text, txtManagerPass.Text)) {
+                //somehow go to next page
+            }
+            else
+            {
+                //stay on current page
+            }
         }
 
         private void btnManagerCancel_Click(object sender, EventArgs e)

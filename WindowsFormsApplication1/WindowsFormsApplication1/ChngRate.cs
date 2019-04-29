@@ -43,7 +43,7 @@ namespace WindowsFormsApplication1
             if (!string.IsNullOrWhiteSpace(txtChngRate.Text) || 
                 !double.TryParse(txtChngRate.Text, out parsedValue))
             {
-                DataController.calendar.setRates(dateChngRate.Value, 1, double.Parse(txtChngRate.Text));
+                DataController.calendar.setRates(dateChngRate.Value.ToString("yyyyMMdd"), 1, double.Parse(txtChngRate.Text));
                 lblSetRate.Text = "Set Rate: $" + txtChngRate.Text; //This new value for the label need to
                                                                //be mapped to the same date that the new
                                                                //base rate is mapped to.

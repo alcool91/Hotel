@@ -31,7 +31,7 @@ public class Calendar {
         }         
     }
 
-    protected void addDate(string date)
+    public void addDate(string date)
     {
         Date value;
         if(dates.TryGetValue(date, out value))

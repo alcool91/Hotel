@@ -14,7 +14,7 @@ namespace WindowsFormsApplication1
     {
         ManagerLogin managerLogin = new ManagerLogin();
         ChngRate chngRate = new ChngRate();
-
+        public bool confirmed = false;
         public EmpActs()
         {
             InitializeComponent();
@@ -133,7 +133,7 @@ namespace WindowsFormsApplication1
             {
                 managerLogin.ShowDialog();
                 managerLogin.Focus();
-
+                
             }
             else
             {

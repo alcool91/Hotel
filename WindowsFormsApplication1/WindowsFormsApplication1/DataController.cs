@@ -89,8 +89,34 @@ public class DataController
         }
     }
 
+    public static bool checkManager(string userName, string password)
+    {
+        using (StreamReader sr = new StreamReader("../../Users.txt"))
+        {
+            string line;
+            string[] tokens;
+            line = sr.ReadLine();
+            do
+            {
+                tokens = line.Split('\t');
+                if (tokens[0] == userName)
+                {
+                    Console.WriteLine("User Matched!");
+                    if (tokens[1] == password)
+                    {
+                        Console.WriteLine("User Authenticated! Welcome " + userName);
+                        //user = userName;
+                        if (Convert.ToBoolean(tokens[2])) { return true; };
+                        return false;
+                    }
+                }
+            } while ((line = sr.ReadLine()) != null);
+            return false;
+        }
+    }
+
     //public static void getReservations(SortedDictionary<string, Reservation> &a)
     //{
-        //;
+    //;
     //}
 }
