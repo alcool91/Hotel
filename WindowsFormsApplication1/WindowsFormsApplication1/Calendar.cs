@@ -31,7 +31,7 @@ public class Calendar {
         }         
     }
 
-    protected void addDate(string date)
+    public void addDate(string date)
     {
         Date value;
         if(dates.TryGetValue(date, out value))
@@ -223,7 +223,7 @@ public class Calendar {
         {
             if(getDate(DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("yyyyMMdd")).getTotal() >= 45)
             {
-                returnValue += DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("MM/dd/yyyy ");
+                returnValue += DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("MM/dd/yyyy\n");
             }
         }
         if(returnValue == "")

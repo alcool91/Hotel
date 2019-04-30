@@ -10,7 +10,6 @@ namespace WindowsFormsApplication1
 {
     class Program
     {
-        SortedDictionary<string, Reservation> reservations;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -25,6 +24,7 @@ namespace WindowsFormsApplication1
             DataController.calendar.addDate("20190525", 650.49);
             DataController.calendar.addDate("20190526", "312.47 45 0 15 15 15");
             DataController.calendar.setRates("20190527", 30, 622);
+            DataController.importReservationsFromFile();
 
             //Console.WriteLine(DataController.calendar.getOccupancyRate(DateTime.ParseExact("20190527", "yyyyMMdd", CultureInfo.InvariantCulture), 30));
             string test = DataController.calendar.areDatesaAvailable("20190527", 10);

@@ -237,6 +237,16 @@ namespace WindowsFormsApplication1
             comboBox1.Items.Add("Convential");
                  
             start = calStartDate.SelectionRange.Start;
+            if(i >= 90)
+            {
+                comboBox1.Items.Add("Pre-paid");
+            }
+            if(i >= 60)
+            {
+                comboBox1.Items.Add("Sixty-day");
+            }
+            comboBox1.Items.Add("Conventional");
+
         }
 
         private void calEndDate_DateChanged(object sender, DateRangeEventArgs e)
