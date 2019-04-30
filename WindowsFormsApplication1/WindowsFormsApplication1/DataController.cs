@@ -15,10 +15,17 @@ public class DataController
 
     public DataController() {}
 
+<<<<<<< HEAD
     public static void createReservation(string paymentInfo, double cost, string date, int numNights, int room, String name, String phone, String type, String email)
     {
         Reservation newRes = new Reservation(paymentInfo, cost, date, numNights, room, name, phone, type, email);
         resList.Add(new Reservation(paymentInfo, cost, date, numNights, room, name, phone, type, email));
+=======
+    public static void createReservation(string paymentInfo, double cost, string date, int room, String name,  String phone, String type, String email)
+    {
+        Reservation newRes = new Reservation(paymentInfo, cost, date, room, name,phone, type, email);
+        resList.Add(new Reservation(paymentInfo, cost, date, room, name,phone, type, email));
+>>>>>>> parent of 8d0c07e... Update Reservation Create/Search
         addToRecord("Created Reservation: " + newRes.toString());
         //Date thisDate = calendar[calendar.Values.Count - 1];
         //int size = calendar.Values. ;

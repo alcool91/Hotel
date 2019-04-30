@@ -12,9 +12,13 @@ public class Reservation
     int room, numNights;
     String date, paymentInfo, name, phone, type, email;
 
+<<<<<<< HEAD
     
 
     public Reservation(string paymentInfo, double cost, string date, int numNights, int room, String name, String phone, String type, String email)
+=======
+    public Reservation(string paymentInfo, double cost, string date, int room, String name, String phone,String type, String email)
+>>>>>>> parent of 8d0c07e... Update Reservation Create/Search
     {
         this.paymentInfo = paymentInfo;
         this.cost = cost;
@@ -35,15 +39,18 @@ public class Reservation
         this.room = int.Parse(room);
         this.name = name;
         this.phone = phone;
+<<<<<<< HEAD
         this.numNights = numNights;
         this.type = type;
         this.email = email;
+=======
+
+
+
+>>>>>>> parent of 8d0c07e... Update Reservation Create/Search
     }
 
-    public int getNumNights()
-    {
-        return numNights;
-    }
+    public int getNumNights() { return numNights; }
     public string getPayment()
     {
         return paymentInfo;
