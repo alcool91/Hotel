@@ -5,14 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-    
+
 public class Reservation
 {
     double cost;
     int room, numNights;
-    String date, paymentInfo, name, phone, type, email;
-
-    
+    String date, paymentInfo, name, phone, type, email;   
 
     public Reservation(string paymentInfo, double cost, string date, int numNights, int room, String name, String phone, String type, String email)
     {
@@ -39,10 +37,7 @@ public class Reservation
         this.email = email;
     }
 
-    public int getNumNights()
-    {
-        return numNights;
-    }
+    public int getNumNights() { return numNights; }
     public string getPayment()
     {
         return paymentInfo;

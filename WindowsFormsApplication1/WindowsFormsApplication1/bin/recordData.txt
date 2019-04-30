@@ -14,5 +14,4 @@
 04/30/2019 09:38:18 Created Reservation: First Last 20190821 p 2000 0 email address
 04/30/2019 09:39:06 Created Reservation: First Last 20190821 p 2000 0 email address
 04/30/2019 10:30:08 Created Reservation: blah blah 20190501 Conventional 0 1 bereadan@poo.poo
-
 04/30/2019 10:48:29 Created Reservation: Brent Wickenheiser 20190417 c 20637.568 1 test@email.com
