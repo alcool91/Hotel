@@ -12,6 +12,8 @@ public class Reservation
     int room, numNights;
     String date, paymentInfo, name, phone, type, email;
 
+    
+
     public Reservation(string paymentInfo, double cost, string date, int numNights, int room, String name, String phone, String type, String email)
     {
         this.paymentInfo = paymentInfo;
@@ -33,11 +35,15 @@ public class Reservation
         this.room = int.Parse(room);
         this.name = name;
         this.phone = phone;
+        this.numNights = numNights;
         this.type = type;
         this.email = email;
     }
 
-    public int getNumNights() { return numNights; }
+    public int getNumNights()
+    {
+        return numNights;
+    }
     public string getPayment()
     {
         return paymentInfo;
