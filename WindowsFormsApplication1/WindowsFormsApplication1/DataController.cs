@@ -15,30 +15,50 @@ public class DataController
 
     public DataController() {}
 
-    public void importReservationsFromFile()
+    public static void importReservationsFromFile()
     {
-        string entireLine;
-        string date;
-        StreamReader sr = new StreamReader("../Calendar.txt");
+        StreamReader sr = new StreamReader("../Reservations.txt");
+        int lineNum = 1;
         while (!sr.EndOfStream)
-        {                              // As long as it's not end of stream, 
-            entireLine = sr.ReadLine();                             // Add dates one line at a time
-            date = entireLine.Substring(0, entireLine.IndexOf(' '));
-            entireLine = entireLine.Substring(date.Length + 1, entireLine.Length - (date.Length + 1));
-            //Reservation newReservation = createReservation()
-            //resList.Add(;
+        {                              // As long as it's not end of stream,
+            lineNum++;
+            if (sr.ReadLine() == "#") // If there's a problem with file formatting, this gets it back on track
+            {  
+                createReservation(sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), lineNum);
+                lineNum += 9;
+            }  
         }
-
         sr.Close();
     }
-
-    public static void createReservation(string paymentInfo, double cost, string date, int room, String name,  String phone, String type, String email)
+    public static void writeReservation(Reservation r)
     {
-        Reservation newRes = new Reservation(paymentInfo, cost, date, room, name,phone, type, email);
-        resList.Add(new Reservation(paymentInfo, cost, date, room, name,phone, type, email));
-        addToRecord("Created Reservation: " + newRes.toString());
-        //Date thisDate = calendar[calendar.Values.Count - 1];
-        //int size = calendar.Values. ;
+        //StreamReader sr = new StreamReader("../Calendar.txt");
+        StreamWriter sw = new StreamWriter("../Reservations.txt", true);
+        sw.WriteLine(r.toFileString());
+        sw.Close();
+    }
+
+    public static void createReservation(string paymentInfo, double cost, string date, int numNights, int room, string name,  string phone, string type, string email)
+    {
+        Reservation newRes = new Reservation(paymentInfo, cost, date, numNights, room, name, phone, type, email);
+        resList.Add(newRes);
+        writeReservation(newRes);
+        addToRecord("Created Reservation: " + newRes.toString());     
+    }
+    public static void createReservation(string paymentInfo, string cost, string date, string numNights, string room, string name, string phone, string type, string email, int lineNum)
+    {
+        if (paymentInfo == "#" || cost == "#" || date == "#" || numNights == "#" || room == "#" // Makes sure importing from file doesn't have an obvious issue
+            || name == "#" || phone == "#" || type == "#" || email == "#")
+        {
+            addToRecord("Encountered an error creating a reservation from file. Check line " + lineNum);
+        }
+        else
+        {
+            Reservation newRes = new Reservation(paymentInfo, cost, date, numNights, room, name, phone, type, email);
+            resList.Add(newRes);
+            writeReservation(newRes);
+            addToRecord("Created Reservation: " + newRes.toString());
+        } 
     }
 
     public static void addToRecord(string s)

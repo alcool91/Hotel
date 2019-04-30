@@ -12,19 +12,29 @@ public class Reservation
     int room, numNights;
     String date, paymentInfo, name, phone, type, email;
 
-    public Reservation(string paymentInfo, double cost, string date, int room, String name, String phone,String type, String email)
+    public Reservation(string paymentInfo, double cost, string date, int numNights, int room, String name, String phone, String type, String email)
     {
         this.paymentInfo = paymentInfo;
         this.cost = cost;
         this.date = date;
+        this.numNights = numNights;
         this.room = room;
         this.name = name;
+        this.phone = phone;
         this.type = type;
         this.email = email;
+    }
+    public Reservation(string paymentInfo, string cost, string date, string numNights, string room, String name, String phone, String type, String email)
+    {
+        this.paymentInfo = paymentInfo;
+        this.cost = double.Parse(cost);
+        this.date = date;
+        this.numNights = int.Parse(numNights);
+        this.room = int.Parse(room);
+        this.name = name;
         this.phone = phone;
-
-
-
+        this.type = type;
+        this.email = email;
     }
 
     public int getNumNights() { return numNights; }
@@ -67,6 +77,7 @@ public class Reservation
     public void changeReservation(Reservation currentReservation, string newStart, int newNumNights, string type)
     {
         double currentCost = currentReservation.getCost();
+        double newCost = 1.1 * DataController.calendar.getCost(newStart, newNumNights, type);
 
         DataController.calendar.subtractReservation(currentReservation.getStartDate(), currentReservation.getNumNights(), currentReservation.getType());
 
@@ -79,6 +90,13 @@ public class Reservation
     {
         string s;
         s = name + " " + date + " " + type + " " + cost + " " + room + " " + email;
+        return s;
+    }
+    public string toFileString()
+    {
+        string s;
+        s = "#\n" + getPayment() + "\n" + getCost() + "\n" + getStartDate() + "\n" + getNumNights() + "\n" + getRoom() + "\n"
+            + getName() + "\n" + getPhone() + "\n" + getType() + "\n" + getEmail();
         return s;
     }
 }

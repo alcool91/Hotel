@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Calendar.txt" />
+    <Content Include="recordData.txt" />
     <Content Include="Reservations.txt" />
     <Content Include="Rooms.txt" />
     <Content Include="Users.txt" />

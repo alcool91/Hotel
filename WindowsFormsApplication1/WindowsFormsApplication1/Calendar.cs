@@ -223,7 +223,7 @@ public class Calendar {
         {
             if(getDate(DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("yyyyMMdd")).getTotal() >= 45)
             {
-                returnValue += DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("MM/dd/yyyy ");
+                returnValue += DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("MM/dd/yyyy\n");
             }
         }
         if(returnValue == "")
