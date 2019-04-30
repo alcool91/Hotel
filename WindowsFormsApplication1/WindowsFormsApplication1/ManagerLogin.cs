@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1
 {
     public partial class ManagerLogin : Form
     {
+        public bool isMan = false;
         public ManagerLogin()
         {
             InitializeComponent();
@@ -28,10 +29,16 @@ namespace WindowsFormsApplication1
             //Similar to that which is in Login.cs, line 30.
             if (DataController.checkManager(textBox1.Text, txtManagerPass.Text)) {
                 //somehow go to next page
+                isMan = true;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {
                 //stay on current page
+                isMan = false;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
         }
 

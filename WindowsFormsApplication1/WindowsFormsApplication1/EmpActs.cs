@@ -131,17 +131,25 @@ namespace WindowsFormsApplication1
         {
             if (!DataController.isManager)
             {
-                managerLogin.ShowDialog();
+                var conf = managerLogin.ShowDialog();
                 managerLogin.Focus();
-                
+                if (conf == DialogResult.OK)
+                {
+                    confirmed = managerLogin.isMan;
+                    Console.WriteLine(confirmed);
+                }
             }
-            else
-            {
-                Hide();
-                chngRate.FormClosed += (s, args) => Close();
-                chngRate.ShowDialog();
-                chngRate.Focus();
-            }
+                if (confirmed)
+                {
+                    Hide();
+                    chngRate.FormClosed += (s, args) => Close();
+                    chngRate.ShowDialog();
+                    chngRate.Focus();
+                }
+                else
+                {
+                    
+                }
             
 
         }
