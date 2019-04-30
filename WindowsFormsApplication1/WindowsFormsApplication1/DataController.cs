@@ -56,7 +56,7 @@ public class DataController
         {
             Reservation newRes = new Reservation(paymentInfo, cost, date, numNights, room, name, phone, type, email);
             resList.Add(newRes);
-            writeReservation(newRes);
+            //writeReservation(newRes);
             addToRecord("Created Reservation: " + newRes.toString());
         } 
 

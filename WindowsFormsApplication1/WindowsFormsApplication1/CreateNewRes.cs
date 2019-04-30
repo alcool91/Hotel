@@ -19,6 +19,8 @@ namespace WindowsFormsApplication1
         public CreateNewRes()
         {
             InitializeComponent();
+            calStartDate.MinDate = DateTime.Today;
+            comboBox1.Items.Add("Conventional");
             txtCCard.Visible = false;
             txtLastName.Visible = false;
             txtFirstName.Visible = false;
@@ -120,7 +122,7 @@ namespace WindowsFormsApplication1
                 {
                     type = "s";
                 }
-                if (type == "Convential")
+                if (type == "Conventional")
                 {
                     type = "c";
                 }
@@ -131,7 +133,7 @@ namespace WindowsFormsApplication1
                 cost = DataController.calendar.getCost(Sdate, numNights, type);
                 label9.Text = cost.ToString();
             }
-            if (type == "Convential")
+            if (type == "Conventional")
             {
                 txtCCard.Visible = true;
                 txtLastName.Visible = true;
@@ -149,7 +151,7 @@ namespace WindowsFormsApplication1
                 {
                     type = "s";
                 }
-                if (type == "Convential")
+                if (type == "Conventional")
                 {
                     type = "c";
                 }
@@ -178,7 +180,7 @@ namespace WindowsFormsApplication1
                 {
                     type = "s";
                 }
-                if (type == "Convential")
+                if (type == "Conventional")
                 {
                     type = "c";
                 }
@@ -234,7 +236,7 @@ namespace WindowsFormsApplication1
                 comboBox1.Items.Add("Pre-Paid (25% Discount)");
             if (i >= 60)
                 comboBox1.Items.Add("Sixty Day (15% Discount)");
-            comboBox1.Items.Add("Convential");
+            comboBox1.Items.Add("Conventional");
 
             start = calStartDate.SelectionRange.Start;
         }
@@ -256,7 +258,7 @@ namespace WindowsFormsApplication1
                 {
                     type = "s";
                 }
-                if (type == "Convential")
+                if (type == "Conventional")
                 {
                     type = "c";
                 }
