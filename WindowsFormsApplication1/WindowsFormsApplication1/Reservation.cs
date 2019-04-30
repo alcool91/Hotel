@@ -35,7 +35,6 @@ public class Reservation
         this.room = int.Parse(room);
         this.name = name;
         this.phone = phone;
-        this.numNights = numNights;
         this.type = type;
         this.email = email;
     }

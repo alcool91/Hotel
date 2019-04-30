@@ -98,6 +98,24 @@ namespace WindowsFormsApplication1
 
         }
 
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // CreateNewRes
+            // 
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Name = "CreateNewRes";
+            this.Load += new System.EventHandler(this.CreateNewRes_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void CreateNewRes_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             type = comboBox1.Text;
@@ -283,7 +301,7 @@ namespace WindowsFormsApplication1
                 cost = DataController.calendar.getCost(Sdate, numNights, type);
                 //String sdateString = Sdate.ToString("yyyyMMdd");
                 btnSubmitRes.Enabled = false;
-                DataController.createReservation(paymentInfo, cost, Sdate,numNights, room, name, phone, type, email);
+                DataController.createReservation(paymentInfo, cost, Sdate, numNights, room, name, phone, type, email);
 
             }
             else if (submit == DialogResult.No)
