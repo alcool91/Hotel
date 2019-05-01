@@ -17,6 +17,22 @@ public class Calendar {
         reservationFactor.Add("i", 0.80);   // Prepaid reservation factor
     }
 
+    public void addReservation(Reservation r)
+    {
+        for(int i = 0; i < r.getNumNights(); i++)
+        {
+            getDate(DateTime.ParseExact(r.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("MM/dd/yyyy")).addType(r.getType());
+        }
+    }
+
+    public void removeReservation(Reservation r)
+    {
+        for (int i = 0; i < r.getNumNights(); i++)
+        {
+            getDate(DateTime.ParseExact(r.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("MM/dd/yyyy")).removeType(r.getType());
+        }
+    }
+
     public Date getDate(string date)
     {
         Date value;
@@ -42,7 +58,7 @@ public class Calendar {
         {
             dates.Add(date, new Date());   // Otherwise, create a new date and add to dates
         }
-        updateFile(date);
+        //updateFile(date);
     }
 
     public void addDate(string date, double rate)

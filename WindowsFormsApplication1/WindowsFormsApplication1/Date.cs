@@ -82,6 +82,25 @@ public class Date
     public double getRate() { return baseRate; }
     public void setRate(double d) { baseRate = d; }
 
+    public void addType(string t)
+    {
+        switch (t)
+        {
+            case "p":
+                addPrepaid();
+                break;
+            case "s":
+                addSixty();
+                break;
+            case "c":
+                addConventional();
+                break;
+            case "i":
+                addIncentive();
+                break;
+        }
+            
+    }
     public void addPrepaid()
     {
         prepaidNum++;
@@ -103,6 +122,25 @@ public class Date
         totalReservations++;
     }
 
+    public void removeType(string t)
+    {
+        switch (t)
+        {
+            case "p":
+                removePrepaid();
+                break;
+            case "s":
+                removeSixty();
+                break;
+            case "c":
+                removeConventional();
+                break;
+            case "i":
+                removeIncentive();
+                break;
+        }
+
+    }
     public void removePrepaid()
     {
         prepaidNum--;

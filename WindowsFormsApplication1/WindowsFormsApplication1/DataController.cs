@@ -4,6 +4,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Mail;
+using System.Globalization;
 
 public class DataController
 {
@@ -49,7 +50,26 @@ public class DataController
             }
         }
         
-        foreach (Reservation r in resList)
+        for (int j = 0; j < resList.Count; j++)
+        {
+            if (resList[j].getStartDate() == DateTime.Today.ToString("yyyyMMdd") && resList[j].getRoom() == 0)
+            {
+                int i = 1;
+                Reservation value;
+                while (rooms.TryGetValue(i, out value) && i < 46)
+                {
+                    i = i + 1;
+                }
+
+
+                value = new Reservation(resList[j].getPayment(), resList[j].getCost(), resList[j].getStartDate(), resList[j].getNumNights(), 
+                    i, resList[j].getName(), resList[j].getPhone(), resList[j].getType(), resList[j].getEmail());
+                modifyReservation(resList[j], value);
+                rooms.Add(i, value);
+
+            }
+        }
+        /*foreach (Reservation r in resList)
         {  
             if (r.getStartDate() == DateTime.Today.ToString("yyyyMMdd") && r.getRoom() == 0)
             {
@@ -66,7 +86,7 @@ public class DataController
                 rooms.Add(i, value);
                 
             }
-        }
+        }*/
     }
 
     public static void modifyReservation(Reservation r1, Reservation r2)
@@ -107,13 +127,18 @@ public class DataController
                     sw.WriteLine(compare.getEmail());
                 }
             }
-            sw.WriteLine(sr.ReadLine()); // Writes the rest one line at a time
+            else
+            {
+                sw.WriteLine(sr.ReadLine()); // Writes the rest one line at a time
+            }
+            
         }
         sr.Close();
         sw.Close();
         File.Delete("../Reservations.txt");
         File.Move("../tempReservations.txt", "../Reservations.txt");
         File.Delete("../tempReservations.txt");
+        calendar.removeReservation(r);
     }
 
     public static void writeReservation(Reservation r) // Writes reservation to end of file
@@ -130,6 +155,7 @@ public class DataController
         sw.WriteLine(r.getType());
         sw.WriteLine(r.getEmail());
         sw.Close();
+        calendar.addReservation(r);
     }
 
     public static void createReservation(string paymentInfo, double cost, string date, int numNights, int room, string name,  string phone, string type, string email)
@@ -256,8 +282,5 @@ public class DataController
         }
     }
 
-    //public static void getReservations(SortedDictionary<string, Reservation> &a)
-    //{
-    //;
-    //}
+    
 }
