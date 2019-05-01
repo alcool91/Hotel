@@ -26,7 +26,11 @@ namespace WindowsFormsApplication1
             DataController.calendar.addDate("20190526", "312.47 45 0 15 15 15");
             DataController.calendar.setRates("20190527", 30, 622);*/
             DataController.importReservationsFromFile();
+            DataController.setupRooms();
+            //DataController.createReservation("paymentinfo", "12345.5", "20190824", "3", "0", "Brent W", "734...", "p", "brentme1@yahoc.com", 0);
 
+            //DataController.deleteFromFile(DataController.resList[0]);
+            
             //Console.WriteLine(DataController.calendar.getOccupancyRate(DateTime.ParseExact("20190527", "yyyyMMdd", CultureInfo.InvariantCulture), 30));
             //string test = DataController.calendar.areDatesaAvailable("20190527", 10);
             //double p = DataController.calendar.getOccupancyRate("20190527", 30);

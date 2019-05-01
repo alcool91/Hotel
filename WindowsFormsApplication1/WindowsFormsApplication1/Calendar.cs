@@ -85,14 +85,19 @@ public class Calendar {
     {
         string entireLine;
         string date;
+        if (!File.Exists("../Calendar.txt"))
+        {
+            var newFile = File.Create("../Calendar.txt");
+            newFile.Close();
+        }
         StreamReader sr = new StreamReader("../Calendar.txt");
         while (!sr.EndOfStream) {                              // As long as it's not end of stream, 
             entireLine = sr.ReadLine();                             // Add dates one line at a time
             date = entireLine.Substring(0, entireLine.IndexOf(' '));
             entireLine = entireLine.Substring(date.Length + 1, entireLine.Length - (date.Length + 1));
-            dates.Add(date, new Date(entireLine));
-        }
-        
+            if(DateTime.ParseExact(date, "yyyyMMdd", CultureInfo.InvariantCulture) >= DateTime.Today) // Only adds dates >= today's date
+                dates.Add(date, new Date(entireLine));
+        }       
         sr.Close();
     }
 
@@ -104,10 +109,14 @@ public class Calendar {
         while (!sr.EndOfStream)
         {
             string currentLine = sr.ReadLine();
-
+           
             if (!newDateWritten) {
                 string currentDate = currentLine.Substring(0, currentLine.IndexOf(' '));
-                if (currentDate == newDate)
+                if (DateTime.ParseExact(currentDate, "yyyyMMdd", CultureInfo.InvariantCulture) < DateTime.Today)
+                {
+
+                }
+                else if (currentDate == newDate)
                 {
                     currentLine = newDate + " " + getDate(newDate).toString();
                     sw.WriteLine(currentLine);
@@ -127,9 +136,7 @@ public class Calendar {
             else
             {
                 sw.WriteLine(currentLine);
-            }
-
-            
+            }   
         }
         if (!newDateWritten)
         {
@@ -233,7 +240,6 @@ public class Calendar {
         else
         {
             return "The following dates are not available: " + returnValue;
-        }
-        
+        }       
     }
 }
