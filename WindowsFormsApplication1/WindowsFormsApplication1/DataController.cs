@@ -10,6 +10,7 @@ public class DataController
 {
     public static string user;
     public static bool isManager;
+    public static int modIndex;
     public static int count;
     public static String PhoneNum, SearchName;
     public static Calendar calendar = new Calendar();
@@ -185,7 +186,14 @@ public class DataController
         } 
 
     }
-
+    public static void storeIndex(int x)
+    {
+        modIndex = x;
+    }
+    public static void modReservation(int index, Reservation X)
+    {
+        resList[index] = X;
+    }
     public static void addToRecord(string s)
     {
         StreamWriter sw = new StreamWriter("../recordData.txt", true);
@@ -193,24 +201,29 @@ public class DataController
         sw.Close();
     }
 
-    public static Reservation searchReservation( String name)
+    public static int searchReservation(String name,int index)
     {
-        for (int i=0; i<resList.Count; i++)
+        if(index == -1)
+        {
+            index = 0;
+        }
+        for (int i = index; i<resList.Count; i++)
         {
             
             if (resList[i].getName().ToUpper() == name.ToUpper())
             {
-                return resList[i];
+                index = i;
+                return index;
             }
             
 
         }
-        return null;
+        return -1;
     }
 
     public static void cancelReservation(int index)
     {
-        resList[index] = null;
+        resList.Remove(resList[index]);
 
     }
 

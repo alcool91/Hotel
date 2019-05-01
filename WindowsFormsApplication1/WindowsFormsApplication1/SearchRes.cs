@@ -13,7 +13,8 @@ namespace WindowsFormsApplication1
     public partial class SearchRes : Form
     {
         static String setname;
-        Reservation search;
+        static int index = 0;
+        static Reservation search;
         public SearchRes()
         {
             getRes();
@@ -32,11 +33,43 @@ namespace WindowsFormsApplication1
         public void getRes()
         {
             setname = DataController.setSearchName();
+            index = DataController.searchReservation(setname, index);
+            if(index == -1)
+            {
+                DialogResult submit = MessageBox.Show("There is no Reservation under this name",
+                "Click OK", MessageBoxButtons.OK);
+                if (submit == DialogResult.OK)
+                {
+                    Hide();
+                    ResOpts resOpts = new ResOpts();
+                    resOpts.FormClosed += (s, args) => Close();
+                    resOpts.ShowDialog();
+                    resOpts.Focus();
 
-            search = DataController.searchReservation(setname);
+                }
+                
+            }
+            else
+            {
+                search = DataController.resList[index];
+                setRes();
+            }
+            
 
         }
-
+        public void setRes()
+        {
+            InitializeComponent();
+            label17.Text = String.Format(search.getName());
+            label16.Text = String.Format(search.getPhone());
+            label18.Text = String.Format(search.getEmail());
+            label15.Text = String.Format(search.getPayment());
+            label13.Text = String.Format(search.getType());
+            label14.Text = String.Format(search.getRoom().ToString());
+            label12.Text = String.Format(search.getCost().ToString());
+            label11.Text = String.Format(search.getNumNights().ToString());
+            label10.Text = String.Format(search.getStartDate());
+        }
         private void btnBackF6_Click(object sender, EventArgs e)
         {
             Hide();
@@ -49,8 +82,9 @@ namespace WindowsFormsApplication1
 
         private void btnSearchName_Click(object sender, EventArgs e)
         {
+            DataController.storeIndex(index);
             Hide();
-            ResOpts resOpts = new ResOpts();
+            ModifiyRes resOpts = new ModifiyRes();
             resOpts.FormClosed += (s, args) => Close();
             resOpts.ShowDialog();
             resOpts.Focus();
@@ -84,7 +118,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            DataController.cancelReservation(index);
         }
 
         private void label10_Click_1(object sender, EventArgs e)
@@ -120,6 +154,13 @@ namespace WindowsFormsApplication1
         private void label14_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            index++;
+            getRes();
+            
         }
     }
 }
