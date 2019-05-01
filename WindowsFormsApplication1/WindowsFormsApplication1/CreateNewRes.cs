@@ -20,6 +20,11 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             calStartDate.MinDate = DateTime.Today;
+            start = calStartDate.SelectionStart;
+            Sdate = calStartDate.SelectionStart.ToString("yyyyMMdd");
+            calEndDate.MinDate = DateTime.Today.AddDays(1);
+            end = calEndDate.SelectionStart;
+            Edate = calEndDate.SelectionStart.ToString("yyyyMMdd");
             comboBox1.Items.Add("Conventional");
             txtCCard.Visible = false;
             txtLastName.Visible = false;
@@ -276,6 +281,11 @@ namespace WindowsFormsApplication1
                 //String sdateString = Sdate.ToString("yyyyMMdd");
                 btnSubmitRes.Enabled = false;
                 DataController.createReservation(paymentInfo, cost, Sdate, numNights, room, name, phone, type, email);
+                Hide();
+                ResOpts resOpts = new ResOpts();
+                resOpts.FormClosed += (s, args) => Close();
+                resOpts.ShowDialog();
+                resOpts.Focus();
 
             }
             else if (submit == DialogResult.No)

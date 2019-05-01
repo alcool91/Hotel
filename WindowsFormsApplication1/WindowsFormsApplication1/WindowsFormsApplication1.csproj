@@ -50,6 +50,12 @@
     <Compile Include="Calendar.cs" />
     <Compile Include="DataController.cs" />
     <Compile Include="Date.cs" />
+    <Compile Include="ModifiyRes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifiyRes.Designer.cs">
+      <DependentUpon>ModifiyRes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report.cs" />
     <Compile Include="ResConfirm.cs">
       <SubType>Form</SubType>
@@ -114,6 +120,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ModifiyRes.resx">
+      <DependentUpon>ModifiyRes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResConfirm.resx">
       <DependentUpon>ResConfirm.cs</DependentUpon>
     </EmbeddedResource>
