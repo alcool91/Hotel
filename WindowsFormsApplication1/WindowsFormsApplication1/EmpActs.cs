@@ -138,7 +138,7 @@ namespace WindowsFormsApplication1
                     confirmed = managerLogin.isMan;
                     Console.WriteLine(confirmed);
                 }
-            }
+
                 if (confirmed)
                 {
                     Hide();
@@ -148,9 +148,16 @@ namespace WindowsFormsApplication1
                 }
                 else
                 {
-                    
+
                 }
-            
+            }
+            else
+            {
+                Hide();
+                chngRate.FormClosed += (s, args) => Close();
+                chngRate.ShowDialog();
+                chngRate.Focus();
+            }
 
         }
     }

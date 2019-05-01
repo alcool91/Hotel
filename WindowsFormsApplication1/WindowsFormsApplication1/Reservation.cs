@@ -70,6 +70,23 @@ public class Reservation
     {
         return phone;
     }
+    public void setRoom(int i)
+    {
+        room = i;
+    }
+    public bool equals(Reservation r)
+    {
+        if (this.cost != r.getCost()) return false;
+        if (this.name != r.getName()) return false;
+        if (this.phone != r.getPhone()) return false;
+        if (this.numNights != r.getNumNights()) return false;
+        if (this.date != r.getStartDate()) return false;
+        if (this.email != r.getEmail()) return false;
+        if (this.type != r.getType()) return false;
+        if (this.room != r.getRoom()) return false;
+        if (this.paymentInfo != r.getPayment()) return false;
+        return true;
+    }
    
 
 
@@ -89,14 +106,8 @@ public class Reservation
     public string toString()
     {
         string s;
-        s = name + " " + date + " " + type + " " + cost + " " + room + " " + email;
-        return s;
-    }
-    public string toFileString()
-    {
-        string s;
-        s = "#\n" + getPayment() + "\n" + getCost() + "\n" + getStartDate() + "\n" + getNumNights() + "\n" + getRoom() + "\n"
-            + getName() + "\n" + getPhone() + "\n" + getType() + "\n" + getEmail();
+        s = getPayment() + " " + getCost() + " " + getStartDate() + " " + getNumNights() + " " + getRoom() + " "
+            + getName() + " " + getPhone() + " " + getType() + " " + getEmail();
         return s;
     }
 }
