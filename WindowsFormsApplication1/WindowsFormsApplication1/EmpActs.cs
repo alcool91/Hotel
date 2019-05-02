@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +39,7 @@ namespace WindowsFormsApplication1
 
         private void btnExOccRep_Click(object sender, EventArgs e)
         {
+            
             if (!DataController.isManager)
             {
                 managerLogin.ShowDialog();
@@ -55,6 +58,10 @@ namespace WindowsFormsApplication1
 
         private void btnIncomeRep_Click(object sender, EventArgs e)
         {
+            Report.getExpectedIncome();
+            Process p = new Process();
+            p.StartInfo.FileName = "ExpectedIncome.txt";
+            p.Start();
             if (!DataController.isManager)
             {
                 managerLogin.ShowDialog();

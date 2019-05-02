@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Globalization;
+using System.IO;
 
 public class Report {
     static string output;
@@ -36,11 +37,12 @@ public class Report {
         return output;
     }
 
-    public static string getExpectedIncome()
+    public static void getExpectedIncome()
     {
+        StreamWriter sw = new StreamWriter("ExpectedIncome.txt");
         DateTime today = DateTime.Today;
         DateTime lastDay = today.AddDays(30);
-        string returnValue = "Expected Income:\n";
+        sw.WriteLine("Expected Income:");
         double[] nights = new double[30];
         double total = 0;
         for(int i = 0; i < 30; i++)
@@ -49,10 +51,10 @@ public class Report {
             double rate = currentDay.getRate();
             nights[i] = currentDay.getRate() * (0.75 * currentDay.getPrepaid() + 0.85 * currentDay.getSixty() + 0.8 * currentDay.getIncentive() + currentDay.getConventional());
             total += nights[i];
-            returnValue += today.AddDays(i).ToString("MM/dd/yyyy") + ":\t" + nights[i] + "\n";
+            sw.WriteLine(today.AddDays(i).ToString("MM/dd/yyyy") + ":\t" + nights[i]);
         }
-        returnValue += "Total expected income over next 30 days: " + total;
-        return returnValue;
+        sw.WriteLine("Total expected income over next 30 days: " + total);
+        sw.Close();
     }
 
     
