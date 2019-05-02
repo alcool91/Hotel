@@ -5,22 +5,10 @@ using System.Globalization;
 using System.IO;
 
 public class Report {
-    static string output;
-
 
     public Report() {
         output = "";
     }
-
-    //public Report(Date[] dates, Reservation[] reservations, string s)
-    //{
-    //if(s == "expectedOccupancy")
-    //{
-    //expectedOccupancy();
-    //}
-
-
-    //}
 
     public static void getExpectedOccupancy(string startDate, int numNights)
     {

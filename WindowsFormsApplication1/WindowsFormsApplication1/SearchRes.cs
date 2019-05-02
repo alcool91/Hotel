@@ -86,8 +86,6 @@ namespace WindowsFormsApplication1
             {
                 label22.Text = String.Format(DateTime.ParseExact(search.getDatePaid(), "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy"));
             }
-
-            //label10.Text = String.Format(search.getStartDate());
         }
         private void btnBackF6_Click(object sender, EventArgs e)
         {
@@ -176,7 +174,6 @@ namespace WindowsFormsApplication1
                 "Checked in", MessageBoxButtons.OK);
             if (submit == DialogResult.OK)
             {
-                //DataController.cancelReservation(DataController.resList[index]);
                 Hide();
                 ResOpts resOpts = new ResOpts();
                 resOpts.FormClosed += (s, args) => Close();
@@ -215,7 +212,6 @@ namespace WindowsFormsApplication1
                 }
                 else
                 {
-
                 }
             }
             else
@@ -236,7 +232,6 @@ namespace WindowsFormsApplication1
                     resOpts.Focus();
                 }
             }
-
         }
     }
 }

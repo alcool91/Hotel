@@ -52,7 +52,6 @@ namespace WindowsFormsApplication1
 
                 if (confirmed)
                 {
-                    //Hide();
                     Report.getExpectedOccupancy(DateTime.Today.ToString("yyyyMMdd"), 30);
                     Process p = new Process();
                     p.StartInfo.FileName = ".\\Hotel\\Reports\\ExpectedOccupancy.txt";
@@ -65,7 +64,6 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                //Hide();
                 Report.getExpectedOccupancy(DateTime.Today.ToString("yyyyMMdd"), 30);
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\Hotel\\Reports\\ExpectedOccupancy.txt";
@@ -90,7 +88,6 @@ namespace WindowsFormsApplication1
 
                 if (confirmed)
                 {
-                    //Hide();
                     Report.getExpectedIncome();
                     Process p = new Process();
                     p.StartInfo.FileName = ".\\Hotel\\Reports\\ExpectedIncome.txt";
@@ -103,7 +100,6 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                //Hide();
                 Report.getExpectedIncome();
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\Hotel\\Reports\\ExpectedIncome.txt";
@@ -131,7 +127,6 @@ namespace WindowsFormsApplication1
                     Process p = new Process();
                     p.StartInfo.FileName = ".\\Hotel\\Reports\\Incentives.txt";
                     p.Start();
-                    ///STUFF HERE
                 }
                 else
                 {
@@ -144,7 +139,6 @@ namespace WindowsFormsApplication1
                 Process p = new Process();
                 p.StartInfo.FileName = ".\\Hotel\\Reports\\Incentives.txt";
                 p.Start();
-                //STUFF HERE
             }
 
         }
