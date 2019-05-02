@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.GboxNewRes = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCCard = new System.Windows.Forms.TextBox();
@@ -43,7 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSubmitRes = new System.Windows.Forms.Button();
-            this.btnGoPrnt = new System.Windows.Forms.Button();
             this.lblEndDate = new System.Windows.Forms.Label();
             this.calEndDate = new System.Windows.Forms.MonthCalendar();
             this.lblStartDate = new System.Windows.Forms.Label();
@@ -51,7 +51,6 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.GboxNewRes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +74,6 @@
             this.GboxNewRes.Controls.Add(this.label2);
             this.GboxNewRes.Controls.Add(this.label1);
             this.GboxNewRes.Controls.Add(this.btnSubmitRes);
-            this.GboxNewRes.Controls.Add(this.btnGoPrnt);
             this.GboxNewRes.Controls.Add(this.lblEndDate);
             this.GboxNewRes.Controls.Add(this.calEndDate);
             this.GboxNewRes.Controls.Add(this.lblStartDate);
@@ -94,6 +92,17 @@
             this.GboxNewRes.TabStop = false;
             this.GboxNewRes.Text = "Reservation Info";
             this.GboxNewRes.Enter += new System.EventHandler(this.gboxNewRes_Enter);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(98, 311);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(69, 20);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "label10";
             // 
             // label9
             // 
@@ -192,7 +201,7 @@
             this.btnDoneNewRes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDoneNewRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDoneNewRes.ForeColor = System.Drawing.Color.Black;
-            this.btnDoneNewRes.Location = new System.Drawing.Point(820, 183);
+            this.btnDoneNewRes.Location = new System.Drawing.Point(820, 151);
             this.btnDoneNewRes.Margin = new System.Windows.Forms.Padding(4);
             this.btnDoneNewRes.Name = "btnDoneNewRes";
             this.btnDoneNewRes.Size = new System.Drawing.Size(107, 28);
@@ -262,21 +271,6 @@
             this.btnSubmitRes.Text = "Submit";
             this.btnSubmitRes.UseVisualStyleBackColor = true;
             this.btnSubmitRes.Click += new System.EventHandler(this.btnSubmitRes_Click);
-            // 
-            // btnGoPrnt
-            // 
-            this.btnGoPrnt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGoPrnt.Enabled = false;
-            this.btnGoPrnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGoPrnt.ForeColor = System.Drawing.Color.Black;
-            this.btnGoPrnt.Location = new System.Drawing.Point(820, 140);
-            this.btnGoPrnt.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGoPrnt.Name = "btnGoPrnt";
-            this.btnGoPrnt.Size = new System.Drawing.Size(107, 28);
-            this.btnGoPrnt.TabIndex = 13;
-            this.btnGoPrnt.Text = "Go to print";
-            this.btnGoPrnt.UseVisualStyleBackColor = true;
-            this.btnGoPrnt.Click += new System.EventHandler(this.btnGoPrnt_Click);
             // 
             // lblEndDate
             // 
@@ -350,17 +344,6 @@
             this.txtFirstName.TabIndex = 0;
             this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(98, 311);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(69, 20);
-            this.label10.TabIndex = 27;
-            this.label10.Text = "label10";
-            // 
             // CreateNewRes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -399,7 +382,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDoneNewRes;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnGoPrnt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label9;

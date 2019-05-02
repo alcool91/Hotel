@@ -43,6 +43,7 @@
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.GboxNewRes = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -55,7 +56,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.btnSubmitRes = new System.Windows.Forms.Button();
-            this.btnGoPrnt = new System.Windows.Forms.Button();
             this.lblEndDate = new System.Windows.Forms.Label();
             this.calEndDate = new System.Windows.Forms.MonthCalendar();
             this.lblStartDate = new System.Windows.Forms.Label();
@@ -63,7 +63,6 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.GboxNewRes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -245,7 +244,6 @@
             this.GboxNewRes.Controls.Add(this.label16);
             this.GboxNewRes.Controls.Add(this.label17);
             this.GboxNewRes.Controls.Add(this.btnSubmitRes);
-            this.GboxNewRes.Controls.Add(this.btnGoPrnt);
             this.GboxNewRes.Controls.Add(this.lblEndDate);
             this.GboxNewRes.Controls.Add(this.calEndDate);
             this.GboxNewRes.Controls.Add(this.lblStartDate);
@@ -264,6 +262,17 @@
             this.GboxNewRes.TabStop = false;
             this.GboxNewRes.Text = "Modifiy Info";
             this.GboxNewRes.Enter += new System.EventHandler(this.GboxNewRes_Enter);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(100, 305);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(69, 20);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "label12";
             // 
             // label6
             // 
@@ -338,7 +347,7 @@
             this.btnDoneNewRes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDoneNewRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDoneNewRes.ForeColor = System.Drawing.Color.Black;
-            this.btnDoneNewRes.Location = new System.Drawing.Point(838, 148);
+            this.btnDoneNewRes.Location = new System.Drawing.Point(838, 112);
             this.btnDoneNewRes.Margin = new System.Windows.Forms.Padding(4);
             this.btnDoneNewRes.Name = "btnDoneNewRes";
             this.btnDoneNewRes.Size = new System.Drawing.Size(107, 28);
@@ -408,21 +417,6 @@
             this.btnSubmitRes.Text = "Submit";
             this.btnSubmitRes.UseVisualStyleBackColor = true;
             this.btnSubmitRes.Click += new System.EventHandler(this.btnSubmitRes_Click);
-            // 
-            // btnGoPrnt
-            // 
-            this.btnGoPrnt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGoPrnt.Enabled = false;
-            this.btnGoPrnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGoPrnt.ForeColor = System.Drawing.Color.Black;
-            this.btnGoPrnt.Location = new System.Drawing.Point(838, 104);
-            this.btnGoPrnt.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGoPrnt.Name = "btnGoPrnt";
-            this.btnGoPrnt.Size = new System.Drawing.Size(107, 28);
-            this.btnGoPrnt.TabIndex = 13;
-            this.btnGoPrnt.Text = "Go to print";
-            this.btnGoPrnt.UseVisualStyleBackColor = true;
-            this.btnGoPrnt.Click += new System.EventHandler(this.btnGoPrnt_Click);
             // 
             // lblEndDate
             // 
@@ -495,17 +489,6 @@
             this.textBox5.TabIndex = 0;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(100, 305);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(69, 20);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "label12";
-            // 
             // ModifiyRes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -566,7 +549,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnSubmitRes;
-        private System.Windows.Forms.Button btnGoPrnt;
         private System.Windows.Forms.Label lblEndDate;
         private System.Windows.Forms.MonthCalendar calEndDate;
         private System.Windows.Forms.Label lblStartDate;
