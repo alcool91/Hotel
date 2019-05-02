@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,7 +69,17 @@ namespace WindowsFormsApplication1
             label14.Text = String.Format(search.getRoom().ToString());
             label12.Text = String.Format(search.getCost().ToString());
             label11.Text = String.Format(search.getNumNights().ToString());
-            label10.Text = String.Format(search.getStartDate());
+            label10.Text = String.Format(DateTime.ParseExact(search.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy"));
+            if(search.getDatePaid() == "NP")
+            {
+                label20.Text = "Unpaid";
+            }
+            else
+            {
+                label20.Text = String.Format(DateTime.ParseExact(search.getDatePaid(), "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy"));
+            }
+            
+            //label10.Text = String.Format(search.getStartDate());
         }
         private void btnBackF6_Click(object sender, EventArgs e)
         {
@@ -118,13 +129,9 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataController.cancelReservation(index);
+            DataController.cancelReservation(DataController.resList[index]);
         }
 
-        private void label10_Click_1(object sender, EventArgs e)
-        {
-            label10.Text = search.getStartDate();
-        }
 
         private void label17_Click(object sender, EventArgs e)
         {
@@ -161,6 +168,11 @@ namespace WindowsFormsApplication1
             index++;
             getRes();
             
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

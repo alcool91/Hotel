@@ -13,6 +13,7 @@ namespace WindowsFormsApplication1
     public partial class ResOpts : Form
     {
         static String name, phone;
+        static int room;
         public ResOpts()
         {
             InitializeComponent();

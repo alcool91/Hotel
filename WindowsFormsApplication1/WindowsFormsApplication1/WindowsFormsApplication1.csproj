@@ -88,12 +88,6 @@
     <Compile Include="CreateNewRes.Designer.cs">
       <DependentUpon>CreateNewRes.cs</DependentUpon>
     </Compile>
-    <Compile Include="ResType.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ResType.Designer.cs">
-      <DependentUpon>ResType.cs</DependentUpon>
-    </Compile>
     <Compile Include="SearchRes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,9 +131,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateNewRes.resx">
       <DependentUpon>CreateNewRes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ResType.resx">
-      <DependentUpon>ResType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchRes.resx">
       <DependentUpon>SearchRes.cs</DependentUpon>

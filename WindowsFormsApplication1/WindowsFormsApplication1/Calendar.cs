@@ -21,7 +21,8 @@ public class Calendar {
     {
         for(int i = 0; i < r.getNumNights(); i++)
         {
-            getDate(DateTime.ParseExact(r.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("MM/dd/yyyy")).addType(r.getType());
+            getDate(DateTime.ParseExact(r.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("yyyyMMdd")).addType(r.getType());
+            updateFile(DateTime.ParseExact(r.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("yyyyMMdd"));
         }
     }
 
@@ -29,7 +30,8 @@ public class Calendar {
     {
         for (int i = 0; i < r.getNumNights(); i++)
         {
-            getDate(DateTime.ParseExact(r.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("MM/dd/yyyy")).removeType(r.getType());
+            getDate(DateTime.ParseExact(r.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("yyyyMMdd")).removeType(r.getType());
+            updateFile(DateTime.ParseExact(r.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("yyyyMMdd"));
         }
     }
 
@@ -160,6 +162,7 @@ public class Calendar {
         }
         sw.Close();
         sr.Close();
+        
         File.Delete("../Calendar.txt");
         File.Move("../tempCalendar.txt", "../Calendar.txt");
         File.Delete("../tempCalendar.txt");
@@ -246,7 +249,7 @@ public class Calendar {
         {
             if(getDate(DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("yyyyMMdd")).getTotal() >= 45)
             {
-                returnValue += DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("MM/dd/yyyy\n");
+                returnValue += DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("yyyyMMdd\n");
             }
         }
         if(returnValue == "")
@@ -255,7 +258,7 @@ public class Calendar {
         }
         else
         {
-            return "The following dates are not available: " + returnValue;
+            return "Following dates unavailable: " + returnValue;
         }       
     }
 }

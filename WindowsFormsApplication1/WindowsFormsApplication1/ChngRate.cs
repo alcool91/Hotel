@@ -15,7 +15,8 @@ namespace WindowsFormsApplication1
         public ChngRate()
         {
             InitializeComponent();
-            lblSetRate.Text = "Set Rate: $" + DataController.calendar.getDate(dateChngRate.Value.ToString("yyyyMMdd")).getRate();
+            calEnd.MinDate = calStart.SelectionStart;
+            //lblSetRate.Text = "Set Rate: $" + DataController.calendar.getDate(dateChngRate.Value.ToString("yyyyMMdd")).getRate();
         }
 
         private void gboxChngRate_Enter(object sender, EventArgs e)
@@ -43,13 +44,21 @@ namespace WindowsFormsApplication1
             if (!string.IsNullOrWhiteSpace(txtChngRate.Text) || 
                 !double.TryParse(txtChngRate.Text, out parsedValue))
             {
-                DataController.calendar.setRates(dateChngRate.Value.ToString("yyyyMMdd"), 1, double.Parse(txtChngRate.Text));
-                lblSetRate.Text = "Set Rate: $" + txtChngRate.Text; //This new value for the label need to
-                                                               //be mapped to the same date that the new
-                                                               //base rate is mapped to.
-                lblSetRate.Refresh();
-                lblSubmitRate.Enabled = true;
-                btnSubmitRate.Enabled = false; //Submit button to be re-enabled when user selects a different date.
+                DateTime start = calStart.SelectionStart;
+                DateTime end = calEnd.SelectionStart;
+                int numDays = end.Subtract(start).Days + 1;
+                double newRate;
+                if(double.TryParse(txtChngRate.Text, out newRate))
+                {
+                    DataController.calendar.setRates(start.ToString("yyyyMMdd"), numDays, double.Parse(txtChngRate.Text));
+                    //lblSetRate.Text = "Set Rate: $" + txtChngRate.Text; //This new value for the label need to
+                    //be mapped to the same date that the new
+                    //base rate is mapped to.
+                    lblSetRate.Refresh();
+                    lblSubmitRate.Enabled = true;
+                    btnSubmitRate.Enabled = false; //Submit button to be re-enabled when user selects a different date.
+                }
+                
             }
             else
             {
@@ -60,6 +69,7 @@ namespace WindowsFormsApplication1
 
         }
 
+
         private void btnDone_Click(object sender, EventArgs e)
         {
             Hide();
@@ -67,6 +77,17 @@ namespace WindowsFormsApplication1
             empActs.FormClosed += (s, args) => Close();
             empActs.ShowDialog();
             empActs.Focus();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calStart_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            calEnd.MinDate = calStart.SelectionStart;
+            calEnd.SelectionStart = calStart.SelectionStart;
         }
     }
 }
