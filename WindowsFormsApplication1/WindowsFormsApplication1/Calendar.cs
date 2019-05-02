@@ -249,7 +249,7 @@ public class Calendar {
         {
             if(getDate(DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("yyyyMMdd")).getTotal() >= 45)
             {
-                returnValue += DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("yyyyMMdd\n");
+                returnValue += DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("MM/dd/yyyy ");
             }
         }
         if(returnValue == "")
@@ -258,7 +258,7 @@ public class Calendar {
         }
         else
         {
-            return "Following dates unavailable: " + returnValue;
+            return "The following dates unavailable: " + returnValue;
         }       
     }
 }

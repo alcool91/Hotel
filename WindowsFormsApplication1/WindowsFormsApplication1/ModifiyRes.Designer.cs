@@ -47,8 +47,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.calStartDate = new System.Windows.Forms.MonthCalendar();
             this.btnDoneNewRes = new System.Windows.Forms.Button();
@@ -65,7 +63,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.unavailLabel = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.GboxNewRes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,7 +96,7 @@
             // 
             this.txtCCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCCard.Location = new System.Drawing.Point(398, 506);
-            this.txtCCard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCCard.Margin = new System.Windows.Forms.Padding(4);
             this.txtCCard.Name = "txtCCard";
             this.txtCCard.Size = new System.Drawing.Size(428, 29);
             this.txtCCard.TabIndex = 30;
@@ -196,7 +194,7 @@
             // 
             this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Location = new System.Drawing.Point(693, 446);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(221, 29);
             this.txtPhone.TabIndex = 29;
@@ -205,7 +203,7 @@
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(207, 446);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(312, 29);
             this.txtEmail.TabIndex = 28;
@@ -214,7 +212,7 @@
             // 
             this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastName.Location = new System.Drawing.Point(642, 392);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(4);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(272, 29);
             this.txtLastName.TabIndex = 27;
@@ -224,7 +222,7 @@
             this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtFirstName.Location = new System.Drawing.Point(260, 397);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(199, 29);
             this.txtFirstName.TabIndex = 26;
@@ -234,13 +232,11 @@
             this.GboxNewRes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.GboxNewRes.Controls.Add(this.unavailLabel);
+            this.GboxNewRes.Controls.Add(this.label12);
             this.GboxNewRes.Controls.Add(this.label6);
             this.GboxNewRes.Controls.Add(this.label10);
             this.GboxNewRes.Controls.Add(this.textBox1);
             this.GboxNewRes.Controls.Add(this.label11);
-            this.GboxNewRes.Controls.Add(this.label12);
-            this.GboxNewRes.Controls.Add(this.comboBox2);
             this.GboxNewRes.Controls.Add(this.label13);
             this.GboxNewRes.Controls.Add(this.calStartDate);
             this.GboxNewRes.Controls.Add(this.btnDoneNewRes);
@@ -260,10 +256,10 @@
             this.GboxNewRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GboxNewRes.ForeColor = System.Drawing.Color.White;
             this.GboxNewRes.Location = new System.Drawing.Point(49, 32);
-            this.GboxNewRes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GboxNewRes.Margin = new System.Windows.Forms.Padding(4);
             this.GboxNewRes.Name = "GboxNewRes";
-            this.GboxNewRes.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.GboxNewRes.Size = new System.Drawing.Size(952, 638);
+            this.GboxNewRes.Padding = new System.Windows.Forms.Padding(4);
+            this.GboxNewRes.Size = new System.Drawing.Size(952, 600);
             this.GboxNewRes.TabIndex = 40;
             this.GboxNewRes.TabStop = false;
             this.GboxNewRes.Text = "Modifiy Info";
@@ -273,13 +269,12 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(598, 324);
+            this.label6.Location = new System.Drawing.Point(406, 341);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 20);
             this.label6.TabIndex = 25;
             this.label6.Text = "Cost";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label10
             // 
@@ -297,7 +292,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(375, 495);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(428, 29);
             this.textBox1.TabIndex = 5;
@@ -308,37 +303,12 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(514, 324);
+            this.label11.Location = new System.Drawing.Point(335, 341);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 20);
             this.label11.TabIndex = 24;
             this.label11.Text = "Cost:";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(129, 324);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(115, 20);
-            this.label12.TabIndex = 23;
-            this.label12.Text = "Reservation:";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(266, 319);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(223, 33);
-            this.comboBox2.TabIndex = 22;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -347,7 +317,7 @@
             this.label13.Enabled = false;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Lime;
-            this.label13.Location = new System.Drawing.Point(41, 548);
+            this.label13.Location = new System.Drawing.Point(29, 568);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(608, 18);
@@ -362,15 +332,14 @@
             this.calStartDate.MaxSelectionCount = 1;
             this.calStartDate.Name = "calStartDate";
             this.calStartDate.TabIndex = 7;
-            this.calStartDate.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calStartDate_DateChanged);
             // 
             // btnDoneNewRes
             // 
             this.btnDoneNewRes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDoneNewRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDoneNewRes.ForeColor = System.Drawing.Color.Black;
-            this.btnDoneNewRes.Location = new System.Drawing.Point(838, 186);
-            this.btnDoneNewRes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDoneNewRes.Location = new System.Drawing.Point(838, 148);
+            this.btnDoneNewRes.Margin = new System.Windows.Forms.Padding(4);
             this.btnDoneNewRes.Name = "btnDoneNewRes";
             this.btnDoneNewRes.Size = new System.Drawing.Size(107, 28);
             this.btnDoneNewRes.TabIndex = 20;
@@ -413,7 +382,6 @@
             this.label16.Size = new System.Drawing.Size(106, 20);
             this.label16.TabIndex = 16;
             this.label16.Text = "Last Name:";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // label17
             // 
@@ -426,15 +394,14 @@
             this.label17.Size = new System.Drawing.Size(108, 20);
             this.label17.TabIndex = 15;
             this.label17.Text = "First Name:";
-            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // btnSubmitRes
             // 
             this.btnSubmitRes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSubmitRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmitRes.ForeColor = System.Drawing.Color.Black;
-            this.btnSubmitRes.Location = new System.Drawing.Point(838, 98);
-            this.btnSubmitRes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmitRes.Location = new System.Drawing.Point(838, 60);
+            this.btnSubmitRes.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmitRes.Name = "btnSubmitRes";
             this.btnSubmitRes.Size = new System.Drawing.Size(107, 28);
             this.btnSubmitRes.TabIndex = 14;
@@ -448,8 +415,8 @@
             this.btnGoPrnt.Enabled = false;
             this.btnGoPrnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGoPrnt.ForeColor = System.Drawing.Color.Black;
-            this.btnGoPrnt.Location = new System.Drawing.Point(838, 142);
-            this.btnGoPrnt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGoPrnt.Location = new System.Drawing.Point(838, 104);
+            this.btnGoPrnt.Margin = new System.Windows.Forms.Padding(4);
             this.btnGoPrnt.Name = "btnGoPrnt";
             this.btnGoPrnt.Size = new System.Drawing.Size(107, 28);
             this.btnGoPrnt.TabIndex = 13;
@@ -475,7 +442,6 @@
             this.calEndDate.MaxSelectionCount = 1;
             this.calEndDate.Name = "calEndDate";
             this.calEndDate.TabIndex = 9;
-            this.calEndDate.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calEndDate_DateChanged);
             // 
             // lblStartDate
             // 
@@ -492,7 +458,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(670, 434);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(221, 29);
             this.textBox2.TabIndex = 4;
@@ -502,7 +468,7 @@
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(184, 434);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(312, 29);
             this.textBox3.TabIndex = 3;
@@ -512,7 +478,7 @@
             // 
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(619, 381);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(272, 29);
             this.textBox4.TabIndex = 2;
@@ -523,32 +489,29 @@
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textBox5.Location = new System.Drawing.Point(237, 386);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(199, 29);
             this.textBox5.TabIndex = 0;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
-            // unavailLabel
+            // label12
             // 
-            this.unavailLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.unavailLabel.AutoSize = true;
-            this.unavailLabel.Enabled = false;
-            this.unavailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unavailLabel.ForeColor = System.Drawing.Color.Lime;
-            this.unavailLabel.Location = new System.Drawing.Point(41, 566);
-            this.unavailLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.unavailLabel.Name = "unavailLabel";
-            this.unavailLabel.Size = new System.Drawing.Size(195, 18);
-            this.unavailLabel.TabIndex = 26;
-            this.unavailLabel.Text = "Following dates unavailable: ";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(100, 305);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(69, 20);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "label12";
             // 
             // ModifiyRes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1031, 638);
+            this.ClientSize = new System.Drawing.Size(1031, 658);
             this.Controls.Add(this.GboxNewRes);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
@@ -595,8 +558,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.MonthCalendar calStartDate;
         private System.Windows.Forms.Button btnDoneNewRes;
@@ -613,6 +574,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label unavailLabel;
+        private System.Windows.Forms.Label label12;
     }
 }

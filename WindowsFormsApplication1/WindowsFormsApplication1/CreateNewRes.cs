@@ -15,17 +15,26 @@ namespace WindowsFormsApplication1
     {
         double cost = 0;
         int room = 0, numNights = 0;
-        String paymentInfo = "N/A", fname = "N/A", lname = "N/A", type, email = "N/A", phone = "N/A", Edate, Sdate;
+        string unavailable;
+        String paymentInfo = "N/A", fname = "N/A", lname = "N/A", type, email = "N/A", phone = "N/A";
         DateTime start, end;
         public CreateNewRes()
         {
             InitializeComponent();
+            label10.Visible = false;
+            btnSubmitRes.Enabled = false;
             calStartDate.MinDate = DateTime.Today;
             start = calStartDate.SelectionStart;
-            Sdate = calStartDate.SelectionStart.ToString("yyyyMMdd");
+            unavailable = DataController.calendar.areDatesaAvailable(start.ToString("yyyyMMdd"), 1);
+            if (unavailable != "")
+            {
+                label10.Text = unavailable;
+                label10.Visible = true;
+                btnSubmitRes.Enabled = false;
+            }
             calEndDate.MinDate = DateTime.Today.AddDays(1);
             end = calEndDate.SelectionStart;
-            Edate = calEndDate.SelectionStart.ToString("yyyyMMdd");
+
             comboBox1.Items.Add("Conventional");
             txtCCard.Visible = false;
             txtLastName.Visible = false;
@@ -39,8 +48,6 @@ namespace WindowsFormsApplication1
             label3.Visible = false;
             label4.Visible = false;
             label5.Visible = false;
-
-
         }
 
         private void gboxNewRes_Enter(object sender, EventArgs e)
@@ -96,6 +103,8 @@ namespace WindowsFormsApplication1
             label2.Visible = true;
             label3.Visible = true;
             label4.Visible = true;
+            if(unavailable == "")
+                btnSubmitRes.Enabled = true;
 
             type = comboBox1.Text;
             if (type == "Pre-Paid (25% Discount)")
@@ -118,6 +127,7 @@ namespace WindowsFormsApplication1
             }
             else if (type == " ")
             {
+                btnSubmitRes.Enabled = false;
                 txtCCard.Visible = false;
                 txtLastName.Visible = false;
                 txtFirstName.Visible = false;
@@ -135,7 +145,7 @@ namespace WindowsFormsApplication1
             start = calStartDate.SelectionStart;
             end = calEndDate.SelectionStart;
             numNights = (end.Subtract(start)).Days;
-            cost = DataController.calendar.getCost(Sdate, numNights, type);
+            cost = DataController.calendar.getCost(start.ToString("yyyyMMdd"), numNights, type);
             label9.Text = cost.ToString();
             label9.Visible = true;
         }
@@ -160,26 +170,43 @@ namespace WindowsFormsApplication1
 
         private void calStartDate_DateChanged(object sender, DateRangeEventArgs e)
         {
+            label10.Visible = false;
             recreateTypeChoice();
             label9.Visible = false;
             start = calStartDate.SelectionStart;
             calEndDate.MinDate = start.AddDays(1);
-            calEndDate.SelectionStart = start.AddDays(1);
             end = calEndDate.SelectionStart;
-            Sdate =start.ToString("yyyyMMdd");
+            numNights = (end.Subtract(start)).Days;
+            unavailable = (DataController.calendar.areDatesaAvailable(start.ToString("yyyyMMdd"), numNights));
+            if (unavailable != "")
+            {
+                label10.Text = unavailable;
+                label10.Visible = true;
+                btnSubmitRes.Enabled = false;
+            }
         }
 
         private void calEndDate_DateChanged(object sender, DateRangeEventArgs e)
         {
-            Edate = calEndDate.SelectionRange.End.ToString("yyyyMMdd");
+            label10.Visible = false;
+            recreateTypeChoice();
+            start = calStartDate.SelectionRange.Start;
             end = calEndDate.SelectionRange.End;
-            if(comboBox1.Text != "")
+            numNights = (end.Subtract(start)).Days;
+            unavailable = (DataController.calendar.areDatesaAvailable(start.ToString("yyyyMMdd"), numNights));
+            if (unavailable != "")
+            {
+                label10.Text = unavailable;
+                label10.Visible = true;
+                btnSubmitRes.Enabled = false;
+            } /*else if (comboBox1.Text != "")
             {
                 numNights = (end.Subtract(start)).Days;                
-                cost = DataController.calendar.getCost(Sdate, numNights, type);
+                cost = DataController.calendar.getCost(start.ToString("yyyyMMdd"), numNights, type);
                 label9.Text = cost.ToString();
                 label9.Enabled = true;
-            }
+                //btnSubmitRes.Enabled = true;
+            }*/
         }
 
         private void btnSubmitRes_Click(object sender, EventArgs e) //This btn will save the reservation.
@@ -205,9 +232,9 @@ namespace WindowsFormsApplication1
                 name = fname + " " + lname;
 
                 //cost = DataController.calendar.getCost(Sdate, numNights, type);
-                numNights = (end.Subtract(start)).Days;
-                label6.Enabled = true;
-                cost = DataController.calendar.getCost(Sdate, numNights, type);
+                //numNights = (end.Subtract(start)).Days;
+                
+                cost = DataController.calendar.getCost(start.ToString("yyyyMMdd"), numNights, type);
                 //String sdateString = Sdate.ToString("yyyyMMdd");
                 btnSubmitRes.Enabled = false;
 
@@ -217,7 +244,9 @@ namespace WindowsFormsApplication1
                 "Confirm Payment...", MessageBoxButtons.YesNo);
                     if (chargeCard == DialogResult.Yes)
                     {
-                        DataController.createReservation(paymentInfo, cost, Sdate, numNights, room, name, phone, type, email, DateTime.Today.ToString("yyyyMMdd"));
+                        DataController.createReservation(paymentInfo, cost, start.ToString("yyyyMMdd"), numNights, room, name, phone, type, email, DateTime.Today.ToString("yyyyMMdd"));
+                        label6.Enabled = true;
+                        disableScreen();
                         //exit();
                     }
                     else
@@ -227,14 +256,30 @@ namespace WindowsFormsApplication1
                 }
                 else
                 {
-                    DataController.createReservation(paymentInfo, cost, Sdate, numNights, room, name, phone, type, email, "NP");
-                    exit();
+                    DataController.createReservation(paymentInfo, cost, start.ToString("yyyyMMdd"), numNights, room, name, phone, type, email, "NP");
+                    label6.Enabled = true;
+                    disableScreen();
+                    //exit();
                 }
             }
             else if (submit == DialogResult.No)
             {
 
             }
+        }
+
+        private void disableScreen()
+        {
+            btnSubmitRes.Enabled = false;
+            calStartDate.Enabled = false;
+            calEndDate.Enabled = false;
+            txtFirstName.Enabled = false;
+            txtLastName.Enabled = false;
+            txtEmail.Enabled = false;
+            txtPhone.Enabled = false;
+            txtCCard.Enabled = false;
+            comboBox1.Enabled = false;
+            btnSubmitRes.Enabled = false;
         }
 
         private void exit() // Closes Window

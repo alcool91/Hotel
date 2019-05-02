@@ -18,18 +18,9 @@ namespace WindowsFormsApplication1
         static Reservation search;
         public SearchRes()
         {
-            getRes();
             InitializeComponent();
-            label17.Text = search.getName();
-            label16.Text = search.getPhone();
-            label18.Text = search.getEmail();
-            label15.Text = search.getPayment();
-            label13.Text = search.getType();
-            label14.Text = search.getRoom().ToString();
-            label12.Text = search.getCost().ToString();
-            label11.Text = search.getNumNights().ToString();
-            label10.Text = search.getStartDate();
-
+            getRes();
+            setRes();
         }
         public void getRes()
         {
@@ -60,7 +51,7 @@ namespace WindowsFormsApplication1
         }
         public void setRes()
         {
-            InitializeComponent();
+            //InitializeComponent();
             label17.Text = String.Format(search.getName());
             label16.Text = String.Format(search.getPhone());
             label18.Text = String.Format(search.getEmail());
@@ -72,11 +63,11 @@ namespace WindowsFormsApplication1
             label10.Text = String.Format(DateTime.ParseExact(search.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy"));
             if (search.getDatePaid() == "NP")
             {
-                label20.Text = "Unpaid";
+                label22.Text = "Unpaid";
             }
             else
             {
-                label20.Text = String.Format(DateTime.ParseExact(search.getDatePaid(), "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy"));
+                label22.Text = String.Format(DateTime.ParseExact(search.getDatePaid(), "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy"));
             }
 
             //label10.Text = String.Format(search.getStartDate());
@@ -101,35 +92,9 @@ namespace WindowsFormsApplication1
             resOpts.Focus();
         }
 
-        private void txtSearchRes_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult submit = MessageBox.Show("Is the information you entered correct? ",
+            DialogResult submit = MessageBox.Show("Are you sure you want to cancel? ",
                 "Confirm Your Reservation...", MessageBoxButtons.YesNo);
             if (submit == DialogResult.Yes)
             {
@@ -152,66 +117,12 @@ namespace WindowsFormsApplication1
 
         }
 
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label18_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             index++;
             getRes();
+            setRes();
+        }   
 
-        }
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label20_Click(object sender, EventArgs e)
-        {
-
-        }
-        
     }
 }
