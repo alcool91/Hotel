@@ -73,7 +73,24 @@ namespace WindowsFormsApplication1
             label16.Text = String.Format(search.getPhone());
             label18.Text = String.Format(search.getEmail());
             label15.Text = String.Format(search.getPayment());
-            label13.Text = String.Format(search.getType());
+            string type = String.Format(search.getType());
+            if(type == "p")
+            {
+                label13.Text = "Pre-Pay";
+            }
+            if (type == "s")
+            {
+                label13.Text = "Sixty Day";
+            }
+            if (type == "c")
+            {
+
+                label13.Text = "Conventional";
+            }
+            if (type == "i")
+            {
+                label13.Text = "Incentive";
+            }
             label14.Text = String.Format(search.getRoom().ToString());
             label12.Text = String.Format(search.getCost().ToString());
             label11.Text = String.Format(search.getNumNights().ToString());
@@ -167,6 +184,10 @@ namespace WindowsFormsApplication1
             setRes();
         }
 
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
             int room = DataController.assignRoom(search);
@@ -185,7 +206,7 @@ namespace WindowsFormsApplication1
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
             int room = search.getRoom();
-            if(search.getDatePaid() == "NP")
+            if (search.getDatePaid() == "NP")
             {
                 DialogResult chargeCard = MessageBox.Show("To check out you must charge " + search.getName() + ", card number " + search.getPayment() + " $" + search.getCost() + ". click YES to confirm payment, or NO to go back to view screen.",
                 "Confirm Payment...", MessageBoxButtons.YesNo);

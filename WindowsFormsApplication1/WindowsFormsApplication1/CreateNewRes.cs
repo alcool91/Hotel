@@ -249,6 +249,11 @@ namespace WindowsFormsApplication1
                         label6.Enabled = true;
                         disableScreen();
                         //exit();
+                        Hide();
+                        ResOpts resOpts = new ResOpts();
+                        resOpts.FormClosed += (s, args) => Close();
+                        resOpts.ShowDialog();
+                        resOpts.Focus();
                     }
                     else
                     {
