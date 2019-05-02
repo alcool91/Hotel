@@ -1,0 +1,8 @@
+Accommodation Bill:
+Date Printed: 05/02/2019
+Guest Name: bread w
+Room #1
+Arrival: 05/02/2019
+Departure: 05/16/2019
+Number of Nights: 14
+Total cost: 11200

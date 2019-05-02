@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 
@@ -60,7 +61,6 @@ public class Report {
     public static void getIncentives()
     {
         StreamWriter sw = new StreamWriter(".\\Hotel\\Reports\\Incentives.txt");
-        //int incentives = 0;
         double average = 0;
         sw.WriteLine("Incentive discount for each night:");
         for (int i = 0; i < 30; i++)
@@ -75,6 +75,58 @@ public class Report {
         sw.Close();
     }
 
-    
+    public static void getDailyArrivals()
+    {
+        StreamWriter sw = new StreamWriter(".\\Hotel\\Reports\\DailyArrivals.txt");
+        sw.WriteLine("Arriving Today:");
+        SortedList<string, Reservation> checkIns = new SortedList<string, Reservation>();
+        Reservation outVal;
+        foreach(Reservation r in DataController.resList)
+        {
+            string s = r.getName();
+            if(DateTime.Today.ToString("yyyyMMdd") == r.getStartDate())
+            {
+                while(checkIns.TryGetValue(s, out outVal)){
+                    s += "|";
+                }
+                checkIns.Add(s, r);
+            }
+        }
+        foreach(Reservation r in checkIns.Values)
+        {
+            sw.WriteLine(r.getName() + " " + r.getType() + " " + r.getRoom() + " " + DateTime.ParseExact(r.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(r.getNumNights()).ToString("MM/dd/yyyy"));
+        }
+        sw.Close();
+    }
+
+    public static void getDailyOccupancy()
+    {
+        StreamWriter sw = new StreamWriter(".\\Hotel\\Reports\\DailyOccupancy.txt");
+        sw.WriteLine("Current Guests:");
+        
+        foreach (Reservation r in DataController.rooms.Values)
+        {
+           if(DateTime.Today.ToString("yyyyMMdd") == DateTime.ParseExact(r.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(r.getNumNights()).ToString("yyyyMMdd"))
+            {
+                sw.WriteLine(r.getRoom() + " *" + r.getName() + " " + DateTime.ParseExact(r.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(r.getNumNights()).ToString("MM/dd/yyyy"));
+            }
+        }
+        sw.Close();
+    }
+    public static void printBill(Reservation r)
+    {
+        StreamWriter sw = new StreamWriter(".\\Hotel\\Reports\\DailyOccupancy.txt");
+        sw.WriteLine("Accommodation Bill:");
+        sw.WriteLine("Date Printed: " + DateTime.Today.ToString("MM/dd/yyyy"));
+        sw.WriteLine("Guest Name: " + r.getName());
+        sw.WriteLine("Room #" + r.getRoom());
+        sw.WriteLine("Arrival: " + DateTime.ParseExact(r.getStartDate(), "yyyyMMdd",CultureInfo.InvariantCulture).ToString("MM/dd/yyyy"));
+        sw.WriteLine("Departure: " + DateTime.ParseExact(r.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(r.getNumNights()).ToString("MM/dd/yyyy"));
+        sw.WriteLine("Number of Nights: " + r.getNumNights());
+        sw.WriteLine("Total cost: " + r.getCost());
+        sw.Close();
+    }
+
+
 }
 

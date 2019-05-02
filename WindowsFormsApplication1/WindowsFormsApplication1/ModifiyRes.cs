@@ -145,6 +145,7 @@ namespace WindowsFormsApplication1
                         if (chargeCard == DialogResult.Yes)
                         {
                             Reservation newRes = new Reservation(paymentInfo, cost, start.ToString("yyyyMMdd"), numNights, room, name, phone, type, email, DateTime.Today.ToString("yyyyMMdd"));
+                            DataController.addToRecord(name + ", card number " + paymentInfo + "charged $" + cost + ".");
                             DataController.modifyReservation(Mod, newRes);
                             disableScreen();
                             //exit();

@@ -245,6 +245,7 @@ namespace WindowsFormsApplication1
                     if (chargeCard == DialogResult.Yes)
                     {
                         DataController.createReservation(paymentInfo, cost, start.ToString("yyyyMMdd"), numNights, room, name, phone, type, email, DateTime.Today.ToString("yyyyMMdd"));
+                        DataController.addToRecord(name + ", card number " + paymentInfo + "charged $" + cost + ".");
                         label6.Enabled = true;
                         disableScreen();
                         //exit();

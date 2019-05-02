@@ -151,42 +151,21 @@ namespace WindowsFormsApplication1
 
         private void btnDayOccRep_Click(object sender, EventArgs e)
         {
-            if (!DataController.isManager)
-            {
-                managerLogin.ShowDialog();
-                managerLogin.Focus();
-
-            }
-            else
-            {
-                //Hide();
-                //chngRate.FormClosed += (s, args) => Close();
-                //chngRate.ShowDialog();
-                //chngRate.Focus();
-            }
-
-
+            Report.getDailyArrivals();
+            Process p = new Process();
+            p.StartInfo.FileName = ".\\Hotel\\Reports\\DailyArrivals.txt";
+            p.Start();
         }
 
         private void btnDayArrRep_Click(object sender, EventArgs e)
         {
-            if (!DataController.isManager)
-            {
-                managerLogin.ShowDialog();
-                managerLogin.Focus();
-
-            }
-            else
-            {
-                //Hide();
-                //chngRate.FormClosed += (s, args) => Close();
-                //chngRate.ShowDialog();
-                //chngRate.Focus();
-            }
-
-
+            Report.getDailyOccupancy();
+            Process p = new Process();
+            p.StartInfo.FileName = ".\\Hotel\\Reports\\DailyOccupancy.txt";
+            p.Start();
         }
-
+       
+        
        private void btnChngRate_Click(object sender, EventArgs e)
         {
             if (!DataController.isManager)

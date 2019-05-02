@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -114,12 +115,42 @@ namespace WindowsFormsApplication1
                 "Confirm Cancellation...", MessageBoxButtons.YesNo);
             if (submit == DialogResult.Yes)
             {
-                DataController.cancelReservation(DataController.resList[index]);
-                Hide();
-                ResOpts resOpts = new ResOpts();
-                resOpts.FormClosed += (s, args) => Close();
-                resOpts.ShowDialog();
-                resOpts.Focus();
+                if((search.getType() == "c" || search.getType() == "i") && search.getDatePaid() == "NP" && DateTime.ParseExact(search.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture) < DateTime.Today.AddDays(3))
+                {
+                    DialogResult chargeCard = MessageBox.Show("To cancel you must charge " + search.getName() + " for the first night, card number " + search.getPayment() + " $" + search.getCost()/search.getNumNights() + ". click YES to confirm payment, or NO to go back to view screen.",
+                "Confirm Payment...", MessageBoxButtons.YesNo);
+                    if (chargeCard == DialogResult.Yes)
+                    {
+                        Reservation newRes = new Reservation(search.getPayment(), search.getCost(), search.getStartDate(), search.getNumNights(), search.getRoom(), search.getName(), search.getPhone(), search.getType(), search.getEmail(), DateTime.Today.ToString("yyyyMMdd"));
+                        DataController.addToRecord(search.getName() + ", card number " + search.getPayment() + "charged $" + search.getCost()/search.getNumNights() + ".");
+                        DataController.modifyReservation(search, newRes);
+                        DataController.cancelReservation(newRes);
+                        DialogResult submit2 = MessageBox.Show("Successfully cancelled.",
+                    "Cancelled", MessageBoxButtons.OK);
+                        if (submit2 == DialogResult.OK)
+                        {
+                            Hide();
+                            ResOpts resOpts1 = new ResOpts();
+                            resOpts1.FormClosed += (s, args) => Close();
+                            resOpts1.ShowDialog();
+                            resOpts1.Focus();
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+                    DataController.cancelReservation(DataController.resList[index]);
+                    Hide();
+                    ResOpts resOpts = new ResOpts();
+                    resOpts.FormClosed += (s, args) => Close();
+                    resOpts.ShowDialog();
+                    resOpts.Focus();
+                }
+                
             }
             if (submit == DialogResult.No)
             {
@@ -163,8 +194,12 @@ namespace WindowsFormsApplication1
                 "Confirm Payment...", MessageBoxButtons.YesNo);
                 if (chargeCard == DialogResult.Yes)
                 {
-                    search.setDatePaid(DateTime.Today.ToString("yyyyMMdd"));
                     Reservation newRes = new Reservation(search.getPayment(), search.getCost(), search.getStartDate(), search.getNumNights(), search.getRoom(), search.getName(), search.getPhone(), search.getType(), search.getEmail(), DateTime.Today.ToString("yyyyMMdd"));
+                    DataController.addToRecord(search.getName() + ", card number " + search.getPayment() + "charged $" + search.getCost() + ".");
+                    Report.printBill(search);
+                    Process p = new Process();
+                    p.StartInfo.FileName = ".\\Hotel\\Reports\\DailyOccupancy.txt";
+                    p.Start();
                     DataController.modifyReservation(search, newRes);
                     DataController.checkOut(room, newRes);
                     DialogResult submit = MessageBox.Show("Successfully checked out.",
@@ -185,6 +220,10 @@ namespace WindowsFormsApplication1
             }
             else
             {
+                Report.printBill(search);
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\Hotel\\Reports\\DailyOccupancy.txt";
+                p.Start();
                 DataController.checkOut(room, search);
                 DialogResult submit = MessageBox.Show("Successfully checked out.",
             "Checked Out", MessageBoxButtons.OK);
