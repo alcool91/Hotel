@@ -46,6 +46,8 @@ namespace WindowsFormsApplication1
         private void btnSearchRes_Click(object sender, EventArgs e)
         {
             Hide();
+            name = txtSearchRes.Text;
+            DataController.storeIndex(-1);
             DataController.getSearchInfo(name, phone);
             SearchRes searchRes = new SearchRes();
             searchRes.FormClosed += (s, args) => Close();
@@ -56,7 +58,8 @@ namespace WindowsFormsApplication1
 
         private void txtSearchRes_TextChanged(object sender, EventArgs e)
         {
-            name = txtSearchRes.Text;
+            //name = txtSearchRes.Text;
+            //DataController.storeIndex(0);
         }
 
         private void label2_Click(object sender, EventArgs e)

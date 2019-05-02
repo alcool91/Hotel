@@ -172,14 +172,17 @@ public class DataController
         } 
 
     }
+
     public static void storeIndex(int x)
     {
         modIndex = x;
     }
+
     public static void modReservation(int index, Reservation X)
     {
         resList[index] = X;
     }
+
     public static void addToRecord(string s)
     {
         StreamWriter sw = new StreamWriter("../recordData.txt", true);

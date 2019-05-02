@@ -13,9 +13,9 @@ namespace WindowsFormsApplication1
 {
     public partial class SearchRes : Form
     {
-        static String setname;
-        static int index = 0;
-        static Reservation search;
+        String setname;
+        int index = 0;
+        Reservation search;
         public SearchRes()
         {
             InitializeComponent();
@@ -95,7 +95,7 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             DialogResult submit = MessageBox.Show("Are you sure you want to cancel? ",
-                "Confirm Your Reservation...", MessageBoxButtons.YesNo);
+                "Confirm Cancellation...", MessageBoxButtons.YesNo);
             if (submit == DialogResult.Yes)
             {
                 DataController.cancelReservation(DataController.resList[index]);
