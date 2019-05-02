@@ -25,7 +25,6 @@ C:\Users\kling\Documents\GitHub\Hotel\WindowsFormsApplication1\WindowsFormsAppli
 C:\Users\kling\Documents\GitHub\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.HomeScreen.resources
 C:\Users\kling\Documents\GitHub\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ResOpts.resources
 C:\Users\kling\Documents\GitHub\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.CreateNewRes.resources
-C:\Users\kling\Documents\GitHub\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ResType.resources
 C:\Users\kling\Documents\GitHub\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.SearchRes.resources
 C:\Users\kling\Documents\GitHub\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.EmpActs.resources
 C:\Users\kling\Documents\GitHub\Hotel\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ChngRate.resources

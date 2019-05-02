@@ -213,7 +213,7 @@ public class DataController
         for (int i = index; i<resList.Count; i++)
         {
             
-            if (resList[i].getName().ToUpper() == name.ToUpper())
+            if (resList[i].getName().ToUpper().Contains(name.ToUpper()))
             {
                 index = i;
                 return index;
