@@ -118,7 +118,26 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataController.cancelReservation(index);
+            DialogResult submit = MessageBox.Show("Is the information you entered correct? ",
+                "Confirm Your Reservation...", MessageBoxButtons.YesNo);
+            if (submit == DialogResult.Yes)
+            {
+                DataController.cancelReservation(index);
+                Hide();
+                ResOpts resOpts = new ResOpts();
+                resOpts.FormClosed += (s, args) => Close();
+                resOpts.ShowDialog();
+                resOpts.Focus();
+            }
+            if (submit == DialogResult.No)
+            {
+                Hide();
+               SearchRes resOpts = new SearchRes();
+                resOpts.FormClosed += (s, args) => Close();
+                resOpts.ShowDialog();
+                resOpts.Focus();
+            }
+                
         }
 
         private void label10_Click_1(object sender, EventArgs e)
@@ -161,6 +180,26 @@ namespace WindowsFormsApplication1
             index++;
             getRes();
             
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

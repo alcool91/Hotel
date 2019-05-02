@@ -46,7 +46,7 @@ public class DataController
         {
             if (r.getRoom() != 0)
             {
-                rooms.Add(r.getRoom(), r);
+               // rooms.Add(r.getRoom(), r);
             }
         }
         
