@@ -47,29 +47,39 @@ public class DataController
         {
             if (r.getRoom() != 0)
             {
-               // rooms.Add(r.getRoom(), r);
+               rooms.Add(r.getRoom(), r);
             }
         }
-        
-        for (int j = 0; j < resList.Count; j++)
+    }
+
+    public static int assignRoom(Reservation r)
+    {
+        int i = 1;
+        while (i < 46)
         {
-            if (resList[j].getStartDate() == DateTime.Today.ToString("yyyyMMdd") && resList[j].getRoom() == 0)
+            Reservation value;
+            if(!rooms.TryGetValue(i, out value))
             {
-                int i = 1;
-                Reservation value;
-                while (rooms.TryGetValue(i, out value) && i < 46)
-                {
-                    i = i + 1;
-                }
-
-
-                value = new Reservation(resList[j].getPayment(), resList[j].getCost(), resList[j].getStartDate(), resList[j].getNumNights(), 
-                    i, resList[j].getName(), resList[j].getPhone(), resList[j].getType(), resList[j].getEmail(), resList[j].getDatePaid());
-                modifyReservation(resList[j], value);
-                rooms.Add(i, value);
-
+                value = new Reservation(r.getPayment(), r.getCost(), r.getStartDate(), r.getNumNights(),
+                    i, r.getName(), r.getPhone(), r.getType(), r.getEmail(), r.getDatePaid());
+                modifyReservation(r, value);
+                rooms.Add(i, r);
+                return i;
+            }
+            else
+            {
+                i++;
             }
         }
+        return 0;
+    }
+
+    public static void checkOut(int room, Reservation r)
+    {
+        rooms.Remove(room);
+        deleteFromFile(r);
+        addToRecord("Checked Out Reservation: " + r.toString());
+        resList.Remove(r);
     }
 
     public static void modifyReservation(Reservation r1, Reservation r2)
@@ -285,7 +295,5 @@ public class DataController
             } while ((line = sr.ReadLine()) != null);
             return false;
         }
-    }
-
-    
+    }   
 }
