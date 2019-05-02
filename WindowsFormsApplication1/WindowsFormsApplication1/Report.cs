@@ -1,8 +1,9 @@
 ﻿
 using System;
+using System.Globalization;
 
 public class Report {
-    string output;
+    static string output;
 
 
     public Report() {
@@ -11,34 +12,47 @@ public class Report {
 
     //public Report(Date[] dates, Reservation[] reservations, string s)
     //{
-        //if(s == "expectedOccupancy")
-        //{
-            //expectedOccupancy();
-        //}
+    //if(s == "expectedOccupancy")
+    //{
+    //expectedOccupancy();
+    //}
 
 
     //}
 
-    string getExpectedOccupancy(Date[] dates)
+    public static string getExpectedOccupancy(string startDate, int numNights)
     {
-        DateTime currentDate;
         double average = 0;
-        output = "";
-        output += "Date\tPrepaid\tSixty Day\tConventional\tIncentive\n";
-        for (int i = 1; i < 31; i++)
+        string output = "";
+        output += "Date\t\tPrepaid\t\tSixty Day\tConventional\tIncentive\tTotal";
+        for (int i = 0; i < numNights; i++)
         {  // Gets data for each day for next 30 days
-            average += dates[i].getTotal();
-            output += DateTime.Now.ToString("yyyymmdd") + "\t" + dates[i].getPrepaid() + "\t" + dates[i].getSixty()
-                + "\t" + dates[i].getConventional() + "\t" + dates[i].getIncentive() + "\t" + dates[i].getTotal() + "\n";
-            DateTime.TryParse(output,out currentDate);
+            Date d = DataController.calendar.getDate(DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("yyyyMMdd"));
+            average += d.getTotal();
+            output += "\n" + DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("MM/dd/yyyy") + "\t" + d.getPrepaid() + "\t\t" + d.getSixty()
+                + "\t\t" + d.getConventional() + "\t\t" + d.getIncentive() + "\t\t" + d.getTotal();
         }
-        output += "Average expected occupancy: " + 100 * (average / 30) + "%";
+        output += "\nAverage expected occupancy: " + string.Format("{0:.###}", 100 * DataController.calendar.getOccupancyRate(startDate, numNights))  + "%";
         return output;
     }
 
-    string getExpectedIncome(Reservation[] reservations)
+    public static string getExpectedIncome()
     {
-        return "";
+        DateTime today = DateTime.Today;
+        DateTime lastDay = today.AddDays(30);
+        string returnValue = "Expected Income:\n";
+        double[] nights = new double[30];
+        double total = 0;
+        for(int i = 0; i < 30; i++)
+        {
+            Date currentDay = DataController.calendar.getDate(today.AddDays(i).ToString("yyyyMMdd"));
+            double rate = currentDay.getRate();
+            nights[i] = currentDay.getRate() * (0.75 * currentDay.getPrepaid() + 0.85 * currentDay.getSixty() + 0.8 * currentDay.getIncentive() + currentDay.getConventional());
+            total += nights[i];
+            returnValue += today.AddDays(i).ToString("MM/dd/yyyy") + ":\t" + nights[i] + "\n";
+        }
+        returnValue += "Total expected income over next 30 days: " + total;
+        return returnValue;
     }
 
     

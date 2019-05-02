@@ -4,6 +4,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Mail;
+using System.Globalization;
 
 public class DataController
 {
@@ -33,8 +34,8 @@ public class DataController
             lineNum++;
             if (sr.ReadLine() == "#") // If there's a problem with file formatting, this gets it back on track
             {  
-                createReservation(sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), lineNum);
-                lineNum += 9;
+                createReservation(sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), lineNum);
+                lineNum += 10;
             }  
         }
         sr.Close();
@@ -50,22 +51,23 @@ public class DataController
             }
         }
         
-        foreach (Reservation r in resList)
-        {  
-            if (r.getStartDate() == DateTime.Today.ToString("yyyyMMdd") && r.getRoom() == 0)
+        for (int j = 0; j < resList.Count; j++)
+        {
+            if (resList[j].getStartDate() == DateTime.Today.ToString("yyyyMMdd") && resList[j].getRoom() == 0)
             {
                 int i = 1;
                 Reservation value;
-                while(rooms.TryGetValue(i, out value) && i < 46)
+                while (rooms.TryGetValue(i, out value) && i < 46)
                 {
-                    i = i + 1 ;
+                    i = i + 1;
                 }
-                
-                
-                value = new Reservation(r.getPayment(), r.getCost(), r.getStartDate(), r.getNumNights(), i, r.getName(), r.getPhone(), r.getType(), r.getEmail());
-                modifyReservation(r, value);
+
+
+                value = new Reservation(resList[j].getPayment(), resList[j].getCost(), resList[j].getStartDate(), resList[j].getNumNights(), 
+                    i, resList[j].getName(), resList[j].getPhone(), resList[j].getType(), resList[j].getEmail(), resList[j].getDatePaid());
+                modifyReservation(resList[j], value);
                 rooms.Add(i, value);
-                
+
             }
         }
     }
@@ -89,7 +91,7 @@ public class DataController
             if (!isDeleted && sr.Peek() == '#') // Keep looking for the matching reservation.
             {
                 sr.ReadLine();
-                Reservation compare = new Reservation(sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine());
+                Reservation compare = new Reservation(sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine(), sr.ReadLine());
                 if (r.equals(compare))
                 {
                     isDeleted = true; // Doesn't print current reservation
@@ -106,15 +108,21 @@ public class DataController
                     sw.WriteLine(compare.getPhone());
                     sw.WriteLine(compare.getType());
                     sw.WriteLine(compare.getEmail());
+                    sw.WriteLine(compare.getDatePaid());
                 }
             }
-            sw.WriteLine(sr.ReadLine()); // Writes the rest one line at a time
+            else
+            {
+                sw.WriteLine(sr.ReadLine()); // Writes the rest one line at a time
+            }
+            
         }
         sr.Close();
         sw.Close();
         File.Delete("../Reservations.txt");
         File.Move("../tempReservations.txt", "../Reservations.txt");
         File.Delete("../tempReservations.txt");
+        calendar.removeReservation(r);
     }
 
     public static void writeReservation(Reservation r) // Writes reservation to end of file
@@ -130,27 +138,31 @@ public class DataController
         sw.WriteLine(r.getPhone());
         sw.WriteLine(r.getType());
         sw.WriteLine(r.getEmail());
+        sw.WriteLine(r.getDatePaid());
         sw.Close();
+        calendar.addReservation(r);
     }
 
-    public static void createReservation(string paymentInfo, double cost, string date, int numNights, int room, string name,  string phone, string type, string email)
+    public static void createReservation(string paymentInfo, double cost, string date, int numNights, int room, string name,  string phone, string type, string email, string datePaid)
     {
-        Reservation newRes = new Reservation(paymentInfo, cost, date, numNights, room, name, phone, type, email);
+        if (type == "c" && calendar.getOccupancyRate(date, numNights) <= 0.6)  // Changes type to incentive if it's conventional and less than 60% occupied
+            type = "i";
+        Reservation newRes = new Reservation(paymentInfo, cost, date, numNights, room, name, phone, type, email, datePaid);
         resList.Add(newRes);
         writeReservation(newRes);
         addToRecord("Created Reservation: " + newRes.toString());     
     }
 
-    public static void createReservation(string paymentInfo, string cost, string date, string numNights, string room, string name, string phone, string type, string email, long lineNum)
+    public static void createReservation(string paymentInfo, string cost, string date, string numNights, string room, string name, string phone, string type, string email, string datePaid, long lineNum)
     {
         if (paymentInfo == "#" || cost == "#" || date == "#" || numNights == "#" || room == "#" // Makes sure importing from file doesn't have an obvious issue
-            || name == "#" || phone == "#" || type == "#" || email == "#")
+            || name == "#" || phone == "#" || type == "#" || email == "#" || datePaid == "#")
         {
             addToRecord("Encountered an error creating a reservation from file. Check line " + lineNum);
         }
         else
         {
-            Reservation newRes = new Reservation(paymentInfo, cost, date, numNights, room, name, phone, type, email);
+            Reservation newRes = new Reservation(paymentInfo, cost, date, numNights, room, name, phone, type, email, datePaid);
             resList.Add(newRes);
             if (lineNum == 0) // If this isn't a loaded in reservation, write creation to file
             {
@@ -177,6 +189,10 @@ public class DataController
 
     public static int searchReservation(String name,int index)
     {
+        if(name == null)
+        {
+            return -1;
+        }
         if(index == -1)
         {
             index = 0;
@@ -189,16 +205,15 @@ public class DataController
                 index = i;
                 return index;
             }
-            
-
         }
         return -1;
     }
 
-    public static void cancelReservation(int index)
+    public static void cancelReservation(Reservation r)
     {
-        resList.Remove(resList[index]);
-
+        deleteFromFile(r);
+        addToRecord("Cancelled Reservation: " + r.toString());
+        resList.Remove(r);
     }
 
     public static void getSearchInfo(String name, String Phone)
@@ -269,8 +284,5 @@ public class DataController
         }
     }
 
-    //public static void getReservations(SortedDictionary<string, Reservation> &a)
-    //{
-    //;
-    //}
+    
 }

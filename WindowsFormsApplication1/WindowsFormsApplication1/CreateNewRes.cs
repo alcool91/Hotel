@@ -14,8 +14,8 @@ namespace WindowsFormsApplication1
     public partial class CreateNewRes : Form
     {
         double cost = 0;
-        int room = 1, numNights = 0;
-        String paymentInfo = "N/A", fname, lname, type, email, phone, Edate, Sdate;
+        int room = 0, numNights = 0;
+        String paymentInfo = "N/A", fname = "N/A", lname = "N/A", type, email = "N/A", phone = "N/A", Edate, Sdate;
         DateTime start, end;
         public CreateNewRes()
         {
@@ -59,145 +59,64 @@ namespace WindowsFormsApplication1
         private void txtFirstName_TextChanged(object sender, EventArgs e)
         {
             fname = txtFirstName.Text;
+            if (fname == "")
+                fname = "N/A";
+        }
+
+        private void txtLastName_TextChanged(object sender, EventArgs e)
+        {
+            lname = txtLastName.Text;
+            if (lname == "")
+                lname = "N/A";
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
             email = txtEmail.Text;
+            if (email == "")
+                email = "N/A";
         }
 
         private void txtPhone_TextChanged(object sender, EventArgs e)
         {
             phone = txtPhone.Text;
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
+            if (phone == "")
+                phone = "N/A";
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {           
+            txtLastName.Visible = true;
+            txtFirstName.Visible = true;
+            txtEmail.Visible = true;
+            txtPhone.Visible = true;
+            label8.Visible = true;
+            label9.Visible = true;
+            label1.Visible = true;
+            label2.Visible = true;
+            label3.Visible = true;
+            label4.Visible = true;
+
             type = comboBox1.Text;
-            numNights = (end.Subtract(start)).Days;
             if (type == "Pre-Paid (25% Discount)")
             {
                 txtCCard.Visible = true;
-                txtLastName.Visible = true;
-                txtFirstName.Visible = true;
-                txtEmail.Visible = true;
-                txtPhone.Visible = true;
-                label8.Visible = true;
-                label9.Visible = true;
-                label1.Visible = true;
-                label2.Visible = true;
-                label3.Visible = true;
-                label4.Visible = true;
                 label5.Visible = true;
-                if (type == "Sixty Day (15% Discount)")
-                {
-                    type = "s";
-                }
-                if (type == "Conventional")
-                {
-                    type = "c";
-                }
-                if (type == "Pre-Paid (25% Discount)")
-                {
-                    type = "p";
-                }
-                cost = DataController.calendar.getCost(Sdate, numNights, type);
-                label9.Text = cost.ToString();
+                type = "p";
             }
-            if (type == "Conventional")
+            else if (type == "Conventional")
             {
                 txtCCard.Visible = true;
-                txtLastName.Visible = true;
-                txtFirstName.Visible = true;
-                txtEmail.Visible = true;
-                txtPhone.Visible = true;
-                label8.Visible = true;
-                label9.Visible = true;
-                label1.Visible = true;
-                label2.Visible = true;
-                label3.Visible = true;
-                label4.Visible = true;
                 label5.Visible = true;
-                if (type == "Sixty Day (15% Discount)")
-                {
-                    type = "s";
-                }
-                if (type == "Conventional")
-                {
-                    type = "c";
-                }
-                if (type == "Pre-Paid (25% Discount)")
-                {
-                    type = "p";
-                }
-                cost = DataController.calendar.getCost(Sdate, numNights, type);
-                label9.Text = cost.ToString();
+                type = "c";
             }
-            if (type == "Sixty Day (15% Discount)")
+            else if (type == "Sixty Day (15% Discount)")
             {
+                type = "s";
                 txtCCard.Visible = false;
-                txtLastName.Visible = true;
-                txtFirstName.Visible = true;
-                txtEmail.Visible = true;
-                txtPhone.Visible = true;
-                label8.Visible = true;
-                label9.Visible = true;
-                label1.Visible = true;
-                label2.Visible = true;
-                label3.Visible = true;
-                label4.Visible = true;
-                label5.Visible = false;
-                if (type == "Sixty Day (15% Discount)")
-                {
-                    type = "s";
-                }
-                if (type == "Conventional")
-                {
-                    type = "c";
-                }
-                if (type == "Pre-Paid (25% Discount)")
-                {
-                    type = "p";
-                }
-                cost = DataController.calendar.getCost(Sdate, numNights, type);
-                label9.Text = cost.ToString();
+                label5.Visible = false;               
             }
-            if (type == " ")
+            else if (type == " ")
             {
                 txtCCard.Visible = false;
                 txtLastName.Visible = false;
@@ -211,31 +130,25 @@ namespace WindowsFormsApplication1
                 label3.Visible = false;
                 label4.Visible = false;
                 label5.Visible = false;
-                // cost = DataController.calendar.getCost(Sdate, numNights, type);
-                //label9.Text = cost.ToString();
             }
-        }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            start = calStartDate.SelectionStart;
+            end = calEndDate.SelectionStart;
+            numNights = (end.Subtract(start)).Days;
+            cost = DataController.calendar.getCost(Sdate, numNights, type);
+            label9.Text = cost.ToString();
+            label9.Visible = true;
         }
 
         private void txtCCard_TextChanged(object sender, EventArgs e)
         {
             paymentInfo = txtCCard.Text;
+            if (paymentInfo == "")
+                paymentInfo = "N/A";
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void recreateTypeChoice()
         {
-
-        }
-
-        private void calStartDate_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            calEndDate.MinDate = calStartDate.SelectionStart.AddDays(1);
-
-            Sdate = calStartDate.SelectionRange.Start.ToString("yyyyMMdd");
             comboBox1.Items.Clear();
             int i = calStartDate.SelectionRange.Start.Subtract(DateTime.Today).Days;
             if (i >= 90)
@@ -243,14 +156,30 @@ namespace WindowsFormsApplication1
             if (i >= 60)
                 comboBox1.Items.Add("Sixty Day (15% Discount)");
             comboBox1.Items.Add("Conventional");
+        }
 
-            start = calStartDate.SelectionRange.Start;
+        private void calStartDate_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            recreateTypeChoice();
+            label9.Visible = false;
+            start = calStartDate.SelectionStart;
+            calEndDate.MinDate = start.AddDays(1);
+            calEndDate.SelectionStart = start.AddDays(1);
+            end = calEndDate.SelectionStart;
+            Sdate =start.ToString("yyyyMMdd");
         }
 
         private void calEndDate_DateChanged(object sender, DateRangeEventArgs e)
         {
             Edate = calEndDate.SelectionRange.End.ToString("yyyyMMdd");
             end = calEndDate.SelectionRange.End;
+            if(comboBox1.Text != "")
+            {
+                numNights = (end.Subtract(start)).Days;                
+                cost = DataController.calendar.getCost(Sdate, numNights, type);
+                label9.Text = cost.ToString();
+                label9.Enabled = true;
+            }
         }
 
         private void btnSubmitRes_Click(object sender, EventArgs e) //This btn will save the reservation.
@@ -281,34 +210,45 @@ namespace WindowsFormsApplication1
                 cost = DataController.calendar.getCost(Sdate, numNights, type);
                 //String sdateString = Sdate.ToString("yyyyMMdd");
                 btnSubmitRes.Enabled = false;
-                DataController.createReservation(paymentInfo, cost, Sdate, numNights, room, name, phone, type, email);
-                Hide();
-                ResOpts resOpts = new ResOpts();
-                resOpts.FormClosed += (s, args) => Close();
-                resOpts.ShowDialog();
-                resOpts.Focus();
 
+                if(type == "p")
+                {
+                    DialogResult chargeCard = MessageBox.Show("For this Reservation: you must charge " + name + ", card number " + paymentInfo + "\n$" + cost + ". click YES to confirm payment, or NO to go back to create screen.",
+                "Confirm Payment...", MessageBoxButtons.YesNo);
+                    if (chargeCard == DialogResult.Yes)
+                    {
+                        DataController.createReservation(paymentInfo, cost, Sdate, numNights, room, name, phone, type, email, DateTime.Today.ToString("yyyyMMdd"));
+                        //exit();
+                    }
+                    else
+                    {
+                        btnSubmitRes.Enabled = true;
+                    }                        
+                }
+                else
+                {
+                    DataController.createReservation(paymentInfo, cost, Sdate, numNights, room, name, phone, type, email, "NP");
+                    exit();
+                }
             }
             else if (submit == DialogResult.No)
             {
 
             }
-
         }
 
-        private void btnDoneNewRes_Click(object sender, EventArgs e) //This btn will go back to previous screen.
+        private void exit() // Closes Window
         {
             Hide();
             ResOpts resOpts = new ResOpts();
             resOpts.FormClosed += (s, args) => Close();
             resOpts.ShowDialog();
             resOpts.Focus();
-
         }
 
-        private void txtLastName_TextChanged(object sender, EventArgs e)
+        private void btnDoneNewRes_Click(object sender, EventArgs e) //This btn will go back to previous screen.
         {
-            lname = txtLastName.Text;
-        }
+            exit();
+        }   
     }
 }

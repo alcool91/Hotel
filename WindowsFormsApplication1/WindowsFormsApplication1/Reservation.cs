@@ -10,9 +10,9 @@ public class Reservation
 {
     double cost;
     int room, numNights;
-    String date, paymentInfo, name, phone, type, email;   
+    string date, paymentInfo, name, phone, type, email, datePaid;   
 
-    public Reservation(string paymentInfo, double cost, string date, int numNights, int room, String name, String phone, String type, String email)
+    public Reservation(string paymentInfo, double cost, string date, int numNights, int room, string name, string phone, string type, string email, string datePaid)
     {
         this.paymentInfo = paymentInfo;
         this.cost = cost;
@@ -22,9 +22,12 @@ public class Reservation
         this.name = name;
         this.phone = phone;
         this.type = type;
+        if (this.type == "c" && DataController.calendar.getOccupancyRate(date, numNights) <= 0.6)  // Changes type to incentive if it's conventional and less than 60% occupied
+            this.type = "i";
         this.email = email;
+        this.datePaid = datePaid;
     }
-    public Reservation(string paymentInfo, string cost, string date, string numNights, string room, String name, String phone, String type, String email)
+    public Reservation(string paymentInfo, string cost, string date, string numNights, string room, string name, string phone, string type, string email, string datePaid)
     {
         this.paymentInfo = paymentInfo;
         this.cost = double.Parse(cost);
@@ -35,6 +38,7 @@ public class Reservation
         this.phone = phone;
         this.type = type;
         this.email = email;
+        this.datePaid = datePaid;
     }
 
     public int getNumNights() { return numNights; }
@@ -54,25 +58,33 @@ public class Reservation
     {
         return room;
     }
-    public String getName()
+    public string getName()
     {
         return name;
     }
-    public String getType()
+    public string getType()
     {
         return type;
     }
-    public String getEmail()
+    public string getEmail()
     {
         return email;
     }
-    public String getPhone()
+    public string getPhone()
     {
         return phone;
+    }
+    public string getDatePaid()
+    {
+        return datePaid;
     }
     public void setRoom(int i)
     {
         room = i;
+    }
+    public void setDatePaid(string s)
+    {
+        datePaid = s;
     }
     public bool equals(Reservation r)
     {
@@ -99,7 +111,7 @@ public class Reservation
         DataController.calendar.subtractReservation(currentReservation.getStartDate(), currentReservation.getNumNights(), currentReservation.getType());
 
     }
-    public void changeType(String NewType)
+    public void changeType(string NewType)
     {
         this.type = NewType;
     }

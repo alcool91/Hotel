@@ -88,12 +88,6 @@
     <Compile Include="CreateNewRes.Designer.cs">
       <DependentUpon>CreateNewRes.cs</DependentUpon>
     </Compile>
-    <Compile Include="ResType.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ResType.Designer.cs">
-      <DependentUpon>ResType.cs</DependentUpon>
-    </Compile>
     <Compile Include="SearchRes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,9 +132,6 @@
     <EmbeddedResource Include="CreateNewRes.resx">
       <DependentUpon>CreateNewRes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResType.resx">
-      <DependentUpon>ResType.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SearchRes.resx">
       <DependentUpon>SearchRes.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,10 +168,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Calendar.txt" />
-    <Content Include="recordData.txt" />
-    <Content Include="Reservations.txt" />
-    <Content Include="Rooms.txt" />
     <Content Include="Users.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
