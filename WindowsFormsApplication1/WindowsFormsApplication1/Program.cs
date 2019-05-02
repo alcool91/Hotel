@@ -18,6 +18,8 @@ namespace WindowsFormsApplication1
         static void Main()
         {
             //DataController.
+            System.IO.Directory.CreateDirectory(".\\Hotel\\Storage");
+            System.IO.Directory.CreateDirectory(".\\Hotel\\Reports");
             DataController.calendar.importFromFile();
             /*DataController.calendar.addDate("20190523");
             DataController.calendar.addDate("20190524", 595.5);
@@ -28,8 +30,8 @@ namespace WindowsFormsApplication1
             DataController.importReservationsFromFile();
             DataController.setupRooms();
             //DataController.createReservation("paymentinfo", "12345.5", "20190824", "3", "0", "Brent W", "734...", "p", "brentme1@yahoc.com", 0);
-            string p = Report.getExpectedOccupancy("20190501", 30);
-            string q = Report.getExpectedIncome();
+            //string p = Report.getExpectedOccupancy("20190501", 30);
+            //string q = Report.getExpectedIncome();
             //DataController.deleteFromFile(DataController.resList[0]);
             
             //Console.WriteLine(DataController.calendar.getOccupancyRate(DateTime.ParseExact("20190527", "yyyyMMdd", CultureInfo.InvariantCulture), 30));

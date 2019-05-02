@@ -51,7 +51,23 @@ namespace WindowsFormsApplication1
         }
         public void setRes()
         {
-            //InitializeComponent();
+            if (search.getStartDate() == DateTime.Today.ToString("yyyyMMdd") && search.getRoom() == 0)
+            {
+                btnCheckIn.Enabled = true;
+            }
+            else
+            {
+                btnCheckIn.Enabled = false;
+            }
+            if (search.getRoom() != 0)
+            {
+                btnCheckOut.Enabled = true;
+            }
+            else
+            {
+                btnCheckOut.Enabled = false;
+            }
+                
             label17.Text = String.Format(search.getName());
             label16.Text = String.Format(search.getPhone());
             label18.Text = String.Format(search.getEmail());
@@ -141,6 +157,68 @@ namespace WindowsFormsApplication1
 
         private void label13_Click(object sender, EventArgs e)
         {
+
+        }
+        private void btnCheckIn_Click(object sender, EventArgs e)
+        {
+            int room = DataController.assignRoom(search);
+            DialogResult submit = MessageBox.Show("Successfully checked in guest to room " + room,
+                "Checked in", MessageBoxButtons.OK);
+            if (submit == DialogResult.OK)
+            {
+                //DataController.cancelReservation(DataController.resList[index]);
+                Hide();
+                ResOpts resOpts = new ResOpts();
+                resOpts.FormClosed += (s, args) => Close();
+                resOpts.ShowDialog();
+                resOpts.Focus();
+            }
+        }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            int room = search.getRoom();
+            if(search.getDatePaid() == "NP")
+            {
+                DialogResult chargeCard = MessageBox.Show("To check out you must charge " + search.getName() + ", card number " + search.getPayment() + " $" + search.getCost() + ". click YES to confirm payment, or NO to go back to view screen.",
+                "Confirm Payment...", MessageBoxButtons.YesNo);
+                if (chargeCard == DialogResult.Yes)
+                {
+                    search.setDatePaid(DateTime.Today.ToString("yyyyMMdd"));
+                    Reservation newRes = new Reservation(search.getPayment(), search.getCost(), search.getStartDate(), search.getNumNights(), search.getRoom(), search.getName(), search.getPhone(), search.getType(), search.getEmail(), DateTime.Today.ToString("yyyyMMdd"));
+                    DataController.modifyReservation(search, newRes);
+                    DataController.checkOut(room, newRes);
+                    DialogResult submit = MessageBox.Show("Successfully checked out.",
+                "Checked Out", MessageBoxButtons.OK);
+                    if (submit == DialogResult.OK)
+                    {
+                        Hide();
+                        ResOpts resOpts = new ResOpts();
+                        resOpts.FormClosed += (s, args) => Close();
+                        resOpts.ShowDialog();
+                        resOpts.Focus();
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                DataController.checkOut(room, search);
+                DialogResult submit = MessageBox.Show("Successfully checked out.",
+            "Checked Out", MessageBoxButtons.OK);
+                if (submit == DialogResult.OK)
+                {
+                    Hide();
+                    ResOpts resOpts = new ResOpts();
+                    resOpts.FormClosed += (s, args) => Close();
+                    resOpts.ShowDialog();
+                    resOpts.Focus();
+                }
+            }
+
 
         }
     }

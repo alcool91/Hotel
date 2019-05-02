@@ -31,6 +31,7 @@ namespace WindowsFormsApplication1
                 //somehow go to next page
                 isMan = true;
                 this.DialogResult = DialogResult.OK;
+                txtManagerPass.Text = "";
                 this.Close();
             }
             else
@@ -38,6 +39,7 @@ namespace WindowsFormsApplication1
                 //stay on current page
                 isMan = false;
                 this.DialogResult = DialogResult.OK;
+                txtManagerPass.Text = "";
                 this.Close();
             }
         }

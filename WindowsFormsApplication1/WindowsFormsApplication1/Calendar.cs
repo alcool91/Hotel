@@ -103,12 +103,12 @@ public class Calendar {
     {
         string entireLine;
         string date;
-        if (!File.Exists("../Calendar.txt"))
+        if (!File.Exists(".\\Hotel\\Storage\\Calendar.txt"))
         {
-            var newFile = File.Create("../Calendar.txt");
+            var newFile = File.Create(".\\Hotel\\Storage\\Calendar.txt");
             newFile.Close();
         }
-        StreamReader sr = new StreamReader("../Calendar.txt");
+        StreamReader sr = new StreamReader(".\\Hotel\\Storage\\Calendar.txt");
         while (!sr.EndOfStream) {                              // As long as it's not end of stream, 
             entireLine = sr.ReadLine();                             // Add dates one line at a time
             date = entireLine.Substring(0, entireLine.IndexOf(' '));
@@ -121,8 +121,8 @@ public class Calendar {
 
     public void updateFile(string newDate)
     {
-        StreamReader sr = new StreamReader("../Calendar.txt");
-        StreamWriter sw = new StreamWriter("../tempCalendar.txt");
+        StreamReader sr = new StreamReader(".\\Hotel\\Storage\\Calendar.txt");
+        StreamWriter sw = new StreamWriter(".\\Hotel\\Storage\\tempCalendar.txt");
         bool newDateWritten = false;
         while (!sr.EndOfStream)
         {
@@ -163,9 +163,9 @@ public class Calendar {
         sw.Close();
         sr.Close();
         
-        File.Delete("../Calendar.txt");
-        File.Move("../tempCalendar.txt", "../Calendar.txt");
-        File.Delete("../tempCalendar.txt");
+        File.Delete(".\\Hotel\\Storage\\Calendar.txt");
+        File.Move(".\\Hotel\\Storage\\tempCalendar.txt", ".\\Hotel\\Storage\\Calendar.txt");
+        File.Delete(".\\Hotel\\Storage\\tempCalendar.txt");
     }
 
     public double getCost(string startDate, int numNights, string type)

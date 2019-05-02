@@ -22,12 +22,12 @@ public class DataController
     // On program startup, loads in all reservations from file
     public static void importReservationsFromFile()
     {
-        if (!File.Exists("../Reservations.txt"))            // Creates file if it doesn't yet exist
+        if (!File.Exists(".\\Hotel\\Storage\\Reservations.txt"))            // Creates file if it doesn't yet exist
         {
-            var newFile = File.Create("../Reservations.txt");
+            var newFile = File.Create(".\\Hotel\\Storage\\Reservations.txt");
             newFile.Close();
         }
-        StreamReader sr = new StreamReader("../Reservations.txt");
+        StreamReader sr = new StreamReader(".\\Hotel\\Storage\\Reservations.txt");
         long lineNum = 1;
         while (!sr.EndOfStream)
         {                              // As long as it's not end of stream,
@@ -47,29 +47,39 @@ public class DataController
         {
             if (r.getRoom() != 0)
             {
-               // rooms.Add(r.getRoom(), r);
+               rooms.Add(r.getRoom(), r);
             }
         }
-        
-        for (int j = 0; j < resList.Count; j++)
+    }
+
+    public static int assignRoom(Reservation r)
+    {
+        int i = 1;
+        while (i < 46)
         {
-            if (resList[j].getStartDate() == DateTime.Today.ToString("yyyyMMdd") && resList[j].getRoom() == 0)
+            Reservation value;
+            if(!rooms.TryGetValue(i, out value))
             {
-                int i = 1;
-                Reservation value;
-                while (rooms.TryGetValue(i, out value) && i < 46)
-                {
-                    i = i + 1;
-                }
-
-
-                value = new Reservation(resList[j].getPayment(), resList[j].getCost(), resList[j].getStartDate(), resList[j].getNumNights(), 
-                    i, resList[j].getName(), resList[j].getPhone(), resList[j].getType(), resList[j].getEmail(), resList[j].getDatePaid());
-                modifyReservation(resList[j], value);
-                rooms.Add(i, value);
-
+                value = new Reservation(r.getPayment(), r.getCost(), r.getStartDate(), r.getNumNights(),
+                    i, r.getName(), r.getPhone(), r.getType(), r.getEmail(), r.getDatePaid());
+                modifyReservation(r, value);
+                rooms.Add(i, r);
+                return i;
+            }
+            else
+            {
+                i++;
             }
         }
+        return 0;
+    }
+
+    public static void checkOut(int room, Reservation r)
+    {
+        rooms.Remove(room);
+        deleteFromFile(r);
+        addToRecord("Checked Out Reservation: " + r.toString());
+        resList.Remove(r);
     }
 
     public static void modifyReservation(Reservation r1, Reservation r2)
@@ -83,8 +93,8 @@ public class DataController
 
     public static void deleteFromFile(Reservation r)
     {
-        StreamWriter sw = new StreamWriter("../tempReservations.txt");
-        StreamReader sr = new StreamReader("../Reservations.txt");
+        StreamWriter sw = new StreamWriter(".\\Hotel\\Storage\\tempReservations.txt");
+        StreamReader sr = new StreamReader(".\\Hotel\\Storage\\Reservations.txt");
         bool isDeleted = false;
         while (!sr.EndOfStream)   // As long as it's not end of stream,
         {                              
@@ -119,15 +129,15 @@ public class DataController
         }
         sr.Close();
         sw.Close();
-        File.Delete("../Reservations.txt");
-        File.Move("../tempReservations.txt", "../Reservations.txt");
-        File.Delete("../tempReservations.txt");
+        File.Delete(".\\Hotel\\Storage\\Reservations.txt");
+        File.Move(".\\Hotel\\Storage\\tempReservations.txt", ".\\Hotel\\Storage\\Reservations.txt");
+        File.Delete(".\\Hotel\\Storage\\tempReservations.txt");
         calendar.removeReservation(r);
     }
 
     public static void writeReservation(Reservation r) // Writes reservation to end of file
     {
-        StreamWriter sw = new StreamWriter("../Reservations.txt", true);
+        StreamWriter sw = new StreamWriter(".\\Hotel\\Storage\\Reservations.txt", true);
         sw.WriteLine("#");
         sw.WriteLine(r.getPayment());
         sw.WriteLine(r.getCost());
@@ -185,7 +195,7 @@ public class DataController
 
     public static void addToRecord(string s)
     {
-        StreamWriter sw = new StreamWriter("../recordData.txt", true);
+        StreamWriter sw = new StreamWriter(".\\Hotel\\Storage\\recordData.txt", true);
         sw.WriteLine(DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss ") + s);
         sw.Close();
     }
@@ -237,7 +247,7 @@ public class DataController
 
     public static bool authenticateUser(string userName, string password)
     {
-        using(StreamReader sr = new StreamReader("../../Users.txt"))
+        using(StreamReader sr = new StreamReader(".\\Hotel\\Storage\\Users.txt"))
         {
             string line;
             string[] tokens;
@@ -263,7 +273,7 @@ public class DataController
 
     public static bool checkManager(string userName, string password)
     {
-        using (StreamReader sr = new StreamReader("../../Users.txt"))
+        using (StreamReader sr = new StreamReader(".\\Hotel\\Storage\\Users.txt"))
         {
             string line;
             string[] tokens;
@@ -285,7 +295,5 @@ public class DataController
             } while ((line = sr.ReadLine()) != null);
             return false;
         }
-    }
-
-    
+    }   
 }

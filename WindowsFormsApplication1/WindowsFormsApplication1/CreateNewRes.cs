@@ -240,7 +240,7 @@ namespace WindowsFormsApplication1
 
                 if(type == "p")
                 {
-                    DialogResult chargeCard = MessageBox.Show("For this Reservation: you must charge " + name + ", card number " + paymentInfo + "\n$" + cost + ". click YES to confirm payment, or NO to go back to create screen.",
+                    DialogResult chargeCard = MessageBox.Show("For this Reservation: you must charge " + name + ", card number " + paymentInfo + " $" + cost + ". click YES to confirm payment, or NO to go back to create screen.",
                 "Confirm Payment...", MessageBoxButtons.YesNo);
                     if (chargeCard == DialogResult.Yes)
                     {
