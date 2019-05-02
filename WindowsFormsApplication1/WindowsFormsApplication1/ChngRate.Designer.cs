@@ -29,19 +29,18 @@
         private void InitializeComponent()
         {
             this.gboxChngRate = new System.Windows.Forms.GroupBox();
+            this.calStart = new System.Windows.Forms.MonthCalendar();
+            this.lblEndDate = new System.Windows.Forms.Label();
+            this.calEnd = new System.Windows.Forms.MonthCalendar();
+            this.lblStartDate = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblSubmitRate = new System.Windows.Forms.Label();
             this.lblSetRate = new System.Windows.Forms.Label();
             this.btnDone = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSubmitRate = new System.Windows.Forms.Button();
-            this.dateChngRate = new System.Windows.Forms.DateTimePicker();
             this.txtChngRate = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.calStart = new System.Windows.Forms.MonthCalendar();
-            this.lblEndDate = new System.Windows.Forms.Label();
-            this.calEnd = new System.Windows.Forms.MonthCalendar();
-            this.lblStartDate = new System.Windows.Forms.Label();
             this.gboxChngRate.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,17 +56,55 @@
             this.gboxChngRate.Controls.Add(this.btnDone);
             this.gboxChngRate.Controls.Add(this.label2);
             this.gboxChngRate.Controls.Add(this.btnSubmitRate);
-            this.gboxChngRate.Controls.Add(this.dateChngRate);
             this.gboxChngRate.Controls.Add(this.txtChngRate);
             this.gboxChngRate.Controls.Add(this.label1);
             this.gboxChngRate.Location = new System.Drawing.Point(91, 53);
-            this.gboxChngRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxChngRate.Margin = new System.Windows.Forms.Padding(4);
             this.gboxChngRate.Name = "gboxChngRate";
-            this.gboxChngRate.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gboxChngRate.Padding = new System.Windows.Forms.Padding(4);
             this.gboxChngRate.Size = new System.Drawing.Size(703, 468);
             this.gboxChngRate.TabIndex = 0;
             this.gboxChngRate.TabStop = false;
             this.gboxChngRate.Enter += new System.EventHandler(this.gboxChngRate_Enter);
+            // 
+            // calStart
+            // 
+            this.calStart.Location = new System.Drawing.Point(68, 88);
+            this.calStart.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.calStart.MaxSelectionCount = 1;
+            this.calStart.Name = "calStart";
+            this.calStart.TabIndex = 26;
+            this.calStart.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calStart_DateChanged);
+            // 
+            // lblEndDate
+            // 
+            this.lblEndDate.AutoSize = true;
+            this.lblEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEndDate.Location = new System.Drawing.Point(401, 53);
+            this.lblEndDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEndDate.Name = "lblEndDate";
+            this.lblEndDate.Size = new System.Drawing.Size(196, 24);
+            this.lblEndDate.TabIndex = 29;
+            this.lblEndDate.Text = "Through this selection";
+            // 
+            // calEnd
+            // 
+            this.calEnd.Location = new System.Drawing.Point(371, 88);
+            this.calEnd.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.calEnd.MaxSelectionCount = 1;
+            this.calEnd.Name = "calEnd";
+            this.calEnd.TabIndex = 28;
+            // 
+            // lblStartDate
+            // 
+            this.lblStartDate.AutoSize = true;
+            this.lblStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStartDate.Location = new System.Drawing.Point(155, 53);
+            this.lblStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(94, 24);
+            this.lblStartDate.TabIndex = 27;
+            this.lblStartDate.Text = "Start Date:";
             // 
             // label3
             // 
@@ -109,7 +146,7 @@
             this.btnDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDone.ForeColor = System.Drawing.Color.Black;
             this.btnDone.Location = new System.Drawing.Point(594, 429);
-            this.btnDone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDone.Margin = new System.Windows.Forms.Padding(4);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(100, 28);
             this.btnDone.TabIndex = 21;
@@ -134,7 +171,7 @@
             this.btnSubmitRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSubmitRate.ForeColor = System.Drawing.Color.Black;
             this.btnSubmitRate.Location = new System.Drawing.Point(486, 429);
-            this.btnSubmitRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmitRate.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmitRate.Name = "btnSubmitRate";
             this.btnSubmitRate.Size = new System.Drawing.Size(100, 28);
             this.btnSubmitRate.TabIndex = 19;
@@ -142,20 +179,11 @@
             this.btnSubmitRate.UseVisualStyleBackColor = true;
             this.btnSubmitRate.Click += new System.EventHandler(this.btnSubmitRate_Click);
             // 
-            // dateChngRate
-            // 
-            this.dateChngRate.Location = new System.Drawing.Point(405, 336);
-            this.dateChngRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dateChngRate.Name = "dateChngRate";
-            this.dateChngRate.Size = new System.Drawing.Size(265, 22);
-            this.dateChngRate.TabIndex = 18;
-            this.dateChngRate.ValueChanged += new System.EventHandler(this.dateChngRate_ValueChanged);
-            // 
             // txtChngRate
             // 
             this.txtChngRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChngRate.Location = new System.Drawing.Point(123, 332);
-            this.txtChngRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtChngRate.Margin = new System.Windows.Forms.Padding(4);
             this.txtChngRate.Name = "txtChngRate";
             this.txtChngRate.Size = new System.Drawing.Size(119, 24);
             this.txtChngRate.TabIndex = 17;
@@ -174,45 +202,6 @@
             this.label1.Text = "Please select a date range for the dates you wish to set";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // calStart
-            // 
-            this.calStart.Location = new System.Drawing.Point(68, 88);
-            this.calStart.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.calStart.MaxSelectionCount = 1;
-            this.calStart.Name = "calStart";
-            this.calStart.TabIndex = 26;
-            this.calStart.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calStart_DateChanged);
-            // 
-            // lblEndDate
-            // 
-            this.lblEndDate.AutoSize = true;
-            this.lblEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEndDate.Location = new System.Drawing.Point(401, 53);
-            this.lblEndDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(196, 24);
-            this.lblEndDate.TabIndex = 29;
-            this.lblEndDate.Text = "Through this selection";
-            // 
-            // calEnd
-            // 
-            this.calEnd.Location = new System.Drawing.Point(371, 88);
-            this.calEnd.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
-            this.calEnd.MaxSelectionCount = 1;
-            this.calEnd.Name = "calEnd";
-            this.calEnd.TabIndex = 28;
-            // 
-            // lblStartDate
-            // 
-            this.lblStartDate.AutoSize = true;
-            this.lblStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartDate.Location = new System.Drawing.Point(155, 53);
-            this.lblStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(94, 24);
-            this.lblStartDate.TabIndex = 27;
-            this.lblStartDate.Text = "Start Date:";
-            // 
             // ChngRate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -221,7 +210,7 @@
             this.ClientSize = new System.Drawing.Size(880, 577);
             this.Controls.Add(this.gboxChngRate);
             this.ForeColor = System.Drawing.Color.White;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(895, 614);
             this.Name = "ChngRate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -236,7 +225,6 @@
 
         private System.Windows.Forms.GroupBox gboxChngRate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateChngRate;
         private System.Windows.Forms.TextBox txtChngRate;
         private System.Windows.Forms.Button btnSubmitRate;
         private System.Windows.Forms.Label label2;
