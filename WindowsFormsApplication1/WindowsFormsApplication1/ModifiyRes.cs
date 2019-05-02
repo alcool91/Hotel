@@ -161,6 +161,11 @@ namespace WindowsFormsApplication1
 
         }
 
+        private void GboxNewRes_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnGoPrnt_Click(object sender, EventArgs e)
         {
 

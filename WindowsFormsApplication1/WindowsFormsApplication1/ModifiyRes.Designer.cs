@@ -267,6 +267,7 @@
             this.GboxNewRes.TabIndex = 40;
             this.GboxNewRes.TabStop = false;
             this.GboxNewRes.Text = "Modifiy Info";
+            this.GboxNewRes.Enter += new System.EventHandler(this.GboxNewRes_Enter);
             // 
             // label6
             // 

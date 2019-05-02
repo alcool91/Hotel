@@ -35,7 +35,7 @@ namespace WindowsFormsApplication1
         {
             setname = DataController.setSearchName();
             index = DataController.searchReservation(setname, index);
-            if(index == -1)
+            if (index == -1)
             {
                 DialogResult submit = MessageBox.Show("There is no Reservation under this name",
                 "Click OK", MessageBoxButtons.OK);
@@ -48,14 +48,14 @@ namespace WindowsFormsApplication1
                     resOpts.Focus();
 
                 }
-                
+
             }
             else
             {
                 search = DataController.resList[index];
                 setRes();
             }
-            
+
 
         }
         public void setRes()
@@ -70,7 +70,7 @@ namespace WindowsFormsApplication1
             label12.Text = String.Format(search.getCost().ToString());
             label11.Text = String.Format(search.getNumNights().ToString());
             label10.Text = String.Format(DateTime.ParseExact(search.getStartDate(), "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy"));
-            if(search.getDatePaid() == "NP")
+            if (search.getDatePaid() == "NP")
             {
                 label20.Text = "Unpaid";
             }
@@ -78,7 +78,7 @@ namespace WindowsFormsApplication1
             {
                 label20.Text = String.Format(DateTime.ParseExact(search.getDatePaid(), "yyyyMMdd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy"));
             }
-            
+
             //label10.Text = String.Format(search.getStartDate());
         }
         private void btnBackF6_Click(object sender, EventArgs e)
@@ -129,7 +129,27 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataController.cancelReservation(DataController.resList[index]);
+            DialogResult submit = MessageBox.Show("Is the information you entered correct? ",
+                "Confirm Your Reservation...", MessageBoxButtons.YesNo);
+            if (submit == DialogResult.Yes)
+            {
+                DataController.cancelReservation(DataController.resList[index]);
+                Hide();
+                ResOpts resOpts = new ResOpts();
+                resOpts.FormClosed += (s, args) => Close();
+                resOpts.ShowDialog();
+                resOpts.Focus();
+            }
+            if (submit == DialogResult.No)
+            {
+                Hide();
+                SearchRes resOpts = new SearchRes();
+                resOpts.FormClosed += (s, args) => Close();
+                resOpts.ShowDialog();
+                resOpts.Focus();
+            }
+
+
         }
 
 
@@ -167,12 +187,31 @@ namespace WindowsFormsApplication1
         {
             index++;
             getRes();
-            
+
+        }
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
         private void label20_Click(object sender, EventArgs e)
         {
 
         }
+        
     }
 }
