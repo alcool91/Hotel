@@ -42,38 +42,72 @@ namespace WindowsFormsApplication1
             
             if (!DataController.isManager)
             {
-                managerLogin.ShowDialog();
+                var conf = managerLogin.ShowDialog();
                 managerLogin.Focus();
+                if (conf == DialogResult.OK)
+                {
+                    confirmed = managerLogin.isMan;
+                    Console.WriteLine(confirmed);
+                }
 
+                if (confirmed)
+                {
+                    //Hide();
+                    Report.getExpectedOccupancy(DateTime.Today.ToString("yyyyMMdd"), 30);
+                    Process p = new Process();
+                    p.StartInfo.FileName = ".\\Hotel\\Reports\\ExpectedOccupancy.txt";
+                    p.Start();
+                }
+                else
+                {
+
+                }
             }
             else
             {
                 //Hide();
-                //chngRate.FormClosed += (s, args) => Close();
-                //chngRate.ShowDialog();
-                //chngRate.Focus();
+                Report.getExpectedOccupancy(DateTime.Today.ToString("yyyyMMdd"), 30);
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\Hotel\\Reports\\ExpectedOccupancy.txt";
+                p.Start();
             }
 
         }
 
         private void btnIncomeRep_Click(object sender, EventArgs e)
         {
-            Report.getExpectedIncome();
-            Process p = new Process();
-            p.StartInfo.FileName = "ExpectedIncome.txt";
-            p.Start();
+            
             if (!DataController.isManager)
             {
-                managerLogin.ShowDialog();
-                managerLogin.Focus();
 
+                var conf = managerLogin.ShowDialog();
+                managerLogin.Focus();
+                if (conf == DialogResult.OK)
+                {
+                    confirmed = managerLogin.isMan;
+                    Console.WriteLine(confirmed);
+                }
+
+                if (confirmed)
+                {
+                    //Hide();
+                    Report.getExpectedIncome();
+                    Process p = new Process();
+                    p.StartInfo.FileName = ".\\Hotel\\Reports\\ExpectedIncome.txt";
+                    p.Start();
+                }
+                else
+                {
+
+                }
             }
             else
             {
                 //Hide();
-                //chngRate.FormClosed += (s, args) => Close();
-                //chngRate.ShowDialog();
-                //chngRate.Focus();
+                Report.getExpectedIncome();
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\Hotel\\Reports\\ExpectedIncome.txt";
+                p.Start();
             }
 
         }
@@ -82,16 +116,35 @@ namespace WindowsFormsApplication1
         {
             if (!DataController.isManager)
             {
-                managerLogin.ShowDialog();
+                var conf = managerLogin.ShowDialog();
+                
                 managerLogin.Focus();
+                if (conf == DialogResult.OK)
+                {
+                    confirmed = managerLogin.isMan;
+                    Console.WriteLine(confirmed);
+                }
 
+                if (confirmed)
+                {
+                    Report.getIncentives();
+                    Process p = new Process();
+                    p.StartInfo.FileName = ".\\Hotel\\Reports\\Incentives.txt";
+                    p.Start();
+                    ///STUFF HERE
+                }
+                else
+                {
+
+                }
             }
             else
             {
-                //Hide();
-                //chngRate.FormClosed += (s, args) => Close();
-                //chngRate.ShowDialog();
-                //chngRate.Focus();
+                Report.getIncentives();
+                Process p = new Process();
+                p.StartInfo.FileName = ".\\Hotel\\Reports\\Incentives.txt";
+                p.Start();
+                //STUFF HERE
             }
 
         }

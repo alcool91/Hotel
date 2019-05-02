@@ -18,6 +18,8 @@ namespace WindowsFormsApplication1
         static void Main()
         {
             //DataController.
+            System.IO.Directory.CreateDirectory(".\\Hotel\\Storage");
+            System.IO.Directory.CreateDirectory(".\\Hotel\\Reports");
             DataController.calendar.importFromFile();
             /*DataController.calendar.addDate("20190523");
             DataController.calendar.addDate("20190524", 595.5);

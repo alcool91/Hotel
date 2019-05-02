@@ -1,2 +1,0 @@
-dev	password	true
-guest	psswd	false

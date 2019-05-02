@@ -22,12 +22,12 @@ public class DataController
     // On program startup, loads in all reservations from file
     public static void importReservationsFromFile()
     {
-        if (!File.Exists("../Reservations.txt"))            // Creates file if it doesn't yet exist
+        if (!File.Exists(".\\Hotel\\Storage\\Reservations.txt"))            // Creates file if it doesn't yet exist
         {
-            var newFile = File.Create("../Reservations.txt");
+            var newFile = File.Create(".\\Hotel\\Storage\\Reservations.txt");
             newFile.Close();
         }
-        StreamReader sr = new StreamReader("../Reservations.txt");
+        StreamReader sr = new StreamReader(".\\Hotel\\Storage\\Reservations.txt");
         long lineNum = 1;
         while (!sr.EndOfStream)
         {                              // As long as it's not end of stream,
@@ -83,8 +83,8 @@ public class DataController
 
     public static void deleteFromFile(Reservation r)
     {
-        StreamWriter sw = new StreamWriter("../tempReservations.txt");
-        StreamReader sr = new StreamReader("../Reservations.txt");
+        StreamWriter sw = new StreamWriter(".\\Hotel\\Storage\\tempReservations.txt");
+        StreamReader sr = new StreamReader(".\\Hotel\\Storage\\Reservations.txt");
         bool isDeleted = false;
         while (!sr.EndOfStream)   // As long as it's not end of stream,
         {                              
@@ -119,15 +119,15 @@ public class DataController
         }
         sr.Close();
         sw.Close();
-        File.Delete("../Reservations.txt");
-        File.Move("../tempReservations.txt", "../Reservations.txt");
-        File.Delete("../tempReservations.txt");
+        File.Delete(".\\Hotel\\Storage\\Reservations.txt");
+        File.Move(".\\Hotel\\Storage\\tempReservations.txt", ".\\Hotel\\Storage\\Reservations.txt");
+        File.Delete(".\\Hotel\\Storage\\tempReservations.txt");
         calendar.removeReservation(r);
     }
 
     public static void writeReservation(Reservation r) // Writes reservation to end of file
     {
-        StreamWriter sw = new StreamWriter("../Reservations.txt", true);
+        StreamWriter sw = new StreamWriter(".\\Hotel\\Storage\\Reservations.txt", true);
         sw.WriteLine("#");
         sw.WriteLine(r.getPayment());
         sw.WriteLine(r.getCost());
@@ -185,7 +185,7 @@ public class DataController
 
     public static void addToRecord(string s)
     {
-        StreamWriter sw = new StreamWriter("../recordData.txt", true);
+        StreamWriter sw = new StreamWriter(".\\Hotel\\Storage\\recordData.txt", true);
         sw.WriteLine(DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss ") + s);
         sw.Close();
     }
@@ -237,7 +237,7 @@ public class DataController
 
     public static bool authenticateUser(string userName, string password)
     {
-        using(StreamReader sr = new StreamReader("../../Users.txt"))
+        using(StreamReader sr = new StreamReader(".\\Hotel\\Storage\\Users.txt"))
         {
             string line;
             string[] tokens;
@@ -263,7 +263,7 @@ public class DataController
 
     public static bool checkManager(string userName, string password)
     {
-        using (StreamReader sr = new StreamReader("../../Users.txt"))
+        using (StreamReader sr = new StreamReader(".\\Hotel\\Storage\\Users.txt"))
         {
             string line;
             string[] tokens;

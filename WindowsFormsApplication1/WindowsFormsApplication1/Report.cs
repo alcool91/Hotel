@@ -21,25 +21,25 @@ public class Report {
 
     //}
 
-    public static string getExpectedOccupancy(string startDate, int numNights)
+    public static void getExpectedOccupancy(string startDate, int numNights)
     {
+        StreamWriter sw = new StreamWriter(".\\Hotel\\Reports\\ExpectedOccupancy.txt");
         double average = 0;
-        string output = "";
-        output += "Date\t\tPrepaid\t\tSixty Day\tConventional\tIncentive\tTotal";
+        sw.WriteLine("Date\t\tPrepaid\t\tSixty Day\tConventional\tIncentive\tTotal");
         for (int i = 0; i < numNights; i++)
         {  // Gets data for each day for next 30 days
             Date d = DataController.calendar.getDate(DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("yyyyMMdd"));
             average += d.getTotal();
-            output += "\n" + DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("MM/dd/yyyy") + "\t" + d.getPrepaid() + "\t\t" + d.getSixty()
-                + "\t\t" + d.getConventional() + "\t\t" + d.getIncentive() + "\t\t" + d.getTotal();
+            sw.WriteLine(DateTime.ParseExact(startDate, "yyyyMMdd", CultureInfo.InvariantCulture).AddDays(i).ToString("MM/dd/yyyy") + "\t" + d.getPrepaid() + "\t\t" + d.getSixty()
+                + "\t\t" + d.getConventional() + "\t\t" + d.getIncentive() + "\t\t" + d.getTotal());
         }
-        output += "\nAverage expected occupancy: " + string.Format("{0:.###}", 100 * DataController.calendar.getOccupancyRate(startDate, numNights))  + "%";
-        return output;
+        sw.WriteLine("Average expected occupancy: " + string.Format("{0:.###}", 100 * DataController.calendar.getOccupancyRate(startDate, numNights))  + "%");
+        sw.Close();
     }
 
     public static void getExpectedIncome()
     {
-        StreamWriter sw = new StreamWriter("ExpectedIncome.txt");
+        StreamWriter sw = new StreamWriter(".\\Hotel\\Reports\\ExpectedIncome.txt");
         DateTime today = DateTime.Today;
         DateTime lastDay = today.AddDays(30);
         sw.WriteLine("Expected Income:");
@@ -54,6 +54,24 @@ public class Report {
             sw.WriteLine(today.AddDays(i).ToString("MM/dd/yyyy") + ":\t" + nights[i]);
         }
         sw.WriteLine("Total expected income over next 30 days: " + total);
+        sw.Close();
+    }
+
+    public static void getIncentives()
+    {
+        StreamWriter sw = new StreamWriter(".\\Hotel\\Reports\\Incentives.txt");
+        //int incentives = 0;
+        double average = 0;
+        sw.WriteLine("Incentive discount for each night:");
+        for (int i = 0; i < 30; i++)
+        {  // Gets data for each day for next 30 days
+            Date d = DataController.calendar.getDate(DateTime.Today.AddDays(i).ToString("yyyyMMdd"));
+            average += d.getIncentive() * .2 * d.getRate();
+            sw.WriteLine(DateTime.Today.AddDays(i).ToString("MM/dd/yyyy") + "\t" + d.getIncentive() * .2 * d.getRate());
+        }
+        sw.WriteLine("Total incentive discount for next 30 nights: " + string.Format("{0:.###}", average));
+        average = average / 30;
+        sw.WriteLine("Average incentive discount: " + string.Format("{0:.###}", average) + " per night");
         sw.Close();
     }
 
