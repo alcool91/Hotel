@@ -113,8 +113,6 @@ namespace WindowsFormsApplication1
                 resOpts.ShowDialog();
                 resOpts.Focus();
             }
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)

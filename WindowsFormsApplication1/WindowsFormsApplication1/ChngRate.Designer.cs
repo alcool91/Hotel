@@ -35,7 +35,6 @@
             this.lblStartDate = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblSubmitRate = new System.Windows.Forms.Label();
-            this.lblSetRate = new System.Windows.Forms.Label();
             this.btnDone = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSubmitRate = new System.Windows.Forms.Button();
@@ -52,7 +51,6 @@
             this.gboxChngRate.Controls.Add(this.lblStartDate);
             this.gboxChngRate.Controls.Add(this.label3);
             this.gboxChngRate.Controls.Add(this.lblSubmitRate);
-            this.gboxChngRate.Controls.Add(this.lblSetRate);
             this.gboxChngRate.Controls.Add(this.btnDone);
             this.gboxChngRate.Controls.Add(this.label2);
             this.gboxChngRate.Controls.Add(this.btnSubmitRate);
@@ -129,17 +127,6 @@
             this.lblSubmitRate.Size = new System.Drawing.Size(227, 18);
             this.lblSubmitRate.TabIndex = 23;
             this.lblSubmitRate.Text = "Base rate successfully submitted!";
-            // 
-            // lblSetRate
-            // 
-            this.lblSetRate.AutoSize = true;
-            this.lblSetRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSetRate.Location = new System.Drawing.Point(20, 306);
-            this.lblSetRate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSetRate.Name = "lblSetRate";
-            this.lblSetRate.Size = new System.Drawing.Size(128, 18);
-            this.lblSetRate.TabIndex = 22;
-            this.lblSetRate.Text = "Set Rate: (not set)";
             // 
             // btnDone
             // 
@@ -229,7 +216,6 @@
         private System.Windows.Forms.Button btnSubmitRate;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblSubmitRate;
-        private System.Windows.Forms.Label lblSetRate;
         private System.Windows.Forms.Button btnDone;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MonthCalendar calStart;

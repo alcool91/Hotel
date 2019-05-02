@@ -28,9 +28,9 @@ namespace WindowsFormsApplication1
             //Need to get value of date selected somehow.
             btnSubmitRate.Enabled = true;
             lblSubmitRate.Enabled = false;
-            Console.WriteLine(dateChngRate.Value.ToString("yyyyMMdd"));
-            Console.WriteLine(DataController.calendar.getDate(dateChngRate.Value.ToString("yyyyMMdd")).getRate());
-            lblSetRate.Text = "Set Rate: $" + DataController.calendar.getDate(dateChngRate.Value.ToString("yyyyMMdd")).getRate();
+            //Console.WriteLine(dateChngRate.Value.ToString("yyyyMMdd"));
+            //Console.WriteLine(DataController.calendar.getDate(dateChngRate.Value.ToString("yyyyMMdd")).getRate());
+            //lblSetRate.Text = "Set Rate: $" + DataController.calendar.getDate(dateChngRate.Value.ToString("yyyyMMdd")).getRate();
         }
 
         private void txtChngRate_TextChanged(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace WindowsFormsApplication1
                     //lblSetRate.Text = "Set Rate: $" + txtChngRate.Text; //This new value for the label need to
                     //be mapped to the same date that the new
                     //base rate is mapped to.
-                    lblSetRate.Refresh();
+                    //lblSetRate.Refresh();
                     lblSubmitRate.Enabled = true;
                     btnSubmitRate.Enabled = false; //Submit button to be re-enabled when user selects a different date.
                 }
