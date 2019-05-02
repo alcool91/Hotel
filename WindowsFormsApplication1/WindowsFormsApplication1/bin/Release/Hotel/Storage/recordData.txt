@@ -7,3 +7,7 @@
 05/02/2019 06:01:06 Modified Reservation: ccn 1600 20190502 2 1 Brent Wick phjone i brentmw1 to ccn 1600 20190502 2 1 Brent Wick phjone i brentmw1
 05/02/2019 06:01:06 Checked Out Reservation: ccn 1600 20190502 2 1 Brent Wick phjone i brentmw1
 05/02/2019 06:02:40 Created Reservation: N/A 850 20190718 1 0 Brent  Wa sdjgfnsl s adfae
+05/02/2019 06:09:43 Created Reservation: N/A 11200 20190502 14 0 N/A N/A N/A i N/A
+05/02/2019 06:10:05 N/A N/A, card number N/Acharged $800.
+05/02/2019 06:10:05 Modified Reservation: N/A 11200 20190502 14 0 N/A N/A N/A i N/A to N/A 11200 20190502 14 0 N/A N/A N/A i N/A
+05/02/2019 06:10:05 Cancelled Reservation: N/A 11200 20190502 14 0 N/A N/A N/A i N/A

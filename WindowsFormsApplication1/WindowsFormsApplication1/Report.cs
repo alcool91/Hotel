@@ -7,7 +7,6 @@ using System.IO;
 public class Report {
 
     public Report() {
-        output = "";
     }
 
     public static void getExpectedOccupancy(string startDate, int numNights)
